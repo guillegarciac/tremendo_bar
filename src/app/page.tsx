@@ -12,25 +12,24 @@ export default function Home() {
       </Head>
 
       <main className="min-h-screen relative overflow-hidden w-full">
-        <section className="!fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-between p-8 md:p-12 z-[20]">
+        <section className="fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-between p-8 md:p-12 z-[20] text-center">
           <Link href="/" className="font-semibold cursor-pointer">
-          Tremendo Bar Sant Cugat
+            Tremendo Bar Sant Cugat
           </Link>
 
           <div className="flex flex-col items-center">
-            <h2 className="text-[#FACE8D] font-dancing text-2xl sm:text-[40px] md:text-[60px] lg:text-[80px] leading-none">
+            <h2 className="text-[#FACE8D] font-dancing text-3xl sm:text-[40px] md:text-[60px] lg:text-[80px] leading-none">
               The pure taste of
             </h2>
             <h1 className="font-medium text-5xl sm:text-6xl md:text-[90px] lg:text-[160px] leading-none">
               Sant Cugat
             </h1>
-            <p className="text-xl md:text-[23px] text-center md:text-start mt-[20px] md:max-w-[600px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore.
+            <p className="text-xl md:text-[23px] mt-[20px] md:max-w-[600px]">
+              Welcome to Tremendo Bar—the heart of Sant Cugat for drinks and dining.
+              Enjoy great food and lively evenings with us.
             </p>
-              <NavigationFooter />
-            </div>
-          
+            <NavigationFooter />
+          </div>
         </section>
 
         <div className="slider">
