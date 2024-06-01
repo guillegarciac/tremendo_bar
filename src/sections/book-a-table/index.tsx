@@ -1,4 +1,4 @@
-/* import NavigationFooter from "@/components/NavigationFooter";
+import NavigationFooter from "@/components/NavigationFooter";
 import Link from "next/link";
 import moment from "moment";
 import { FC, useEffect, useState } from "react";
@@ -99,4 +99,3 @@ const BookATableSection: FC = () => {
 };
 
 export default BookATableSection;
- */

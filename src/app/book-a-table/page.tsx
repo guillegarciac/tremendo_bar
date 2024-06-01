@@ -1,4 +1,4 @@
-/* "use client";
+"use client";
 
 import BookATableSection from "@/sections/book-a-table";
 import Head from "next/head";
@@ -16,4 +16,4 @@ export default function BookATable() {
     </>
   );
 }
- */
+ 
