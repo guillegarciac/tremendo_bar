@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 const NavigationFooter: React.FC = () => {
   return (
-    <div className="flex justify-center items-center w-full mt-[22px]">
-      <div className="bg-white text-black rounded-full p-[10px] shadow-md">
+    <div className="flex justify-center items-center w-full mt-[80px] mb-[80px]">
+      <div className="bg-white text-black rounded-full p-[5px] shadow-md">
         <ul className="flex gap-[14px]">
           <li>
             <Link

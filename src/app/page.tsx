@@ -17,7 +17,7 @@ export default function Home() {
             Tremendo Bar Sant Cugat
           </Link>
 
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mt-[-50px]">
             <h2 className="text-[#FACE8D] font-dancing text-3xl sm:text-[40px] md:text-[60px] lg:text-[80px] leading-none">
               The pure taste of
             </h2>
@@ -25,8 +25,8 @@ export default function Home() {
               Sant Cugat
             </h1>
             <p className="text-xl md:text-[23px] mt-[20px] md:max-w-[600px]">
-              Welcome to Tremendo Bar—the heart of Sant Cugat for drinks and dining.
-              Enjoy great food and lively evenings with us.
+              Welcome to Tremendo Bar—the heart of Sant Cugat for drinks and
+              dining. Enjoy great food and lively evenings with us.
             </p>
             <NavigationFooter />
           </div>
