@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Oswald", sans-serif; /* Updated font-family */
   color: #ffffff;
   background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bebas Neue", sans-serif; /* Specific headings to use Bebas Neue */
+}
+
+.font-dancing {
+  font-family: 'Bebas Neue', sans-serif; /* Assuming 'font-dancing' should use 'Bebas Neue' */
 }
 
 .slider {
