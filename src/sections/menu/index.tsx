@@ -29,20 +29,19 @@ const MenuSection: FC = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-[80vh] md:min-h-screen h-full"
+        className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
       >
-        <Link href="/" className="font-semibold cursor-pointer">
-        Tremendo Bar Sant Cugat
-        </Link>
+        <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
+            Tremendo
+          </Link>
         <div className="text-center">
-          <h2 className="text-[#FACE8D] font-dancing text-[50px] md:text-[80px] leading-none">
+          <h2 className="text-[#FACE8D] text-[50px] md:text-[80px] leading-none">
             Check Out
           </h2>
           <h1 className="font-medium text-[50px] md:text-[80px] leading-none">
             Our Menus
           </h1>
         </div>
-
         <NavigationFooter />
       </div>
 

@@ -18,7 +18,7 @@ const Nav: FC<IProps> = ({
   drinksRef,
 }) => {
   return (
-    <div className="min-h-[74px] w-full flex justify-center items-center">
+    <div className="min-h-[130px] w-full flex justify-center items-center">
       <button
         onClick={() => navigationHandler(startersRef)}
         className="font-light text-[#FACE8D]"
