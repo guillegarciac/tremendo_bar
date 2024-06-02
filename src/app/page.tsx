@@ -1,7 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import NavigationFooter from "@/components/NavigationFooter";
+import dynamic from 'next/dynamic';
+
+const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
+  ssr: false
+});
 import Head from "next/head";
 
 export default function Home() {
