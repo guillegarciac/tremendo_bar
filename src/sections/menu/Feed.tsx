@@ -1,147 +1,108 @@
 import React, { FC, MutableRefObject } from "react";
 import menuData from "./menuData";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 
 //---------------------------------------------
 interface IProps {
   startersRef: MutableRefObject<HTMLDivElement | null>;
-  breakfastRef: MutableRefObject<HTMLDivElement | null>;
   dinnerRef: MutableRefObject<HTMLDivElement | null>;
-  drinksRef: MutableRefObject<HTMLDivElement | null>;
+  hamburgersRef: MutableRefObject<HTMLDivElement | null>;
+  dessertsRef: MutableRefObject<HTMLDivElement | null>;
 }
 //---------------------------------------------
 
 const Feed: FC<IProps> = ({
   startersRef,
-  breakfastRef,
   dinnerRef,
-  drinksRef,
+  hamburgersRef,
+  dessertsRef,
 }) => {
   return (
-    <div className="mt-[80px] max-w-[628px] w-full overflow-hidden overflow-y-scroll">
+    <div className="mt-[60px] max-w-[628px] overflow-hidden overflow-y-scroll" style={{ 'padding': '20px' }}>
+      {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[64px] leading-none mb-[32px]">
-          Starters
+        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+          Appetizers
         </h1>
-        {menuData.starters.map((item) => (
+        {menuData.appetizers.map((item) => (
           <div
-            style={{
-              border: item.id === 3 ? `1px solid #FACE8D` : "1px solid black",
-              borderRadius: 10,
-            }}
             key={item.id}
-            className="flex w-full mt-[16px] cursor-pointer hover:scale-95 duration-150"
+            className="flex flex-col w-full mt-[16px] cursor-pointer hover:scale-95 duration-150"
+            style={{ border: "1px solid black", borderRadius: 10 }}
           >
-            <Image
-              width={90}
-              height={72}
-              src={item.pictureUrl}
-              alt={item.name}
-              className="rounded-[10px]"
-            />
-            <div className="w-full ml-[24px] pr-[20px]">
-              <div className="w-full flex items-center justify-between">
-                <h1 className="text-[20px]">{item.name}</h1>
-                <p className="text-white text-opacity-90">{item.price}</p>
-              </div>
-              <p className="text-[16px] text-white text-opacity-50">
+            <div className="w-full ml-[24px] pr-[20px] flex justify-between">
+              <h1 className="text-[20px]">{item.name}</h1>
+              <p className="text-white text-opacity-90">{item.price}</p>
+            </div>
+            {item.description && (
+              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
                 {item.description}
               </p>
-            </div>
+            )}
           </div>
         ))}
       </div>
-      <div ref={breakfastRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[64px] leading-none mb-[32px]">
-          Breakfast
-        </h1>
-        {menuData.breakfast.map((item) => (
-          <div
-            style={{
-              border:
-                item.id === 2 ? `1px solid #FACE8D` : "1px solid transparent",
-              borderRadius: 10,
-            }}
-            key={item.id}
-            className="flex w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
-          >
-            <Image
-              width={90}
-              height={72}
-              src={item.pictureUrl}
-              alt={item.name}
-              className="rounded-[10px]"
-            />
-            <div className="ml-[24px]">
-              <div className="flex items-center justify-between">
-                <h1 className="text-[20px]">{item.name}</h1>
-                <p className="text-white text-opacity-90">{item.price}</p>
-              </div>
-              <p className="text-[16px] text-white text-opacity-50">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+
+      {/* Each subsequent section follows the same padding and margin setup to ensure alignment */}
       <div ref={dinnerRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[64px] leading-none mb-[32px]">
-          Dinner
+        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+          Dishes
         </h1>
-        {menuData.dinner.map((item) => (
+        {menuData.dishes.map((item) => (
           <div
-            style={{
-              border:
-                item.id === 4 ? `1px solid #FACE8D` : "1px solid transparent",
-              borderRadius: 10,
-            }}
             key={item.id}
-            className="flex w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
+            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
+            style={{ border: "1px solid transparent", borderRadius: 10 }}
           >
-            <Image
-              width={90}
-              height={72}
-              src={item.pictureUrl}
-              alt={item.name}
-              className="rounded-[10px]"
-            />
-            <div className="ml-[24px]">
-              <div className="flex items-center justify-between">
-                <h1 className="text-[20px]">{item.name}</h1>
-                <p className="text-white text-opacity-90">{item.price}</p>
-              </div>
-              <p className="text-[16px] text-white text-opacity-50">
+            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
+              <h1 className="text-[20px]">{item.name}</h1>
+              <p className="text-white text-opacity-90">{item.price}</p>
+            </div>
+            {item.description && (
+              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
                 {item.description}
               </p>
-            </div>
+            )}
           </div>
         ))}
       </div>
-      <div ref={drinksRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[64px] leading-none mb-[32px]">
-          Drinks
+
+      <div ref={hamburgersRef} className="w-full px-[10px] mt-[96px]">
+        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+          Hamburgers
         </h1>
-        {menuData.drinks.map((item) => (
+        {menuData.hamburgers.map((item) => (
           <div
             key={item.id}
-            className="flex w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
+            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
+            style={{ border: "1px solid transparent", borderRadius: 10 }}
           >
-            <Image
-              width={90}
-              height={72}
-              src={item.pictureUrl}
-              alt={item.name}
-              className="rounded-[10px]"
-            />
-            <div className="ml-[24px]">
-              <div className="flex items-center justify-between">
-                <h1 className="text-[20px]">{item.name}</h1>
-                <p className="text-white text-opacity-90">{item.price}</p>
-              </div>
-              <p className="text-[16px] text-white text-opacity-50">
+            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
+              <h1 className="text-[20px]">{item.name}</h1>
+              <p className="text-white text-opacity-90">{item.price}</p>
+            </div>
+            {item.description && (
+              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
                 {item.description}
               </p>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
+        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+          Desserts
+        </h1>
+        {menuData.desserts.map((item) => (
+          <div
+            key={item.id}
+            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
+            style={{ border: "1px solid transparent", borderRadius: 10 }}
+          >
+            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
+              <h1 className="text-[20px]">{item.name}</h1>
+              <p className="text-white text-opacity-90">{item.price}</p>
             </div>
           </div>
         ))}

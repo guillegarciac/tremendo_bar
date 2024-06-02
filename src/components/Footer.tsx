@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="w-full flex justify-between px-[10px] mt-[96px] mb-[80px]">
+    <div className="flex justify-between mt-[96px] mb-[80px]" style={{ 'padding': '10px' }}>
       <div className="w-full max-w-[162px]">
         <Link href="/" className="font-semibold cursor-pointer">
         Tremendo Bar <br></br>Sant Cugat

@@ -5,24 +5,22 @@ const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), 
 });
 
 import Link from "next/link";
-import { FC, MutableRefObject, useRef, useState } from "react";
+import { FC, MutableRefObject, useRef } from "react";
 import Nav from "./Nav";
 import menuImg from "../../assets/menupage.jpg";
 import Feed from "./Feed";
 
 const MenuSection: FC = () => {
   const startersRef = useRef<HTMLDivElement | null>(null);
-  const breakfastRef = useRef<HTMLDivElement | null>(null);
   const dinnerRef = useRef<HTMLDivElement | null>(null);
-  const drinksRef = useRef<HTMLDivElement | null>(null);
+  const hamburgersRef = useRef<HTMLDivElement | null>(null);
+  const dessertsRef = useRef<HTMLDivElement | null>(null);
 
-  function scrollToSection(sectionId: MutableRefObject<HTMLDivElement | null>) {
-    if (sectionId?.current) {
-      sectionId?.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+  function scrollToSection(sectionRef: MutableRefObject<HTMLDivElement | null>) {
+    sectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   }
 
   return (
@@ -37,8 +35,8 @@ const MenuSection: FC = () => {
         className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
       >
         <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
-            Tremendo
-          </Link>
+          Tremendo
+        </Link>
         <div className="text-center">
           <h2 className="text-[#FACE8D] text-[50px] md:text-[80px] leading-none">
             Check Out
@@ -53,16 +51,16 @@ const MenuSection: FC = () => {
       <div className="w-full lg:w-[50%] flex flex-col items-center h-screen">
         <Nav
           startersRef={startersRef}
-          breakfastRef={breakfastRef}
           dinnerRef={dinnerRef}
-          drinksRef={drinksRef}
+          hamburgersRef={hamburgersRef}
+          dessertsRef={dessertsRef}
           navigationHandler={scrollToSection}
         />
         <Feed
           startersRef={startersRef}
-          breakfastRef={breakfastRef}
           dinnerRef={dinnerRef}
-          drinksRef={drinksRef}
+          hamburgersRef={hamburgersRef}
+          dessertsRef={dessertsRef}
         />
       </div>
     </section>
