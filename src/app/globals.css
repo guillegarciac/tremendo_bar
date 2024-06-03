@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 body {
-  font-family: "Oswald", sans-serif; 
+  font-family: "Source Code Pro", monospace; 
   color: #ffffff;
   background-color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Bebas Neue", sans-serif; 
+  font-family: "Courier", monospace;
+  text-transform: uppercase;
 }
 
 .font-dancing {

@@ -1,14 +1,13 @@
 import dynamic from 'next/dynamic';
-
-const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
-  ssr: false
-});
-
 import Link from "next/link";
 import { FC, MutableRefObject, useRef } from "react";
 import Nav from "./Nav";
 import menuImg from "../../assets/menupage.jpg";
 import Feed from "./Feed";
+
+const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
+  ssr: false
+});
 
 const MenuSection: FC = () => {
   const startersRef = useRef<HTMLDivElement | null>(null);
@@ -25,6 +24,7 @@ const MenuSection: FC = () => {
 
   return (
     <section className="w-full flex flex-col lg:flex-row h-full min-h-screen">
+      {/* This div will now only be visible on lg screens and above */}
       <div
         style={{
           background: `url(${menuImg.src})`,
@@ -32,7 +32,7 @@ const MenuSection: FC = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
+        className="hidden lg:flex lg:w-[50%] p-12 flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
       >
         <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
           Tremendo
@@ -48,6 +48,7 @@ const MenuSection: FC = () => {
         <NavigationFooter />
       </div>
 
+      {/* This div remains visible on all screen sizes */}
       <div className="w-full lg:w-[50%] flex flex-col items-center h-screen">
         <Nav
           startersRef={startersRef}

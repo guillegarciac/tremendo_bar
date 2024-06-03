@@ -18,7 +18,7 @@ const Feed: FC<IProps> = ({
   dessertsRef,
 }) => {
   return (
-    <div className="mt-[60px] max-w-[628px] overflow-hidden overflow-y-scroll" style={{ 'padding': '20px' }}>
+    <div className="max-w-[628px] overflow-hidden overflow-y-scroll" style={{ 'padding': '20px' }}>
       {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
         <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
@@ -30,12 +30,12 @@ const Feed: FC<IProps> = ({
             className="flex flex-col w-full mt-[16px] cursor-pointer hover:scale-95 duration-150"
             style={{ border: "1px solid black", borderRadius: 10 }}
           >
-            <div className="w-full ml-[24px] pr-[20px] flex justify-between">
-              <h1 className="text-[20px]">{item.name}</h1>
-              <p className="text-white text-opacity-90">{item.price}</p>
+            <div className="w-full   flex justify-between">
+              <h1 className="text-[15px]">{item.name}</h1>
+              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
             </div>
             {item.description && (
-              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
+              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
                 {item.description}
               </p>
             )}
@@ -54,12 +54,12 @@ const Feed: FC<IProps> = ({
             className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
             style={{ border: "1px solid transparent", borderRadius: 10 }}
           >
-            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
-              <h1 className="text-[20px]">{item.name}</h1>
-              <p className="text-white text-opacity-90">{item.price}</p>
+            <div className=" w-full flex justify-between ">
+              <h1 className="text-[15px]">{item.name}</h1>
+              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
             </div>
             {item.description && (
-              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
+              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
                 {item.description}
               </p>
             )}
@@ -77,12 +77,12 @@ const Feed: FC<IProps> = ({
             className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
             style={{ border: "1px solid transparent", borderRadius: 10 }}
           >
-            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
-              <h1 className="text-[20px]">{item.name}</h1>
-              <p className="text-white text-opacity-90">{item.price}</p>
+            <div className=" w-full flex justify-between ">
+              <h1 className="text-[15px]">{item.name}</h1>
+              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
             </div>
             {item.description && (
-              <p className="text-[16px] text-white text-opacity-50 ml-[24px]">
+              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
                 {item.description}
               </p>
             )}
@@ -100,9 +100,9 @@ const Feed: FC<IProps> = ({
             className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
             style={{ border: "1px solid transparent", borderRadius: 10 }}
           >
-            <div className="ml-[24px] w-full flex justify-between pr-[20px]">
-              <h1 className="text-[20px]">{item.name}</h1>
-              <p className="text-white text-opacity-90">{item.price}</p>
+            <div className=" w-full flex justify-between ">
+              <h1 className="text-[15px]">{item.name}</h1>
+              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
             </div>
           </div>
         ))}
