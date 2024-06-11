@@ -35,14 +35,16 @@ const MenuSection: FC = () => {
         className="hidden lg:flex lg:w-[50%] p-12 flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
       >
         <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
-          Tremendo
+          
         </Link>
         <div className="text-center">
-          <h2 className="text-[#FACE8D] text-[50px] md:text-[80px] leading-none">
-            Check Out
+          <h2 className="text-[#FFFFFF] font-dancing text-[80px] leading-none md:text-[80px]">
+          <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
+          Tremendo
+        </Link>
           </h2>
-          <h1 className="font-medium text-[50px] md:text-[80px] leading-none">
-            Our Menus
+          <h1 className="text-[#FFFFFF] font-medium text-[50px] md:text-[80px] leading-none">
+            Menu
           </h1>
         </div>
         <NavigationFooter />

@@ -14,17 +14,19 @@ export default function NavigationFooter() {
           {pathname === "/menu" ? (
             <li>
               <Link
-                href="/restaurant"
-                className="h-[48px] cursor-pointer rounded-full flex items-center justify-center px-[16px] hover:bg-gray-100"
+                href="/contact"
+                className="h-[48px] cursor-pointer rounded-full flex items-center justify-center px-[16px] text-black"
+                style={{ textDecoration: 'none' }} // Ensures no underlines or color changes on hover
               >
-                Restaurant
+                Book a Table
               </Link>
             </li>
           ) : (
             <li>
               <Link
                 href="/menu"
-                className="h-[48px] cursor-pointer rounded-full flex items-center justify-center px-[16px] hover:bg-gray-100"
+                className="h-[48px] cursor-pointer rounded-full flex items-center justify-center px-[16px] text-black"
+                style={{ textDecoration: 'none' }} // Ensures no underlines or color changes on hover
               >
                 Check our Menu
               </Link>

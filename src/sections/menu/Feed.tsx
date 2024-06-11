@@ -18,24 +18,20 @@ const Feed: FC<IProps> = ({
   dessertsRef,
 }) => {
   return (
-    <div className="max-w-[628px] overflow-hidden overflow-y-scroll" style={{ 'padding': '20px' }}>
+    <div className="max-w-[628px] overflow-hidden overflow-y-scroll" style={{ padding: '20px' }}>
       {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
           Appetizers
         </h1>
         {menuData.appetizers.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col w-full mt-[16px] cursor-pointer hover:scale-95 duration-150"
-            style={{ border: "1px solid black", borderRadius: 10 }}
-          >
-            <div className="w-full   flex justify-between">
-              <h1 className="text-[15px]">{item.name}</h1>
-              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
+          <div key={item.id} className="flex flex-col w-full mt-[16px]">
+            <div className="w-full flex justify-between">
+              <h1 className="text-[15px] text-black">{item.name}</h1>
+              <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
+              <p className="pr-[70px] text-[13px] text-black">
                 {item.description}
               </p>
             )}
@@ -43,23 +39,19 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
-      {/* Each subsequent section follows the same padding and margin setup to ensure alignment */}
+      {/* Each subsequent section follows the same setup to ensure alignment */}
       <div ref={dinnerRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
           Dishes
         </h1>
         {menuData.dishes.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
-            style={{ border: "1px solid transparent", borderRadius: 10 }}
-          >
-            <div className=" w-full flex justify-between ">
-              <h1 className="text-[15px]">{item.name}</h1>
-              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
+          <div key={item.id} className="flex flex-col w-full mt-[12px]">
+            <div className="w-full flex justify-between">
+              <h1 className="text-[15px] text-black">{item.name}</h1>
+              <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
+              <p className="pr-[70px] text-[13px] text-black">
                 {item.description}
               </p>
             )}
@@ -68,21 +60,17 @@ const Feed: FC<IProps> = ({
       </div>
 
       <div ref={hamburgersRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
           Hamburgers
         </h1>
         {menuData.hamburgers.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
-            style={{ border: "1px solid transparent", borderRadius: 10 }}
-          >
-            <div className=" w-full flex justify-between ">
-              <h1 className="text-[15px]">{item.name}</h1>
-              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
+          <div key={item.id} className="flex flex-col w-full mt-[12px]">
+            <div className="w-full flex justify-between">
+              <h1 className="text-[15px] text-black">{item.name}</h1>
+              <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-white text-opacity-50 ">
+              <p className="pr-[70px] text-[13px] text-black">
                 {item.description}
               </p>
             )}
@@ -91,18 +79,14 @@ const Feed: FC<IProps> = ({
       </div>
 
       <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="text-[#FACE8D] font-dancing text-[45px] leading-none mb-[32px]">
+        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
           Desserts
         </h1>
         {menuData.desserts.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col w-full mt-[12px] cursor-pointer hover:scale-95 duration-150"
-            style={{ border: "1px solid transparent", borderRadius: 10 }}
-          >
-            <div className=" w-full flex justify-between ">
-              <h1 className="text-[15px]">{item.name}</h1>
-              <p className="pl-[40px] text-white text-opacity-90">{item.price}</p>
+          <div key={item.id} className="flex flex-col w-full mt-[12px]">
+            <div className="w-full flex justify-between">
+              <h1 className="text-[15px] text-black">{item.name}</h1>
+              <p className="pl-[40px] text-black">{item.price}</p>
             </div>
           </div>
         ))}

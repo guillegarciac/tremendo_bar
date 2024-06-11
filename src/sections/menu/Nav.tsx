@@ -18,28 +18,28 @@ const Nav: FC<IProps> = ({
   dessertsRef,
 }) => {
   return (
-    <div className="min-h-[130px] w-full flex justify-center items-center">
+    <div className="min-h-[100px] w-full flex justify-center items-center">
       <button
         onClick={() => navigationHandler(startersRef)}
-        className="font-light text-[#FACE8D]"
+        className="font-light text-black"
       >
         Appetizers
       </button>
       <button
         onClick={() => navigationHandler(dinnerRef)}
-        className="font-light hover:text-[#FACE8D] text-white ml-[28px] md:ml-[48px]"
+        className="font-light text-black ml-[32px] md:ml-[48px]"
       >
         Dishes
       </button>
       <button
         onClick={() => navigationHandler(hamburgersRef)}
-        className="font-light hover:text-[#FACE8D] text-white ml-[28px] md:ml-[48px]"
+        className="font-light text-black ml-[32px] md:ml-[48px]"
       >
         Hamburgers
       </button>
       <button
         onClick={() => navigationHandler(dessertsRef)}
-        className="font-light hover:text-[#FACE8D] text-white ml-[28px] md:ml-[48px]"
+        className="font-light text-black ml-[32px] md:ml-[48px]"
       >
         Desserts
       </button>
