@@ -38,7 +38,6 @@ export default function BookATable() {
 >
   <div
     style={{
-      position: 'absolute',
       top: 0,
       left: 0,
       right: 0,
@@ -46,14 +45,14 @@ export default function BookATable() {
       backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust color and opacity here
     }}
   />
-            <Link href="/" className="font-semibold cursor-pointer text-black">
+            <Link href="/" className="font-semibold cursor-pointer text-white">
               Tremendo Bar Sant Cugat
             </Link>
             <div className="text-center">
-              <h2 className="font-dancing text-[60px] leading-none text-black">
+              <h2 className="font-dancing text-[60px] leading-none text-white">
                 Contact
               </h2>
-              <h1 className="font-medium text-[60px] leading-none text-black">
+              <h1 className="font-medium text-[60px] leading-none text-white">
                 Get in Touch
               </h1>
             </div>

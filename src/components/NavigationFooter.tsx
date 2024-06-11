@@ -14,7 +14,7 @@ export default function NavigationFooter() {
           {pathname === "/menu" ? (
             <li>
               <Link
-                href="/contact"
+                href="/menu"
                 className="h-[48px] cursor-pointer rounded-full flex items-center justify-center px-[16px] text-black"
                 style={{ textDecoration: 'none' }} // Ensures no underlines or color changes on hover
               >
