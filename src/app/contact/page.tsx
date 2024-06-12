@@ -1,11 +1,15 @@
 "use client";
 
-import NavigationFooter from "@/components/NavigationFooter";
 import Link from "next/link";
+import dynamic from 'next/dynamic';
 import moment from "moment";
-import { FC, useEffect, useState } from "react";
-import contactTremendo from "../../assets/contacttremendo.jpeg"; // Import your custom image
+import { useEffect, useState } from "react";
+import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
+
+const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
+  ssr: false
+});
 
 export default function BookATable() {
   const [currentTime, setCurrentTime] = useState("");
@@ -15,9 +19,12 @@ export default function BookATable() {
     setCurrentDate(moment().format("YYYY-MM-DD"));
   }, []);
 
-  setInterval(() => {
-    setCurrentTime(moment().format("HH:mm"));
-  }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(moment().format("HH:mm"));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -26,25 +33,15 @@ export default function BookATable() {
       </Head>
 
       <main className="min-h-screen relative overflow-hidden bg-white">
-        <section className="w-full flex flex-col lg:flex-row h-full min-h-screen bg-white">
-          <div
+        <section className="flex flex-col lg:flex-row w-full h-full min-h-screen bg-white">
+          {/* Only apply the background image on desktop sizes */}
+          <div className={`w-full lg:w-1/2 p-12 flex flex-col justify-between items-center min-h-screen h-full ${!contactTremendo ? '' : 'hidden lg:flex'}`}
             style={{
-              background: `url(${contactTremendo.src || contactTremendo})`,
+              background: contactTremendo ? `url(${contactTremendo.src})` : undefined,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
-            }}
-            className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-screen h-full"
-          >
-            <div
-              style={{
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: "rgba(255, 255, 255, 0.5)", // Adjust color and opacity here
-              }}
-            />
+            }}>
             <Link href="/" className="font-semibold cursor-pointer text-white">
               Tremendo Bar Sant Cugat
             </Link>
@@ -60,44 +57,43 @@ export default function BookATable() {
             <NavigationFooter />
           </div>
 
-          <div className="w-full lg:w-[50%] flex flex-col justify-center h-auto px-4 pb-4 lg:px-0 lg:pb-0 bg-white">
-            <div className="max-w-[560px] h-auto mx-auto w-full bg-white">
+          {/* Always visible section with form */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-4 pb-4">
+            <div className="max-w-[560px] w-full">
               <p className="text-black text-opacity-100 text-[20px] mt-[16px]">
                 Ready to book with us?
               </p>
 
               <form
-                onSubmit={(event) => {
-                  event.preventDefault();
-                }}
-                className="mt-[48px] bg-white"
+                onSubmit={(event) => event.preventDefault()}
+                className="mt-[48px]"
               >
                 <h3 className="text-black mt-[48px] text-[16px]">Name</h3>
                 <input
                   type="text"
-                  className="h-[60px] bg-white mt-[16px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
+                  className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Name"
                 />
 
                 <h3 className="text-black mt-[48px] text-[16px]">Email</h3>
                 <input
                   type="text"
-                  className="h-[60px] bg-white mt-[16px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
+                  className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Email"
                 />
                 <h3 className="text-black mt-[48px] text-[16px]">Message</h3>
                 <textarea
+                  className="min-h-[120px] max-h-[200px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Message"
-                  className="min-h-[120px] max-h-[200px] bg-white mt-[16px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                 />
 
                 <button
                   type="submit"
-                  className="mt-[48px] w-full bg-white text-black uppercase flex items-center justify-center h-[60px] border border-black"
+                  className="mt-[48px] w-full uppercase flex items-center justify-center h-[60px] border border-black"
                   style={{
                     textDecoration: 'none',
-                    borderRadius: '0', // Squared corners
-                    backgroundColor: 'white' // Ensure background is white
+                    borderRadius: '0',
+                    backgroundColor: 'white'
                   }}
                 >
                   Book A Table
