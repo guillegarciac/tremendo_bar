@@ -27,24 +27,24 @@ export default function BookATable() {
 
       <main className="min-h-screen relative overflow-hidden bg-white">
         <section className="w-full flex flex-col lg:flex-row h-full min-h-screen bg-white">
-        <div
-  style={{
-    background: `url(${contactTremendo.src || contactTremendo})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-  }}
-  className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-screen h-full"
->
-  <div
-    style={{
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust color and opacity here
-    }}
-  />
+          <div
+            style={{
+              background: `url(${contactTremendo.src || contactTremendo})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundColor: "rgba(255, 255, 255, 0.5)",
+            }}
+            className="w-full lg:w-[50%] p-12 flex flex-col justify-between items-center min-h-screen h-full"
+          >
+            <div
+              style={{
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundColor: "rgba(255, 255, 255, 0.5)", // Adjust color and opacity here
+              }}
+            />
             <Link href="/" className="font-semibold cursor-pointer text-white">
               Tremendo Bar Sant Cugat
             </Link>
@@ -63,7 +63,7 @@ export default function BookATable() {
           <div className="w-full lg:w-[50%] flex flex-col justify-center h-auto px-4 pb-4 lg:px-0 lg:pb-0 bg-white">
             <div className="max-w-[560px] h-auto mx-auto w-full bg-white">
               <p className="text-black text-opacity-100 text-[20px] mt-[16px]">
-                Littttt to book with us.
+                Ready to book with us?
               </p>
 
               <form
@@ -79,23 +79,27 @@ export default function BookATable() {
                   placeholder="Name"
                 />
 
-                <h3 className="text-black mt-[48px] text-[16px]">
-                  Email
-                </h3>
+                <h3 className="text-black mt-[48px] text-[16px]">Email</h3>
                 <input
                   type="text"
                   className="h-[60px] bg-white mt-[16px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Email"
                 />
-                <h3 className="text-black mt-[48px] text-[16px]">
-                  Message
-                </h3>
+                <h3 className="text-black mt-[48px] text-[16px]">Message</h3>
                 <textarea
                   placeholder="Message"
                   className="min-h-[120px] max-h-[200px] bg-white mt-[16px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                 />
 
-                <button className="mt-[48px] w-full text-black uppercase flex items-center justify-center rounded-[500px] h-[60px] border border-black">
+                <button
+                  type="submit"
+                  className="mt-[48px] w-full bg-white text-black uppercase flex items-center justify-center h-[60px] border border-black"
+                  style={{
+                    textDecoration: 'none',
+                    borderRadius: '0', // Squared corners
+                    backgroundColor: 'white' // Ensure background is white
+                  }}
+                >
                   Book A Table
                 </button>
               </form>
