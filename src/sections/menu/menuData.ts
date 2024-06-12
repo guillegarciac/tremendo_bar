@@ -149,7 +149,7 @@ const menuData = {
     { id: 5, name: "Bread with tomato", price: "3€" },
     { id: 6, name: "Grilled scallops", price: "9€" },
     { id: 7, name: "Fresh cut squid with ginger mayonnaise", price: "16€" },
-    { id: 8, name: "Iberian ham croquettes", price: "2.1€/u" },
+    { id: 8, name: "Iberian ham croquettes (1u)", price: "2.1€" },
     { id: 9, name: "Deboned oxtail with mashed potatoes", price: "13€" },
     { id: 10, name: "The bomb (spicy meatball)", price: "5€" },
     { id: 11, name: "Pig's ear Madrilenian style", price: "9€" },
@@ -165,11 +165,11 @@ const menuData = {
     { id: 17, name: "Broken eggs with Foie mi cuit", price: "16€" },
     {
       id: 18,
-      name: "Cantonese bacon bao bread",
-      description: "With sour sauce and reduction of its own juice (2u)",
+      name: "Cantonese bacon bao bread (2u)",
+      description: "With sour sauce and reduction of its own juice",
       price: "11€",
     },
-    { id: 19, name: "Cod fritter balls", price: "10.5€ for 5 units" },
+    { id: 19, name: "Cod fritter balls (5u)", price: "10.5€" },
     {
       id: 20,
       name: "Red tuna tataki",

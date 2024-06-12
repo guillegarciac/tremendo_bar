@@ -1,0 +1,22 @@
+/* nav.module.css */
+.desktopNav {
+  min-height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide on screens smaller than 768px */
+@media (max-width: 767px) {
+  .desktopNav {
+    display: none;
+  }
+}
+
+/* Ensure it is visible on larger screens */
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+  }
+}

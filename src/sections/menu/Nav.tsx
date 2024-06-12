@@ -1,4 +1,5 @@
 import React, { FC, MutableRefObject } from "react";
+import styles from './nav.module.css'; 
 
 //-------------------------------------------------------
 interface IProps {
@@ -18,7 +19,7 @@ const Nav: FC<IProps> = ({
   dessertsRef,
 }) => {
   return (
-    <div className="min-h-[100px] w-full flex justify-center items-center">
+    <div className={styles.desktopNav}>
       <button
         onClick={() => navigationHandler(startersRef)}
         className="font-light text-black"
@@ -27,19 +28,19 @@ const Nav: FC<IProps> = ({
       </button>
       <button
         onClick={() => navigationHandler(dinnerRef)}
-        className="font-light text-black ml-[32px] md:ml-[48px]"
+        className="font-light text-black ml-[28px] md:ml-[44px]"
       >
         Dishes
       </button>
       <button
         onClick={() => navigationHandler(hamburgersRef)}
-        className="font-light text-black ml-[32px] md:ml-[48px]"
+        className="font-light text-black ml-[28px] md:ml-[44px]"
       >
         Hamburgers
       </button>
       <button
         onClick={() => navigationHandler(dessertsRef)}
-        className="font-light text-black ml-[32px] md:ml-[48px]"
+        className="font-light text-black ml-[28px] md:ml-[44px]"
       >
         Desserts
       </button>

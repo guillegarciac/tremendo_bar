@@ -1,6 +1,7 @@
 import React, { FC, MutableRefObject } from "react";
 import menuData from "./menuData";
 import Footer from "@/components/Footer";
+import styles from './feed.module.css'; // Import the styles
 
 //---------------------------------------------
 interface IProps {
@@ -21,17 +22,17 @@ const Feed: FC<IProps> = ({
     <div className="max-w-[628px] overflow-hidden overflow-y-scroll" style={{ padding: '20px' }}>
       {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
-        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
+        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
           Appetizers
         </h1>
         {menuData.appetizers.map((item) => (
-          <div key={item.id} className="flex flex-col w-full mt-[16px]">
-            <div className="w-full flex justify-between">
+          <div key={item.id} className={`${styles.item}`}>
+            <div className={`${styles.itemheading}`}>
               <h1 className="text-[15px] text-black">{item.name}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-black">
+              <p className={`${styles.itemdescription} text-[13px]`}>
                 {item.description}
               </p>
             )}
@@ -39,19 +40,19 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
-      {/* Each subsequent section follows the same setup to ensure alignment */}
+      {/* Dishes Section */}
       <div ref={dinnerRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
+        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
           Dishes
         </h1>
         {menuData.dishes.map((item) => (
-          <div key={item.id} className="flex flex-col w-full mt-[12px]">
-            <div className="w-full flex justify-between">
+          <div key={item.id} className={`${styles.item}`}>
+            <div className={`${styles.itemheading}`}>
               <h1 className="text-[15px] text-black">{item.name}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-black">
+              <p className={`${styles.itemdescription} text-[13px]`}>
                 {item.description}
               </p>
             )}
@@ -59,18 +60,19 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
+      {/* Hamburgers Section */}
       <div ref={hamburgersRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
+        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
           Hamburgers
         </h1>
         {menuData.hamburgers.map((item) => (
-          <div key={item.id} className="flex flex-col w-full mt-[12px]">
-            <div className="w-full flex justify-between">
+          <div key={item.id} className={`${styles.item}`}>
+            <div className={`${styles.itemheading}`}>
               <h1 className="text-[15px] text-black">{item.name}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
             {item.description && (
-              <p className="pr-[70px] text-[13px] text-black">
+              <p className={`${styles.itemdescription} text-[13px]`}>
                 {item.description}
               </p>
             )}
@@ -78,13 +80,14 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
+      {/* Desserts Section */}
       <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className="font-dancing text-[45px] leading-none mb-[32px] text-black">
+        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
           Desserts
         </h1>
         {menuData.desserts.map((item) => (
-          <div key={item.id} className="flex flex-col w-full mt-[12px]">
-            <div className="w-full flex justify-between">
+          <div key={item.id} className={`${styles.item}`}>
+            <div className={`${styles.itemheading}`}>
               <h1 className="text-[15px] text-black">{item.name}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
