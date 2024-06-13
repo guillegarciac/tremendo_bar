@@ -26,6 +26,32 @@ export default function BookATable() {
     return () => clearInterval(interval);
   }, []);
 
+  const bookTableStyle = {
+    textDecoration: 'none',
+    border: '1px solid black',
+    borderRadius: '0',
+    height: '60px', // Matching input height
+    width: '100%', // Matching input width
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white', // White text for contrast
+    backgroundColor: 'black', // Black background
+  };
+
+  const checkMenuStyle = {
+    textDecoration: 'none',
+    border: '1px solid black',
+    borderRadius: '0',
+    height: '60px', // Matching input height
+    width: '100%', // Matching input width
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'black', // Black text
+    backgroundColor: 'white' // White background
+  };
+
   return (
     <>
       <Head>
@@ -34,10 +60,9 @@ export default function BookATable() {
 
       <main className="min-h-screen relative overflow-hidden bg-white">
         <section className="flex flex-col lg:flex-row w-full h-full min-h-screen bg-white">
-          {/* Only apply the background image on desktop sizes */}
-          <div className={`w-full lg:w-1/2 p-12 flex flex-col justify-between items-center min-h-screen h-full ${!contactTremendo ? '' : 'hidden lg:flex'}`}
+          <div className={`w-full lg:w-1/2 p-12 flex-col justify-between items-center min-h-screen h-full hidden lg:flex`}
             style={{
-              background: contactTremendo ? `url(${contactTremendo.src})` : undefined,
+              background: `url(${contactTremendo.src || contactTremendo})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -57,11 +82,10 @@ export default function BookATable() {
             <NavigationFooter />
           </div>
 
-          {/* Always visible section with form */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-4 pb-4">
             <div className="max-w-[560px] w-full">
-              <p className="text-black text-opacity-100 text-[20px] mt-[16px]">
-                Ready to book with us?
+              <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8]">
+                Tremendo Booking
               </p>
 
               <form
@@ -83,22 +107,24 @@ export default function BookATable() {
                 />
                 <h3 className="text-black mt-[48px] text-[16px]">Message</h3>
                 <textarea
-                  className="min-h-[120px] max-h-[200px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
+                  className="min-h-[250px] max-h-[250px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
                   placeholder="Message"
                 />
 
                 <button
                   type="submit"
-                  className="mt-[48px] w-full uppercase flex items-center justify-center h-[60px] border border-black"
-                  style={{
-                    textDecoration: 'none',
-                    borderRadius: '0',
-                    backgroundColor: 'white'
-                  }}
+                  style={bookTableStyle}
                 >
                   Book A Table
                 </button>
               </form>
+
+              {/* Additional button for checking the menu, displayed only on mobile */}
+              <div className="lg:hidden mt-4 flex justify-center w-full">
+                <Link href="/menu" style={checkMenuStyle}>
+                  Check our Menu
+                </Link>
+              </div>
             </div>
           </div>
         </section>
