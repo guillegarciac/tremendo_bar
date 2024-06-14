@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import moment from "moment";
@@ -57,6 +55,7 @@ export default function BookATable() {
     <>
       <Head>
         <title>Tremendo Bar Sant Cugat</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
 
       <main className="min-h-screen relative overflow-hidden bg-white">
@@ -67,6 +66,8 @@ export default function BookATable() {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
+              maxHeight: "100vh", // Ensure the image doesn't exceed viewport height
+              overflow: "hidden", // Hide any overflow beyond viewport
             }}>
               
             <Link href="/" className="font-semibold cursor-pointer text-white">
@@ -112,7 +113,7 @@ export default function BookATable() {
                 />
                 <h3 className="text-black mt-[30px] text-[16px]">Message</h3>
                 <textarea
-                  className="min-h-[350px] max-h-[350px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
+                  className="min-h-[270px] max-h-[270px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
                   placeholder="Message"
                 />
 
