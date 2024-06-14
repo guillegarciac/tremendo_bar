@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col items-center justify-between mt-[96px] mb-[10px] px-[10px]">
-      <ul className="flex flex-col md:flex-row items-center justify-center w-full">
+      {/* <ul className="flex flex-col md:flex-row items-center justify-center w-full">
         <li className="mb-2 md:mb-0 md:mr-2">
           <Link href="/restaurant" style={buttonStyle}>
             Restaurant
@@ -28,7 +28,7 @@ const Footer = () => {
             Book a Table
           </Link>
         </li>
-      </ul>
+      </ul> */}
 
       <div className="text-center mt-10 mb-0">
         <p className="text-xs text-black">
