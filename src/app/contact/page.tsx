@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import moment from "moment";
@@ -55,7 +57,6 @@ export default function BookATable() {
     <>
       <Head>
         <title>Tremendo Bar Sant Cugat</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Head>
 
       <main className="min-h-screen relative overflow-hidden bg-white">
@@ -66,8 +67,6 @@ export default function BookATable() {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
-              maxHeight: "100vh", // Ensure the image doesn't exceed viewport height
-              overflow: "hidden", // Hide any overflow beyond viewport
             }}>
               
             <Link href="/" className="font-semibold cursor-pointer text-white">
