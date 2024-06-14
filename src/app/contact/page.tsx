@@ -86,10 +86,10 @@ export default function BookATable() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex-col justify-center items-center px-4 pb-4 lg:flex lg:flex-col">
+          <div className="w-full lg:w-1/2 flex-col justify-center items-center  lg:flex lg:flex-col">
             <HamburgerMenu />
-            <div className="max-w-[560px] w-full">
-              <p className="font-dancing text-[26px] leading-none md:text-[50px] my-4 md:my-8">
+            <div className="max-w-[560px] w-full px-4 pb-4">
+              <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8">
                 Booking
               </p>
 
@@ -112,7 +112,7 @@ export default function BookATable() {
                 />
                 <h3 className="text-black mt-[30px] text-[16px]">Message</h3>
                 <textarea
-                  className="min-h-[250px] max-h-[250px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
+                  className="min-h-[350px] max-h-[350px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
                   placeholder="Message"
                 />
 
@@ -123,13 +123,6 @@ export default function BookATable() {
                   Book A Table
                 </button>
               </form>
-
-              {/* Additional button for checking the menu, displayed only on mobile */}
-              <div className="lg:hidden mt-4 flex justify-center w-full">
-                <Link href="/menu" style={checkMenuStyle}>
-                  Check our Menu
-                </Link>
-              </div>
             </div>
           </div>
         </section>
