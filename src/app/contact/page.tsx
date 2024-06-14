@@ -112,7 +112,7 @@ export default function BookATable() {
                 />
                 <h3 className="text-black mt-[30px] text-[16px]">Message</h3>
                 <textarea
-                  className="min-h-[270px] max-h-[270px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
+                  className="min-h-[200px] max-h-[200px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
                   placeholder="Message"
                 />
 
