@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
@@ -81,34 +81,36 @@ export default function BookATable() {
               </h1>
             </div>
 
-            <NavigationFooter />
+            <div className="hidden lg:block">
+              <NavigationFooter />
+            </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-4 pb-4">
-          <HamburgerMenu />
+          <div className="w-full lg:w-1/2 flex-col justify-center items-center px-4 pb-4 lg:flex lg:flex-col">
+            <HamburgerMenu />
             <div className="max-w-[560px] w-full">
-              <p className="font-dancing text-[26px] leading-none md:text-[50px] my-4 md:my-8]">
-                Tremendo Booking
+              <p className="font-dancing text-[26px] leading-none md:text-[50px] my-4 md:my-8">
+                Booking
               </p>
 
               <form
                 onSubmit={(event) => event.preventDefault()}
-                className="mt-[48px]"
+                className="mt-[30px]"
               >
-                <h3 className="text-black mt-[48px] text-[16px]">Name</h3>
+                <h3 className="text-black mt-[30px] text-[16px]">Name</h3>
                 <input
                   type="text"
                   className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Name"
                 />
 
-                <h3 className="text-black mt-[48px] text-[16px]">Email</h3>
+                <h3 className="text-black mt-[30px] text-[16px]">Email</h3>
                 <input
                   type="text"
                   className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
                   placeholder="Email"
                 />
-                <h3 className="text-black mt-[48px] text-[16px]">Message</h3>
+                <h3 className="text-black mt-[30px] text-[16px]">Message</h3>
                 <textarea
                   className="min-h-[250px] max-h-[250px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
                   placeholder="Message"

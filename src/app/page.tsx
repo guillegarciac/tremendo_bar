@@ -20,9 +20,8 @@ export default function Home() {
       </Head>
 
       <main className="min-h-screen relative overflow-hidden w-full">
-        
         <section className="fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-center p-8 md:p-12 z-[20] text-center text-white">
-        <HamburgerMenu />
+          <HamburgerMenu />
           <Link
             href="/"
             className="text-[#FFFFFF] font-dancing text-[40px] leading-none md:text-[100px] my-4 md:my-8"
@@ -35,7 +34,9 @@ export default function Home() {
               Sant Cugat
             </h1>
 
-            <NavigationFooter />
+            <div className="navigation-footer">
+              <NavigationFooter />
+            </div>
           </div>
         </section>
 

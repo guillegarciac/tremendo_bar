@@ -1,9 +1,32 @@
+/* Sticky container at the top of the screen */
+.stickyContainer {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-color: transparent;
+  z-index: 110; /* Ensure it stays above other content */
+  border-bottom: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 120; /* Ensure it stays above other content */
+}
+
+/* Remove the sticky container on desktop */
+@media (min-width: 769px) {
+  .stickyContainer {
+    display: none;
+  }
+}
+
 /* Positioning the hamburger button at the top right of the screen */
 .relative {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 110;  /* Ensure it's above the overlay */
+  z-index: 120;  /* Ensure it's above the overlay */
   width: auto;  /* Adjust width as necessary */
   height: auto;  /* Adjust height as necessary */
 }
@@ -25,6 +48,10 @@
   .hamburgerButton {
     display: flex; /* Show the button only on small screens */
   }
+
+  .stickyContainer {
+    height: 50px; /* Adjust height for mobile if needed */
+  }
 }
 
 /* Icon style for the hamburger */
@@ -39,8 +66,23 @@
 .hamburgerIcon span {
   height: 3px;
   width: 25px;
-  background-color: #ffffff;
   transition: all 0.3s ease-in-out;
+}
+
+.whiteIcon span {
+  background-color: #ffffff; /* White for main page */
+}
+
+.blackIcon span {
+  background-color: #000000; /* Black for other pages */
+}
+
+.whiteIcon {
+  color: #ffffff; /* White for main page */
+}
+
+.blackIcon {
+  color: #000000; /* Black for other pages */
 }
 
 /* Transformations for the open state */
@@ -87,14 +129,18 @@
 
 /* Style for the close icon */
 .closeIcon {
-  font-size: 30px; /* Adjusted for visual parity with the hamburger icon */
-  color: #ffffff;
+  font-size: 30px;
   cursor: pointer;
   z-index: 120;
-  line-height: 18px; /* Make the X icon's total height similar to the hamburger icon */
+  line-height: 18px;
   display: flex;
-  align-items: center; /* Vertically center the X character */
-  justify-content: center; /* Horizontally center the X character */
-  height: 18px; /* Define height to match the hamburger icon */
-  width: 25px; /* Define width to match the hamburger icon */
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  width: 25px;
+}
+
+/* Ensures the close icon is always white */
+.closeIcon.white {
+  color: #ffffff; /* Ensures the close icon is always white */
 }
