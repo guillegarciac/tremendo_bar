@@ -1,0 +1,100 @@
+/* Positioning the hamburger button at the top right of the screen */
+.relative {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 110;  /* Ensure it's above the overlay */
+  width: auto;  /* Adjust width as necessary */
+  height: auto;  /* Adjust height as necessary */
+}
+
+/* Global style to initially hide the hamburger button on all devices */
+.hamburgerButton {
+  display: none; /* Hide by default */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;  /* Larger clickable area */
+  z-index: 120;  /* Ensure it's higher than the overlay */
+}
+
+/* Media query to display the hamburger menu only on screens smaller than 768px */
+@media (max-width: 768px) {
+  .hamburgerButton {
+    display: flex; /* Show the button only on small screens */
+  }
+}
+
+/* Icon style for the hamburger */
+.hamburgerIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18px;  /* Total height of the icon */
+  align-items: center; /* Center the spans horizontally */
+}
+
+.hamburgerIcon span {
+  height: 3px;
+  width: 25px;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transformations for the open state */
+.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Fullscreen overlay for the menu */
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 104;  /* Ensure it is below the button */
+}
+
+/* Style for the menu list */
+.menuList {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.menuList li a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  display: block;
+  margin: 10px 0;
+}
+
+/* Style for the close icon */
+.closeIcon {
+  font-size: 30px; /* Adjusted for visual parity with the hamburger icon */
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 120;
+  line-height: 18px; /* Make the X icon's total height similar to the hamburger icon */
+  display: flex;
+  align-items: center; /* Vertically center the X character */
+  justify-content: center; /* Horizontally center the X character */
+  height: 18px; /* Define height to match the hamburger icon */
+  width: 25px; /* Define width to match the hamburger icon */
+}

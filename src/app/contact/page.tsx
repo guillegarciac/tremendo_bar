@@ -6,6 +6,7 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
+import HamburgerMenu from "@/components/HamburgerMenu";
 
 const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
   ssr: false
@@ -67,6 +68,7 @@ export default function BookATable() {
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
             }}>
+              
             <Link href="/" className="font-semibold cursor-pointer text-white">
               Tremendo Bar Sant Cugat
             </Link>
@@ -83,8 +85,9 @@ export default function BookATable() {
           </div>
 
           <div className="w-full lg:w-1/2 flex flex-col justify-center items-center px-4 pb-4">
+          <HamburgerMenu />
             <div className="max-w-[560px] w-full">
-              <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8]">
+              <p className="font-dancing text-[26px] leading-none md:text-[50px] my-4 md:my-8]">
                 Tremendo Booking
               </p>
 
