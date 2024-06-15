@@ -1,7 +1,7 @@
 "use client";
 
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
-import MenuSection from "../../components/MenuSection/MenuSection";
+import MenuSection  from "@/components/MenuSection/MenuSection";
 import Head from "next/head";
 
 export default function Menu() {

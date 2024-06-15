@@ -5,12 +5,7 @@ import Nav from "../NavMenu/Nav";
 import menuImg from "../../assets/menupage.jpg";
 import Feed from "../FeedMenu/Feed";
 
-const NavFooter = dynamic(
-  () => import("@/components/NavFooter/NavFooter"),
-  {
-    ssr: false,
-  }
-);
+const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
 
 const MenuSection: FC = () => {
   const startersRef = useRef<HTMLDivElement | null>(null);
@@ -18,13 +13,8 @@ const MenuSection: FC = () => {
   const hamburgersRef = useRef<HTMLDivElement | null>(null);
   const dessertsRef = useRef<HTMLDivElement | null>(null);
 
-  function scrollToSection(
-    sectionRef: MutableRefObject<HTMLDivElement | null>
-  ) {
-    sectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  function scrollToSection(sectionRef: MutableRefObject<HTMLDivElement | null>) {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   return (
@@ -38,16 +28,12 @@ const MenuSection: FC = () => {
         }}
         className="hidden lg:flex lg:w-[50%] p-12 flex-col justify-between items-center min-h-[85vh] md:min-h-screen h-full"
       >
-        <Link
-          href="/"
-          className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none"
-        ></Link>
+        <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
+          Tremendo
+        </Link>
         <div className="text-center">
           <h2 className="text-[#FFFFFF] font-dancing text-[80px] leading-none md:text-[80px]">
-            <Link
-              href="/"
-              className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none"
-            >
+            <Link href="/" className="font-dancing text-5xl sm:text-[60px] md:text-[60px] lg:text-[60px] leading-none">
               Tremendo
             </Link>
           </h2>
@@ -57,7 +43,6 @@ const MenuSection: FC = () => {
         </div>
         <NavFooter />
       </div>
-
       <div className="w-full lg:w-[50%] flex flex-col items-center h-screen">
         <Nav
           startersRef={startersRef}

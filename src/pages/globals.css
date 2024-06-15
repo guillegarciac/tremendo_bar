@@ -1,9 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Monoton');
 
 body {
-  font-family: "Source Code Pro", monospace; 
+  font-family: "Courier", monospace; 
   color: #000000;
   background-color: white;
 }
@@ -66,9 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes slider {
-  0%,
-  16%,
-  100% {
+  0%, 16%, 100% {
     transform: translateX(0);
     animation-timing-function: ease;
   }
@@ -98,12 +97,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.7
-  ); 
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .swiper-pagination-bullet-active {

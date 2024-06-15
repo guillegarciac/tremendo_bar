@@ -5,19 +5,22 @@ import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image";
 import tremendologo from "../assets/tremendologo.png";
+import { useTranslation } from 'next-i18next'; // Import useTranslation for internationalization
 
 const NavFooter = dynamic(
   () => import("@/components/NavFooter/NavFooter"),
   {
-    ssr: false,
+    ssr: false,  // Ensure that NavFooter loads on the client-side where appropriate
   }
 );
 
 export default function Home() {
+  const { t } = useTranslation('common'); // Assume 'common' namespace for translations
+
   return (
     <>
       <Head>
-        <title>Tremendo Bar Sant Cugat</title>
+        <title>{t('pageTitle', { defaultValue: "Tremendo Bar Sant Cugat" })}</title> {/* Localized title */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -30,7 +33,7 @@ export default function Home() {
           <div className="my-4 md:my-8">
             <Image
               src={tremendologo}
-              alt="Tremendo Logo"
+              alt={t('logoAlt', { defaultValue: "Tremendo Logo" })} // Localized alt text
               width={400}
               height={200}
             />

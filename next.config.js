@@ -1,5 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+module.exports = {
   images: {
     domains: [
       "images.unsplash.com",
@@ -7,6 +7,22 @@ const nextConfig = {
       "avatars.githubusercontent.com",
     ],
   },
+  i18n: {
+    defaultLocale: 'ca',
+    locales: ['en', 'es', 'ca'],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/:locale(en|es|ca)/:path*',
+        destination: '/:path*', // redirect to the same path without locale
+        locale: false,
+      },
+      {
+        source: '/:path*',
+        destination: '/:path*', // ensure non-locale paths are handled
+        locale: false,
+      },
+    ];
+  },
 };
-
-module.exports = nextConfig;
