@@ -24,7 +24,7 @@ export default function NavigationFooter() {
           {(pathname === "/menu" || pathname === "/") && (
             <li className="mb-[16px] md:mb-0 md:mr-[16px] bg-white">
               <Link
-                href="/contact"
+                href="/book"
                 className="cursor-pointer flex items-center justify-center px-[16px] text-black"
                 style={buttonStyle}
               >
@@ -32,7 +32,7 @@ export default function NavigationFooter() {
               </Link>
             </li>
           )}
-          {(pathname === "/" || pathname === "/contact") && (
+          {(pathname === "/" || pathname === "/book") && (
             <li className="bg-white">
               <Link
                 href="/menu"

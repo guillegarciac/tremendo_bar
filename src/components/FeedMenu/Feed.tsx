@@ -1,6 +1,6 @@
 import React, { FC, MutableRefObject } from "react";
 import menuData from "../../app/menu/sections/menuData";
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/FooterMenu/FooterMenu";
 import styles from "./feed.module.css";
 
 //---------------------------------------------
@@ -23,7 +23,6 @@ const Feed: FC<IProps> = ({
       className="max-w-[628px] overflow-hidden overflow-y-scroll"
       style={{ padding: "20px" }}
     >
-      {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
@@ -45,7 +44,6 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
-      {/* Dishes Section */}
       <div ref={dinnerRef} className="w-full px-[10px] mt-[96px]">
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
@@ -67,7 +65,6 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
-      {/* Hamburgers Section */}
       <div ref={hamburgersRef} className="w-full px-[10px] mt-[96px]">
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
@@ -89,7 +86,6 @@ const Feed: FC<IProps> = ({
         ))}
       </div>
 
-      {/* Desserts Section */}
       <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}

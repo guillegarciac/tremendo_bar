@@ -10,7 +10,6 @@ export default function Menu() {
       <Head>
         <title>Tremendo Bar Sant Cugat</title>
       </Head>
-
       <main className="min-h-screen relative overflow-hidden">
         <HamburgerMenu />
         <MenuSection />

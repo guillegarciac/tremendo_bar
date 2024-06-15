@@ -78,11 +78,8 @@ export default function BookATable() {
             </Link>
             <div className="text-center">
               <h2 className="font-dancing text-[60px] leading-none text-white">
-                Contact
+                Book with us
               </h2>
-              <h1 className="font-medium text-[60px] leading-none text-white">
-                Get in Touch
-              </h1>
             </div>
 
             <div className="hidden lg:block">

@@ -1,23 +1,21 @@
-/* feed.module.css */
 .font-dancing {
-  font-family: 'Monoton', cursive; /* Ensure the font-family matches exactly */
+  font-family: 'Monoton', cursive; 
 }
 
 .title {
   font-size: 40px;
   line-height: normal;
-  margin-bottom: 32px; /* Space below each section title */
+  margin-bottom: 32px; 
   color: black;
-  text-align: left; /* Default alignment */
+  text-align: left; 
 
-  /* Center text on mobile devices */
   @media (max-width: 767px) {
     text-align: center;
   }
 }
 
 .item {
-  margin-top: 32px; /* Increased spacing between items */
+  margin-top: 32px;
   flex-direction: column;
   width: 100%;
 }

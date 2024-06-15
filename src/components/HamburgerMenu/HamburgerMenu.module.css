@@ -1,66 +1,60 @@
-/* Sticky container at the top of the screen */
 .stickyContainer {
-  position: -webkit-sticky; /* For Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   width: 100%;
   height: 20px;
   background-color: transparent;
-  z-index: 110; /* Ensure it stays above other content */
+  z-index: 110; 
   border-bottom: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  z-index: 120; /* Ensure it stays above other content */
+  z-index: 120; 
 }
 
-/* Remove the sticky container on desktop */
 @media (min-width: 769px) {
   .stickyContainer {
     display: none;
   }
 }
 
-/* Positioning the hamburger button at the top right of the screen */
 .relative {
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 120;  /* Ensure it's above the overlay */
-  width: auto;  /* Adjust width as necessary */
-  height: auto;  /* Adjust height as necessary */
+  z-index: 120;  
+  width: auto;  
+  height: auto;  
 }
 
-/* Global style to initially hide the hamburger button on all devices */
 .hamburgerButton {
-  display: none; /* Hide by default */
+  display: none; 
   cursor: pointer;
   background: transparent;
   border: none;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;  /* Larger clickable area */
-  z-index: 120;  /* Ensure it's higher than the overlay */
+  padding: 10px; 
+  z-index: 120; 
 }
 
-/* Media query to display the hamburger menu only on screens smaller than 768px */
 @media (max-width: 768px) {
   .hamburgerButton {
-    display: flex; /* Show the button only on small screens */
+    display: flex; 
   }
 
   .stickyContainer {
-    height: 50px; /* Adjust height for mobile if needed */
+    height: 50px; 
   }
 }
 
-/* Icon style for the hamburger */
 .hamburgerIcon {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 18px;  /* Total height of the icon */
-  align-items: center; /* Center the spans horizontally */
+  height: 18px;  
+  align-items: center; 
 }
 
 .hamburgerIcon span {
@@ -70,22 +64,21 @@
 }
 
 .whiteIcon span {
-  background-color: #ffffff; /* White for main page */
+  background-color: #ffffff; 
 }
 
 .blackIcon span {
-  background-color: #000000; /* Black for other pages */
+  background-color: #000000;
 }
 
 .whiteIcon {
-  color: #ffffff; /* White for main page */
+  color: #ffffff; 
 }
 
 .blackIcon {
-  color: #000000; /* Black for other pages */
+  color: #000000; 
 }
 
-/* Transformations for the open state */
 .open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -98,7 +91,6 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Fullscreen overlay for the menu */
 .menuOverlay {
   position: fixed;
   top: 0;
@@ -109,10 +101,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 104;  /* Ensure it is below the button */
+  z-index: 104;  
 }
 
-/* Style for the menu list */
 .menuList {
   list-style: none;
   text-align: center;
@@ -127,7 +118,6 @@
   margin: 10px 0;
 }
 
-/* Style for the close icon */
 .closeIcon {
   font-size: 30px;
   cursor: pointer;
@@ -140,7 +130,6 @@
   width: 25px;
 }
 
-/* Ensures the close icon is always white */
 .closeIcon.white {
-  color: #ffffff; /* Ensures the close icon is always white */
+  color: #ffffff; 
 }

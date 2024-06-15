@@ -103,20 +103,19 @@ h1, h2, h3, h4, h5, h6 {
     0,
     0,
     0.7
-  ); /* Adjust the last value to control transparency */
+  ); 
 }
 
 .swiper-pagination-bullet-active {
   background: wheat !important;
 }
 
-/* CSS for hiding the NavigationFooter on mobile devices */
 .navigation-footer {
-  display: none; /* Hide by default */
+  display: none;
 }
 
 @media (min-width: 768px) {
   .navigation-footer {
-    display: block; /* Show on tablet and larger screens */
+    display: block; 
   }
 }

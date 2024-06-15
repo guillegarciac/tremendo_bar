@@ -22,12 +22,12 @@ const HamburgerMenu = () => {
         <li key="home">
           <Link href="/">Home</Link>
         </li>,
-        <li key="contact">
-          <Link href="/contact">Book</Link>
+        <li key="book">
+          <Link href="/book">Book</Link>
         </li>,
       ];
       break;
-    case "/contact":
+    case "/book":
       menuItems = [
         <li key="home">
           <Link href="/">Home</Link>
@@ -42,8 +42,8 @@ const HamburgerMenu = () => {
         <li key="menu">
           <Link href="/menu">Menu</Link>
         </li>,
-        <li key="contact">
-          <Link href="/contact">Book</Link>
+        <li key="book">
+          <Link href="/book">Book</Link>
         </li>,
       ];
       break;

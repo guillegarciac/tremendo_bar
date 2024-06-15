@@ -1,5 +1,5 @@
 import React, { FC, MutableRefObject, useState } from "react";
-import styles from './nav.module.css'; 
+import styles from "./nav.module.css";
 
 //-------------------------------------------------------
 interface IProps {
@@ -18,9 +18,12 @@ const Nav: FC<IProps> = ({
   hamburgersRef,
   dessertsRef,
 }) => {
-  const [active, setActive] = useState<string>('');
+  const [active, setActive] = useState<string>("");
 
-  const handleNavigation = (section: string, ref: MutableRefObject<HTMLDivElement | null>) => {
+  const handleNavigation = (
+    section: string,
+    ref: MutableRefObject<HTMLDivElement | null>
+  ) => {
     setActive(section);
     navigationHandler(ref);
   };
@@ -28,26 +31,34 @@ const Nav: FC<IProps> = ({
   return (
     <div className={styles.desktopNav}>
       <button
-        onClick={() => handleNavigation('appetizers', startersRef)}
-        className={`font-light text-black ${active === 'appetizers' ? styles.active : ''}`}
+        onClick={() => handleNavigation("appetizers", startersRef)}
+        className={`font-light text-black ${
+          active === "appetizers" ? styles.active : ""
+        }`}
       >
         Appetizers
       </button>
       <button
-        onClick={() => handleNavigation('dishes', dinnerRef)}
-        className={`font-light text-black ml-[28px] md:ml-[44px] ${active === 'dishes' ? styles.active : ''}`}
+        onClick={() => handleNavigation("dishes", dinnerRef)}
+        className={`font-light text-black ml-[28px] md:ml-[44px] ${
+          active === "dishes" ? styles.active : ""
+        }`}
       >
         Dishes
       </button>
       <button
-        onClick={() => handleNavigation('hamburgers', hamburgersRef)}
-        className={`font-light text-black ml-[28px] md:ml-[44px] ${active === 'hamburgers' ? styles.active : ''}`}
+        onClick={() => handleNavigation("hamburgers", hamburgersRef)}
+        className={`font-light text-black ml-[28px] md:ml-[44px] ${
+          active === "hamburgers" ? styles.active : ""
+        }`}
       >
         Hamburgers
       </button>
       <button
-        onClick={() => handleNavigation('desserts', dessertsRef)}
-        className={`font-light text-black ml-[28px] md:ml-[44px] ${active === 'desserts' ? styles.active : ''}`}
+        onClick={() => handleNavigation("desserts", dessertsRef)}
+        className={`font-light text-black ml-[28px] md:ml-[44px] ${
+          active === "desserts" ? styles.active : ""
+        }`}
       >
         Desserts
       </button>
