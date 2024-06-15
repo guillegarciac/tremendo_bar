@@ -1,7 +1,7 @@
 import React, { FC, MutableRefObject } from "react";
 import menuData from "./menuData";
 import Footer from "@/components/Footer";
-import styles from './feed.module.css'; // Import the styles
+import styles from "./feed.module.css";
 
 //---------------------------------------------
 interface IProps {
@@ -19,10 +19,15 @@ const Feed: FC<IProps> = ({
   dessertsRef,
 }) => {
   return (
-    <div className="max-w-[628px] overflow-hidden overflow-y-scroll" style={{ padding: '20px' }}>
+    <div
+      className="max-w-[628px] overflow-hidden overflow-y-scroll"
+      style={{ padding: "20px" }}
+    >
       {/* Starters Section */}
       <div ref={startersRef} className="w-full px-[10px]">
-        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
+        <h1
+          className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
+        >
           Appetizers
         </h1>
         {menuData.appetizers.map((item) => (
@@ -42,7 +47,9 @@ const Feed: FC<IProps> = ({
 
       {/* Dishes Section */}
       <div ref={dinnerRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
+        <h1
+          className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
+        >
           Dishes
         </h1>
         {menuData.dishes.map((item) => (
@@ -62,7 +69,9 @@ const Feed: FC<IProps> = ({
 
       {/* Hamburgers Section */}
       <div ref={hamburgersRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
+        <h1
+          className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
+        >
           Hamburgers
         </h1>
         {menuData.hamburgers.map((item) => (
@@ -82,7 +91,9 @@ const Feed: FC<IProps> = ({
 
       {/* Desserts Section */}
       <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
-        <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
+        <h1
+          className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
+        >
           Desserts
         </h1>
         {menuData.desserts.map((item) => (

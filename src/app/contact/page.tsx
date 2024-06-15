@@ -8,9 +8,12 @@ import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu";
 
-const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
-  ssr: false
-});
+const NavigationFooter = dynamic(
+  () => import("@/components/NavigationFooter"),
+  {
+    ssr: false,
+  }
+);
 
 export default function BookATable() {
   const [currentTime, setCurrentTime] = useState("");
@@ -28,29 +31,29 @@ export default function BookATable() {
   }, []);
 
   const bookTableStyle = {
-    textDecoration: 'none',
-    border: '1px solid black',
-    borderRadius: '0',
-    height: '60px', // Matching input height
-    width: '100%', // Matching input width
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white', // White text for contrast
-    backgroundColor: 'black', // Black background
+    textDecoration: "none",
+    border: "1px solid black",
+    borderRadius: "0",
+    height: "60px",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+    backgroundColor: "black",
   };
 
   const checkMenuStyle = {
-    textDecoration: 'none',
-    border: '1px solid black',
-    borderRadius: '0',
-    height: '60px', // Matching input height
-    width: '100%', // Matching input width
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'black', // Black text
-    backgroundColor: 'white' // White background
+    textDecoration: "none",
+    border: "1px solid black",
+    borderRadius: "0",
+    height: "60px",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "black",
+    backgroundColor: "white",
   };
 
   return (
@@ -61,14 +64,15 @@ export default function BookATable() {
 
       <main className="min-h-screen relative overflow-hidden bg-white">
         <section className="flex flex-col lg:flex-row w-full h-full min-h-screen bg-white">
-          <div className={`w-full lg:w-1/2 p-12 flex-col justify-between items-center min-h-screen h-full hidden lg:flex`}
+          <div
+            className={`w-full lg:w-1/2 p-12 flex-col justify-between items-center min-h-screen h-full hidden lg:flex`}
             style={{
               background: `url(${contactTremendo.src || contactTremendo})`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundColor: "rgba(255, 255, 255, 0.5)",
-            }}>
-              
+            }}
+          >
             <Link href="/" className="font-semibold cursor-pointer text-white">
               Tremendo Bar Sant Cugat
             </Link>
@@ -116,10 +120,7 @@ export default function BookATable() {
                   placeholder="Message"
                 />
 
-                <button
-                  type="submit"
-                  style={bookTableStyle}
-                >
+                <button type="submit" style={bookTableStyle}>
                   Book A Table
                 </button>
               </form>

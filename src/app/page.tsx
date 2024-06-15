@@ -3,8 +3,8 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import Image from "next/image"; // Import Image component from next/image
-import tremendologo from "../assets/tremendologo.png"; // Adjust the path as per your actual file location
+import Image from "next/image"; 
+import tremendologo from "../assets/tremendologo.png"; 
 
 const NavigationFooter = dynamic(() => import("@/components/NavigationFooter"), {
   ssr: false,
@@ -21,7 +21,6 @@ export default function Home() {
       <main className="min-h-screen relative overflow-hidden w-full">
         <section className="fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-center p-8 md:p-12 z-[20] text-center text-white">
           <HamburgerMenu />
-          {/* Use Image component instead of img tag */}
           <div className="my-4 md:my-8">
             <Image src={tremendologo} alt="Tremendo Logo" width={400} height={200} />
           </div>
