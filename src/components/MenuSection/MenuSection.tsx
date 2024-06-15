@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic';
 import Link from "next/link";
 import { FC, MutableRefObject, useRef } from "react";
-import Nav from "./Nav";
+import Nav from "../NavMenu/Nav";
 import menuImg from "../../assets/menupage.jpg";
-import Feed from "./Feed";
+import Feed from "../FeedMenu/Feed";
 
-const NavigationFooter = dynamic(() => import('@/components/NavigationFooter'), {
+const NavigationFooter = dynamic(() => import('@/components/NavigationFooter/NavigationFooter'), {
   ssr: false
 });
 

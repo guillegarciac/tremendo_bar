@@ -1,6 +1,6 @@
 import React, { FC, MutableRefObject } from "react";
-import menuData from "./menuData";
-import Footer from "@/components/Footer";
+import menuData from "../../app/menu/sections/menuData";
+import Footer from "@/components/Footer/Footer";
 import styles from "./feed.module.css";
 
 //---------------------------------------------

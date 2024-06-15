@@ -6,10 +6,10 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
-import HamburgerMenu from "@/components/HamburgerMenu";
+import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 
 const NavigationFooter = dynamic(
-  () => import("@/components/NavigationFooter"),
+  () => import("@/components/NavigationFooter/NavigationFooter"),
   {
     ssr: false,
   }

@@ -2,11 +2,11 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import HamburgerMenu from "@/components/HamburgerMenu";
+import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image"; 
 import tremendologo from "../assets/tremendologo.png"; 
 
-const NavigationFooter = dynamic(() => import("@/components/NavigationFooter"), {
+const NavigationFooter = dynamic(() => import("@/components/NavigationFooter/NavigationFooter"), {
   ssr: false,
 });
 
