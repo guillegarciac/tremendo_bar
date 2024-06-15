@@ -1,11 +1,13 @@
 // next-i18next.config.ts
 import { UserConfig } from 'next-i18next';
 
-export const config: UserConfig = {
+const config: UserConfig = {
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'ca',
     locales: ['en', 'es', 'ca'],
+    localeDetection: false
   },
+  localePath: typeof window === 'undefined' ? 'public/locales' : 'locales',
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
 

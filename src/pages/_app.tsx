@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
+import nextI18NextConfig from '../../next-i18next.config';
 import '../pages/globals.css'; 
 
 function MyApp({ Component, pageProps }: { Component: any, pageProps: any }) {
@@ -14,4 +15,4 @@ function MyApp({ Component, pageProps }: { Component: any, pageProps: any }) {
   return <Component {...pageProps} />;
 }
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);

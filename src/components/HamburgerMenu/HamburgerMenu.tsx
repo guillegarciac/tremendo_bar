@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { useTranslation } from 'next-i18next'; // Import useTranslation from next-i18next
+import { useTranslation } from 'next-i18next'; 
 import Link from "next/link";
 import styles from "./HamburgerMenu.module.css";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const { i18n } = useTranslation(); // Use the i18n instance
+  const { t, i18n } = useTranslation('common'); // Use both t and i18n
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -27,30 +27,30 @@ const HamburgerMenu = () => {
     case "/menu":
       menuItems = [
         <li key="home">
-          <Link href="/" locale={i18n.language}>Home</Link>
+          <Link href="/" locale={i18n.language}>{t('home')}</Link>
         </li>,
         <li key="book">
-          <Link href="/book" locale={i18n.language}>Book</Link>
+          <Link href="/book" locale={i18n.language}>{t('book')}</Link>
         </li>,
       ];
       break;
     case "/book":
       menuItems = [
         <li key="home">
-          <Link href="/" locale={i18n.language}>Home</Link>
+          <Link href="/" locale={i18n.language}>{t('home')}</Link>
         </li>,
         <li key="menu">
-          <Link href="/menu" locale={i18n.language}>Menu</Link>
+          <Link href="/menu" locale={i18n.language}>{t('menu')}</Link>
         </li>,
       ];
       break;
     default:
       menuItems = [
         <li key="menu">
-          <Link href="/menu" locale={i18n.language}>Menu</Link>
+          <Link href="/menu" locale={i18n.language}>{t('menu')}</Link>
         </li>,
         <li key="book">
-          <Link href="/book" locale={i18n.language}>Book</Link>
+          <Link href="/book" locale={i18n.language}>{t('book')}</Link>
         </li>,
       ];
       break;
