@@ -1,4 +1,3 @@
-// next-i18next.config.ts
 import { UserConfig } from 'next-i18next';
 
 const config: UserConfig = {
@@ -7,7 +6,7 @@ const config: UserConfig = {
     locales: ['en', 'es', 'ca'],
     localeDetection: false
   },
-  localePath: typeof window === 'undefined' ? 'public/locales' : 'locales',
+  localePath: 'public/locales', // Ensure this points to the correct directory
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
 

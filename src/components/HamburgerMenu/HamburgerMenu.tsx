@@ -2,22 +2,27 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { useTranslation } from 'next-i18next'; 
+import { useTranslation } from 'next-i18next';
 import Link from "next/link";
 import styles from "./HamburgerMenu.module.css";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const { t, i18n } = useTranslation('common'); // Use both t and i18n
+  const { t, i18n } = useTranslation('common'); 
+
+  console.log("Current language:", i18n.language);
+  console.log("Translation for 'home':", t('home'));
+  console.log("Translation for 'book':", t('book'));
+  console.log("Translation for 'menu':", t('menu'));
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang); // Function to change language
-    window.location.reload(); // Simple approach to reload the page and apply the new locale
+    i18n.changeLanguage(lang); 
+    window.location.reload(); 
   };
 
   const iconColorClass = pathname === "/" ? styles.whiteIcon : styles.blackIcon;
@@ -56,7 +61,6 @@ const HamburgerMenu = () => {
       break;
   }
 
-  // Append the language selector as an additional menu item
   menuItems.push(
     <li key="language-selector">
       <select onChange={(e) => handleLanguageChange(e.target.value)} defaultValue={i18n.language}>
