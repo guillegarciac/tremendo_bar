@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 
-export default function NavigationFooter() {
+export default function NavFooter() {
   const pathname = usePathname();
 
   const buttonStyle = {

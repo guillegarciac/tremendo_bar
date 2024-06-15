@@ -6,8 +6,8 @@ import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image";
 import tremendologo from "../assets/tremendologo.png";
 
-const NavigationFooter = dynamic(
-  () => import("@/components/NavigationFooter/NavigationFooter"),
+const NavFooter = dynamic(
+  () => import("@/components/NavFooter/NavFooter"),
   {
     ssr: false,
   }
@@ -38,7 +38,7 @@ export default function Home() {
 
           <div className="flex flex-col items-center">
             <div className="navigation-footer">
-              <NavigationFooter />
+              <NavFooter />
             </div>
           </div>
         </section>

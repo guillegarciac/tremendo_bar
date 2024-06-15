@@ -8,8 +8,8 @@ import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 
-const NavigationFooter = dynamic(
-  () => import("@/components/NavigationFooter/NavigationFooter"),
+const NavFooter = dynamic(
+  () => import("@/components/NavFooter/NavFooter"),
   {
     ssr: false,
   }
@@ -83,7 +83,7 @@ export default function BookATable() {
             </div>
 
             <div className="hidden lg:block">
-              <NavigationFooter />
+              <NavFooter />
             </div>
           </div>
 

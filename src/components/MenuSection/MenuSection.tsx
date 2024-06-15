@@ -5,8 +5,8 @@ import Nav from "../NavMenu/Nav";
 import menuImg from "../../assets/menupage.jpg";
 import Feed from "../FeedMenu/Feed";
 
-const NavigationFooter = dynamic(
-  () => import("@/components/NavigationFooter/NavigationFooter"),
+const NavFooter = dynamic(
+  () => import("@/components/NavFooter/NavFooter"),
   {
     ssr: false,
   }
@@ -55,7 +55,7 @@ const MenuSection: FC = () => {
             Menu
           </h1>
         </div>
-        <NavigationFooter />
+        <NavFooter />
       </div>
 
       <div className="w-full lg:w-[50%] flex flex-col items-center h-screen">
