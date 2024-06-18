@@ -1,13 +1,15 @@
 import { UserConfig } from 'next-i18next';
 
-const config: UserConfig = {
+const nextI18NextConfig: UserConfig = {
   i18n: {
-    defaultLocale: 'ca',
+    defaultLocale: 'en',
     locales: ['en', 'es', 'ca'],
     localeDetection: false
   },
-  localePath: 'public/locales', // Ensure this points to the correct directory
+  localePath: 'public/locales',
+  ns: ['common'],
   reloadOnPrerender: process.env.NODE_ENV === 'development',
+  debug: true,
 };
 
-export default config;
+export default nextI18NextConfig;

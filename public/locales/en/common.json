@@ -1,5 +1,11 @@
 {
   "home": "Home",
   "book": "Book",
-  "menu": "Menu"
+  "menu": "Menu",
+  "pageTitle": "Tremendo Bar Sant Cugat",
+  "logoAlt": "Tremendo Logo",
+  "appetizers": "Appetizers",
+  "dishes": "Dishes",
+  "hamburgers": "Hamburgers",
+  "desserts": "Desserts"
 }

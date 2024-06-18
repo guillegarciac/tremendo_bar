@@ -1,5 +1,11 @@
 {
   "home": "Inicio",
   "book": "Reservar",
-  "menu": "Menú"
+  "menu": "Menú",
+  "pageTitle": "Tremendo Bar Sant Cugat",
+  "logoAlt": "Tremendo Logo",
+  "appetizers": "Entrantes",
+  "dishes": "Platos",
+  "hamburgers": "Hamburguesas",
+  "desserts": "Postres"
 }

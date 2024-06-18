@@ -1,10 +1,9 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
-import { useTranslation } from 'next-i18next';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps, locale: ctx.query.locale || 'ca' }; // Default to 'ca' if no locale is provided
+    return { ...initialProps, locale: ctx.query.locale }; // Default to 'ca' if no locale is provided
   }
 
   render() {

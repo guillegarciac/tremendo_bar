@@ -29,9 +29,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "nextI18NextConfig.ts", "next.config.js"  ],
   "exclude": [
     "node_modules"
   ]
 }
+
 

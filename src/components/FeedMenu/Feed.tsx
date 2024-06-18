@@ -1,23 +1,19 @@
-import React, { FC, MutableRefObject } from "react";
+import React, { FC, MutableRefObject, useEffect } from "react";
+import { useTranslation } from 'next-i18next';
 import menuData from "../../data/menuData";
 import Footer from "@/components/FooterMenu/FooterMenu";
 import styles from "./feed.module.css";
 
-//---------------------------------------------
 interface IProps {
   startersRef: MutableRefObject<HTMLDivElement | null>;
   dinnerRef: MutableRefObject<HTMLDivElement | null>;
   hamburgersRef: MutableRefObject<HTMLDivElement | null>;
   dessertsRef: MutableRefObject<HTMLDivElement | null>;
 }
-//---------------------------------------------
 
-const Feed: FC<IProps> = ({
-  startersRef,
-  dinnerRef,
-  hamburgersRef,
-  dessertsRef,
-}) => {
+const Feed: FC<IProps> = ({ startersRef, dinnerRef, hamburgersRef, dessertsRef }) => {
+  const { t } = useTranslation('common');
+
   return (
     <div
       className="max-w-[628px] overflow-hidden overflow-y-scroll"
@@ -27,7 +23,7 @@ const Feed: FC<IProps> = ({
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
         >
-          Appetizers
+          {t('appetizers')}  
         </h1>
         {menuData.appetizers.map((item) => (
           <div key={item.id} className={`${styles.item}`}>
@@ -48,7 +44,7 @@ const Feed: FC<IProps> = ({
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
         >
-          Dishes
+          {t('dishes')}  
         </h1>
         {menuData.dishes.map((item) => (
           <div key={item.id} className={`${styles.item}`}>
@@ -69,7 +65,7 @@ const Feed: FC<IProps> = ({
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
         >
-          Hamburgers
+          {t('hamburgers')}  
         </h1>
         {menuData.hamburgers.map((item) => (
           <div key={item.id} className={`${styles.item}`}>
@@ -90,7 +86,7 @@ const Feed: FC<IProps> = ({
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
         >
-          Desserts
+          {t('desserts')}  
         </h1>
         {menuData.desserts.map((item) => (
           <div key={item.id} className={`${styles.item}`}>
