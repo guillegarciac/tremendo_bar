@@ -2,50 +2,31 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 20px;
+  border-bottom: rgb(200, 200, 200) 0.5px solid;
+  height: 50px; /* Ensure container height is sufficient */
   background-color: transparent;
-  z-index: 110; 
-  border-bottom: none;
+  z-index: 130;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  z-index: 120; 
-}
-
-@media (min-width: 769px) {
-  .stickyContainer {
-    display: none;
-  }
-}
-
-.relative {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 120;  
-  width: auto;  
-  height: auto;  
+  justify-content: flex-start;
 }
 
 .hamburgerButton {
-  display: none; 
+  display: none;
   cursor: pointer;
   background: transparent;
   border: none;
   flex-direction: column;
   justify-content: center;
-  padding: 10px; 
-  z-index: 120; 
+  padding: 10px;
+  z-index: 120;
 }
 
 @media (max-width: 768px) {
   .hamburgerButton {
-    display: flex; 
-  }
-
-  .stickyContainer {
-    height: 50px; 
+    display: flex; /* Ensure button is visible on smaller screens */
   }
 }
 
@@ -53,83 +34,69 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 18px;  
-  align-items: center; 
+  height: 18px;
+  align-items: center;
 }
 
 .hamburgerIcon span {
   height: 3px;
   width: 25px;
+  background-color: #000000; /* Icon color black for visibility */
   transition: all 0.3s ease-in-out;
-}
-
-.whiteIcon span {
-  background-color: #ffffff; 
-}
-
-.blackIcon span {
-  background-color: #000000;
-}
-
-.whiteIcon {
-  color: #ffffff; 
-}
-
-.blackIcon {
-  color: #000000; 
-}
-
-.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
 }
 
 .menuOverlay {
   position: fixed;
-  top: 0;
+  top: 50px; /* Start the overlay right below the sticky container */
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  width: 90%;
+  height: calc(100% - 50px); /* Reduce height to adjust for top position */
+  background-color: white;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 104;  
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 104;
+  padding: 20px;
+}
+
+.shadowOverlay {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 90%;
+  width: 15%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.757); /* Semi-transparent black shadow */
+  z-index: 103; /* Below the menu overlay */
 }
 
 .menuList {
   list-style: none;
-  text-align: center;
+  text-align: left;
   padding: 0;
+  width: 100%;
+  margin: 0; /* Adjust margin if necessary */
+}
+
+.menuList li {
+  margin-bottom: 15px;
 }
 
 .menuList li a {
-  color: white;
+  color: black;
   font-size: 24px;
   text-decoration: none;
   display: block;
-  margin: 10px 0;
 }
+
 
 .closeIcon {
   font-size: 30px;
   cursor: pointer;
-  z-index: 120;
-  line-height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 18px;
   width: 25px;
-}
-
-.closeIcon.white {
-  color: #ffffff; 
+  color: #000000; /* Black color for close icon */
 }

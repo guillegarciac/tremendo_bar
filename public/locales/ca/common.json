@@ -7,5 +7,9 @@
   "appetizers": "Aperitius",
   "dishes": "Plats",
   "hamburgers": "Hamburgueses",
-  "desserts": "Postres"
+  "desserts": "Postres",
+  "name": "Nom",
+  "email": "Correu electrònic",
+  "message": "Missatge",
+  "bookTable": "Reserva una Taula"
 }

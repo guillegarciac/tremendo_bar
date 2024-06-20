@@ -7,5 +7,9 @@
   "appetizers": "Appetizers",
   "dishes": "Dishes",
   "hamburgers": "Hamburgers",
-  "desserts": "Desserts"
+  "desserts": "Desserts",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "bookTable": "Book A Table"
 }

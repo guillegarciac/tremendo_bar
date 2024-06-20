@@ -7,5 +7,9 @@
   "appetizers": "Entrantes",
   "dishes": "Platos",
   "hamburgers": "Hamburguesas",
-  "desserts": "Postres"
+  "desserts": "Postres",
+  "name": "Nombre",
+  "email": "Correo electrónico",
+  "message": "Mensaje",
+  "bookTable": "Reservar una Mesa"
 }

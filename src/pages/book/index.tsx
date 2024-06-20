@@ -4,18 +4,18 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import moment from "moment";
 import { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next"; // Import useTranslation
 import contactTremendo from "../../assets/contacttremendo.jpeg";
 import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const NavFooter = dynamic(
-  () => import("@/components/NavFooter/NavFooter"),
-  {
-    ssr: false,
-  }
-);
+const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
+  ssr: false,
+});
 
 export default function BookATable() {
+  const { t } = useTranslation("common"); // Use the translation hook
   const [currentTime, setCurrentTime] = useState("");
   const [currentDate, setCurrentDate] = useState<string>("");
 
@@ -59,7 +59,7 @@ export default function BookATable() {
   return (
     <>
       <Head>
-        <title>Tremendo Bar Sant Cugat</title>
+        <title>{t("pageTitle")}</title> {/* Translated */}
       </Head>
 
       <main className="min-h-screen relative overflow-hidden bg-white">
@@ -74,11 +74,11 @@ export default function BookATable() {
             }}
           >
             <Link href="/" className="font-semibold cursor-pointer text-white">
-              Tremendo Bar Sant Cugat
+              {t("pageTitle")} {/* Translated */}
             </Link>
             <div className="text-center">
               <h2 className="font-dancing text-[60px] leading-none text-white">
-                Book with us
+                {t("book")} {/* Translated */}
               </h2>
             </div>
 
@@ -87,38 +87,45 @@ export default function BookATable() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex-col justify-center items-center  lg:flex lg:flex-col">
+          <div className="w-full lg:w-1/2 flex-col justify-center items-center lg:flex lg:flex-col">
             <HamburgerMenu />
-            <div className="max-w-[560px] w-full px-4 pb-4">
+            <div className="max-w-[560px] w-full px-4 pb-4 pt-8">
               <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8">
-                Booking
+                {t("book")} {/* Translated */}
               </p>
 
               <form
                 onSubmit={(event) => event.preventDefault()}
                 className="mt-[30px]"
               >
-                <h3 className="text-black mt-[30px] text-[16px]">Name</h3>
+                <h3 className="text-black mt-[30px] text-[16px]">
+                  {t("name")}
+                </h3>
                 <input
                   type="text"
                   className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
-                  placeholder="Name"
+                  placeholder={t("name")} // Use translation for placeholder
                 />
 
-                <h3 className="text-black mt-[30px] text-[16px]">Email</h3>
+                <h3 className="text-black mt-[30px] text-[16px]">
+                  {t("email")}
+                </h3>
                 <input
-                  type="text"
+                  type="email" // Correct type for better semantic and functionality
                   className="h-[60px] w-full px-[24px] py-[15px] border border-black rounded-[10px]"
-                  placeholder="Email"
+                  placeholder={t("email")} // Use translation for placeholder
                 />
-                <h3 className="text-black mt-[30px] text-[16px]">Message</h3>
+
+                <h3 className="text-black mt-[30px] text-[16px]">
+                  {t("message")}
+                </h3>
                 <textarea
                   className="min-h-[200px] max-h-[200px] w-full px-[24px] py-[15px] border border-black rounded-[10px] mb-6"
-                  placeholder="Message"
+                  placeholder={t("message")} // Use translation for placeholder
                 />
 
                 <button type="submit" style={bookTableStyle}>
-                  Book A Table
+                  {t("bookTable")}
                 </button>
               </form>
             </div>
@@ -127,4 +134,12 @@ export default function BookATable() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])), // Adjust the namespace as needed
+    },
+  };
 }
