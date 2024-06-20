@@ -20,7 +20,7 @@
   border: none;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 15px;
   z-index: 120;
 }
 
@@ -63,7 +63,7 @@
   content: "";
   position: fixed;
   top: 0;
-  left: 90%;
+  left: 100%;
   width: 15%;
   height: 100%;
   background: rgba(0, 0, 0, 0.757); /* Semi-transparent black shadow */
