@@ -18,12 +18,11 @@ export default function Menu() {
     </>
   );
 }
-
 export async function getServerSideProps({ locale }: { locale: string }) {
   const translations = await serverSideTranslations(locale, ['common']);  // Load translations for the 'common' namespace
 
-  // Log the translations to see what is being loaded
-  console.log(`Translations for locale '${locale}':`, translations);
+  // Convert and log the translations to see the full structure and content
+  console.log(`Translations for locale '${locale}':`, JSON.stringify(translations, null, 2));
 
   return {
     props: {
