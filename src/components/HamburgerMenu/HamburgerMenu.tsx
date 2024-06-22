@@ -83,19 +83,27 @@ const HamburgerMenu = () => {
   return (
     <div className={styles.stickyContainer} style={{ borderBottom: isOpen ? 'none' : '0.5px solid rgb(200, 200, 200)' }}>
       <button className={`${styles.hamburgerButton} ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        {isOpen ? <span className={styles.closeIcon}>&times;</span> : <div className={styles.hamburgerIcon}><span></span><span></span><span></span></div>}
-      </button>
-      {isOpen && (
-        <>
-          <div className={styles.menuOverlay} style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100%)' }} ref={menuRef}>
-            <ul className={styles.menuList}>{menuItems}</ul>
-            <div className={styles.footerContainer}>
-              <Footer />
-            </div>
+        {isOpen ? (
+          <span className={styles.closeIcon}>&times;</span>
+        ) : (
+          <div className={styles.hamburgerIcon}>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <div className={styles.shadowOverlay}></div>
-        </>
-      )}
+        )}
+      </button>
+      <div
+        className={styles.menuOverlay}
+        style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100%)' }}
+        ref={menuRef}
+      >
+        <ul className={styles.menuList}>{menuItems}</ul>
+        <div className={styles.footerContainer} >
+          <Footer />
+        </div>
+      </div>
+      {isOpen && <div className={styles.shadowOverlay}></div>}
     </div>
   );
 };

@@ -11,7 +11,7 @@
   display: none; /* Default setting to not display on desktop */
   align-items: center;
   justify-content: flex-start;
-  border-top: rgb(200, 200, 200) 0.5px solid;
+  border-bottom: rgb(200, 200, 200) 0.5px solid;
 }
 
 /* Base styles for hamburgerButton */
@@ -122,4 +122,3 @@
   justify-content: center;
   align-items: center;
 }
-
