@@ -1,18 +1,20 @@
+/* Base styles for stickyContainer */
 .stickyContainer {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: rgb(200, 200, 200) 0.5px solid;
   height: 50px; /* Ensure container height is sufficient */
   background-color: transparent;
   z-index: 130;
-  display: flex;
+  display: none; /* Default setting to not display on desktop */
   align-items: center;
   justify-content: flex-start;
+  border-top: rgb(200, 200, 200) 0.5px solid;
 }
 
+/* Base styles for hamburgerButton */
 .hamburgerButton {
   display: none;
   cursor: pointer;
@@ -24,50 +26,62 @@
   z-index: 120;
 }
 
+/* Media query for devices with a max-width of 768px (tablet landscape and below) */
 @media (max-width: 768px) {
+  .stickyContainer {
+    display: flex; /* Make sticky container visible on mobile devices */
+  }
   .hamburgerButton {
     display: flex; /* Ensure button is visible on smaller screens */
   }
 }
 
+/* Styles for hamburgerIcon and its children */
 .hamburgerIcon {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 18px;
+  height: 15px;
   align-items: center;
+  margin: 5px;
 }
 
 .hamburgerIcon span {
   height: 3px;
-  width: 25px;
-  background-color: #000000; /* Icon color black for visibility */
+  width: 20px;
+  background-color: rgb(110, 110, 110); /* Icon color black for visibility */
   transition: all 0.3s ease-in-out;
 }
 
+/* Styles for other UI elements */
 .menuOverlay {
   position: fixed;
-  top: 50px; /* Start the overlay right below the sticky container */
+  top: 50px;
   left: 0;
   width: 90%;
-  height: calc(100% - 50px); /* Reduce height to adjust for top position */
+  height: calc(100% - 50px);
   background-color: white;
+  border-top: rgb(200, 200, 200) 0.5px solid;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   z-index: 104;
-  padding: 20px;
+  padding: 25px;
+  transform: translateX(-100%); /* Start off-screen to the left */
+  transition: transform 0.1s ease-out; /* Smooth slide-in effect */
 }
 
 .shadowOverlay {
   content: "";
   position: fixed;
-  top: 49px;
-  left: 90%;
-  width: 15%;
+  top: 50px;
+  left: 0;
+  width: 100%; /* Full width */
   height: 100%;
-  background: rgba(0, 0, 0, 0.715); /* Semi-transparent black shadow */
-  z-index: 100; /* Adjust as needed to fit your z-index structure */
+  background: rgba(0, 0, 0, 0.674);
+  z-index: 103; /* Below the menu, initially visible */
+  opacity: 1; /* Fully visible */
+  transition: opacity 0.1s ease; /* Smooth fade-out transition */
 }
 
 .menuList {
@@ -75,7 +89,7 @@
   text-align: left;
   padding: 0;
   width: 100%;
-  margin: 0; /* Adjust margin if necessary */
+  margin: 0;
 }
 
 .menuList li {
@@ -83,20 +97,29 @@
 }
 
 .menuList li a {
-  color: black;
+  color: rgb(110, 110, 110);
   font-size: 24px;
   text-decoration: none;
   display: block;
 }
 
-
 .closeIcon {
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 18px;
   width: 25px;
-  color: #000000; /* Black color for close icon */
+  color: rgb(110, 110, 110); /* Black color for close icon */
 }
+
+.footerContainer {
+  width: 85%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
