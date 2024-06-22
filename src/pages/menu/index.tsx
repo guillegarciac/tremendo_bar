@@ -20,9 +20,14 @@ export default function Menu() {
 }
 
 export async function getServerSideProps({ locale }: { locale: string }) {
+  const translations = await serverSideTranslations(locale, ['common']);  // Load translations for the 'common' namespace
+
+  // Log the translations to see what is being loaded
+  console.log(`Translations for locale '${locale}':`, translations);
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),  // Adjust the namespace as needed
+      ...translations,  // Pass the translations to the page as props
     },
   };
 }
