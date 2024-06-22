@@ -21,28 +21,28 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{t('pageTitle', "Tremendo Bar Sant Cugat")}</title> 
+        <title>{t('pageTitle', "Tremendo Bar Sant Cugat")}</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
         <style>{`
           body, html {
-            overflow: hidden; /* Disables scrolling */
-            height: 100%; /* Prevents any extra space beyond the viewport height */
+            overflow: hidden;
+            height: 100%;
           }
         `}</style>
       </Head>
 
-      <main className="min-h-screen relative overflow-hidden w-full">
-        <div className="stickyContainer"> {/* Encapsulating HamburgerMenu in a sticky container */}
+      <main className="min-h-screen relative overflow-hidden w-full" style={{ backgroundImage: `url(${tremendologo})` }}>
+        <div className="stickyContainer">
           <HamburgerMenu />
         </div>
         <section className="fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-center p-8 md:p-12 z-[20] text-center text-white">
           <div className="my-4 md:my-8">
             <Image
               src={tremendologo}
-              alt={t('logoAlt', "Tremendo Logo")} 
+              alt={t('logoAlt', "Tremendo Logo")}
               width={400}
               height={200}
             />
@@ -54,14 +54,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <div className="slider">
-          <div className="slide"></div>
-          <div className="slide"></div>
-          <div className="slide"></div>
-          <div className="slide"></div>
-          <div className="slide"></div>
-        </div>
       </main>
     </>
   );
@@ -70,7 +62,7 @@ export default function Home() {
 export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),  // Adjust the namespace as needed
+      ...(await serverSideTranslations(locale, ['common'])),
     },
   };
 }
