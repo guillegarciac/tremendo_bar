@@ -1,20 +1,21 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useTranslation } from 'next-i18next';
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import { IoIosGlobe } from "react-icons/io"; // Importing a globe icon from react-icons
 import styles from "./HamburgerMenu.module.css";
 import Footer from "@/components/FooterMenu/FooterMenu";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState<string | false>(false);
+  const [showLanguageOptions, setShowLanguageOptions] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const { t } = useTranslation('common');
   const menuRef = useRef(null);
+  const languageRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -22,18 +23,25 @@ const HamburgerMenu = () => {
 
   const handleLanguageChange = (selectedLanguage: string) => {
     setLanguage(selectedLanguage);
+    setShowLanguageOptions(false); // Close the language dropdown
     router.push(router.pathname, router.pathname, { locale: selectedLanguage });
-    setIsOpen(false); // Close the menu when language changes
+    setIsOpen(false); // Optionally close the menu
+  };
+
+  const toggleLanguageDropdown = () => {
+    setShowLanguageOptions(!showLanguageOptions);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !(menuRef.current as HTMLElement).contains(event.target as Node)) {
-        setIsOpen(false);  // Close the menu only if the click is outside the menu overlay
+    if (menuRef.current && !(menuRef.current as HTMLElement).contains(event.target as Node) &&
+        languageRef.current && !(languageRef.current as HTMLElement).contains(event.target as Node)) {
+        setIsOpen(false);
+        setShowLanguageOptions(false); // Close the language dropdown if click outside
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen || showLanguageOptions) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -42,7 +50,7 @@ const HamburgerMenu = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen, showLanguageOptions]);
 
   let menuItems = [
     <li key="menu">
@@ -70,15 +78,11 @@ const HamburgerMenu = () => {
     ];
   }
 
-  menuItems.push(
-    <li key="language-selector">
-      <select onChange={(e) => handleLanguageChange(e.target.value)} value={language || router.locale}>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-        <option value="ca">Català</option>
-      </select>
-    </li>
-  );
+  const languageOptions = [
+    { code: 'en', label: 'English' },
+    { code: 'es', label: 'Español' },
+    { code: 'ca', label: 'Català' }
+  ];
 
   return (
     <div className={styles.stickyContainer} style={{ borderBottom: isOpen ? 'none' : '0.5px solid rgb(200, 200, 200)' }}>
@@ -102,6 +106,18 @@ const HamburgerMenu = () => {
         <div className={styles.footerContainer} >
           <Footer />
         </div>
+      </div>
+      <div className={styles.languageIcon} onClick={toggleLanguageDropdown} ref={languageRef}>
+        <IoIosGlobe size={24} style={{ cursor: 'pointer' }} />
+        {showLanguageOptions && (
+          <ul className={styles.languageDropdown}>
+            {languageOptions.map(lang => (
+              <li key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
+                {lang.label}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       {isOpen && <div className={styles.shadowOverlay}></div>}
     </div>
