@@ -11,5 +11,11 @@
   "name": "Name",
   "email": "Email",
   "message": "Message",
-  "bookTable": "Book A Table"
+  "bookTable": "Book A Table",
+  "selectDate": "Select Date",
+  "selectTime": "Select Time",
+  "selectPax": "Number of Guests",
+  "next": "Next",
+  "back": "Back",
+  "submit": "Submit"
 }

@@ -1,0 +1,75 @@
+/* BookATable.module.css */
+
+.container {
+  max-width: 560px;
+  padding: 16px;
+  margin: 40px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stepIndicator {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.stepIndicator li {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: gray;
+  line-height: 25px;
+  color: white;
+  text-align: center;
+}
+
+.stepIndicator li.active {
+  background: #00b55e;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  background-color: #00b55e;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #008c4a;
+}
+
+.button.backButton {
+  background-color: #ccc;
+}
+
+.button.backButton:hover {
+  background-color: #bbb;
+}

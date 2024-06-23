@@ -3,7 +3,7 @@
   "book": "Reserva",
   "menu": "Menú",
   "pageTitle": "Tremendo Bar Sant Cugat",
-  "logoAlt": "Tremendo Logo",
+  "logoAlt": "Logo de Tremendo",
   "appetizers": "Aperitius",
   "dishes": "Plats",
   "hamburgers": "Hamburgueses",
@@ -11,5 +11,11 @@
   "name": "Nom",
   "email": "Correu electrònic",
   "message": "Missatge",
-  "bookTable": "Reserva una Taula"
+  "bookTable": "Reserva una Taula",
+  "selectDate": "Trieu la Data",
+  "selectTime": "Trieu l'Hora",
+  "selectPax": "Nombre de Comensals",
+  "next": "Següent",
+  "back": "Enrere",
+  "submit": "Enviar"
 }
