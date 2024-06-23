@@ -1,12 +1,13 @@
 "use strict";
+const { locale } = require('moment');
 const path = require('path');
 Object.defineProperty(exports, "__esModule", { value: true });
 
 var nextI18NextConfig = {
     i18n: {
-        defaultLocale: 'en',
+        defaultLocale: 'es',
         locales: ['en', 'es', 'ca'],
-        localeDetection: false
+        localedDetection: false,
     },
     localePath: path.resolve('./public/locales'),
     ns: ['common'],

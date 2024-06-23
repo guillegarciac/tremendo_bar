@@ -2,9 +2,9 @@ import { UserConfig } from 'next-i18next';
 
 const nextI18NextConfig: UserConfig = {
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'es', 'ca'],
-    localeDetection: false
+    defaultLocale: 'es',
+    locales: ['es', 'en', 'ca'],
+    localeDetection: false,
   },
   localePath: 'public/locales',
   ns: ['common'],

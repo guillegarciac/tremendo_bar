@@ -8,7 +8,7 @@ module.exports = {
     ],
   },
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'es',
     locales: ['en', 'es', 'ca'],
   },
   async rewrites() {
