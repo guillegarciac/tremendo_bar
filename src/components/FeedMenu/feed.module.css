@@ -12,6 +12,8 @@
 
   @media (max-width: 767px) {
     text-align: center;
+      font-size: 32px; /* Smaller font size for mobile screens */
+    
   }
 }
 

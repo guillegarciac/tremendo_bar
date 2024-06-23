@@ -108,17 +108,25 @@ const HamburgerMenu = () => {
         </div>
       </div>
       <div className={styles.languageIcon} onClick={toggleLanguageDropdown} ref={languageRef}>
-        <IoIosGlobe size={24} style={{ cursor: 'pointer' }} />
-        {showLanguageOptions && (
-          <ul className={styles.languageDropdown}>
-            {languageOptions.map(lang => (
-              <li key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
-                {lang.label}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+  <IoIosGlobe size={24} style={{
+    cursor: 'pointer',
+    fontWeight: showLanguageOptions ? 'bold' : 'normal', // Bold when dropdown is open
+    color: showLanguageOptions ? '#00b55e' : 'inherit'  // Color #00b55e when dropdown is open
+  }} />
+  {showLanguageOptions && (
+    <ul className={styles.languageDropdown}>
+      {languageOptions.map(lang => (
+        <li key={lang.code} onClick={() => handleLanguageChange(lang.code)}
+        style={{
+          fontWeight: router.locale === lang.code ? 'bold' : 'normal',
+          color: router.locale === lang.code ? '#00b55e' : 'inherit'
+        }}>
+        {lang.label}
+      </li>
+      ))}
+    </ul>
+  )}
+</div>
       {isOpen && <div className={styles.shadowOverlay}></div>}
     </div>
   );

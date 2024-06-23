@@ -77,7 +77,7 @@ export default function BookATable() {
               {t("pageTitle")} {/* Translated */}
             </Link>
             <div className="text-center">
-              <h2 className="font-dancing text-[60px] leading-none text-white">
+              <h2 className="font-dancing text-[60px] leading-none text-white" style={{ color: "#00b55e" }}>
                 {t("book")} {/* Translated */}
               </h2>
             </div>
@@ -90,7 +90,7 @@ export default function BookATable() {
           <div className="w-full lg:w-1/2 flex-col justify-center items-center lg:flex lg:flex-col">
             <HamburgerMenu />
             <div className="max-w-[560px] w-full px-4 pb-4 pt-8">
-              <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8">
+              <p className="font-dancing text-[30px] leading-none md:text-[50px] my-4 md:my-8" style={{ color: "#00b55e" }} >
                 {t("book")} {/* Translated */}
               </p>
 
