@@ -6,6 +6,8 @@
   margin: 40px auto;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .stepIndicator {
@@ -32,11 +34,13 @@
 
 .inputGroup {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputGroup label {
-  display: block;
-  margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 .inputGroup input,
@@ -45,11 +49,13 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-bottom: 10px; /* Adds space below each input for clarity */
 }
 
 .buttonGroup {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px; /* Space above the button group */
 }
 
 .button {
@@ -60,6 +66,8 @@
   cursor: pointer;
   background-color: #00b55e;
   transition: background-color 0.3s ease;
+  flex-grow: 1; /* Allows the buttons to grow and fill the space */
+  margin: 0 5px; /* Adds margin between buttons */
 }
 
 .button:hover {
@@ -72,4 +80,65 @@
 
 .button.backButton:hover {
   background-color: #bbb;
+}
+
+.confirmationMessage {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
+.reservationForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.reservationForm label {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.reservationForm input,
+.reservationForm textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.reservationForm .buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reservationForm .button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  flex-grow: 1;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #00b55e;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reservationForm .button:hover {
+  background-color: #008c4a;
+}
+
+.reservationForm .backButton {
+  background-color: #ccc;
+}
+
+.reservationForm .backButton:hover {
+  background-color: #bbb;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
 }

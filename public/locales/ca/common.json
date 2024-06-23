@@ -15,7 +15,15 @@
   "selectDate": "Trieu la Data",
   "selectTime": "Trieu l'Hora",
   "selectPax": "Nombre de Comensals",
-  "next": "Següent",
+  "comments": "Comentaris",
+  "pleaseFillDate": "Si us plau, ompliu la data.",
+  "pleaseFillTime": "Si us plau, ompliu l'hora.",
+  "pleaseFillPax": "Si us plau, ompliu el nombre de comensals.",
+  "pleaseFillName": "Si us plau, introduïu un nom.",
+  "pleaseFillEmail": "Si us plau, introduïu un correu electrònic.",
   "back": "Enrere",
-  "submit": "Enviar"
+  "next": "Següent",
+  "submit": "Enviar",
+  "makeAnotherReservation": "Fer una altra reserva",
+  "reservationConfirmed": "Reserva confirmada"
 }

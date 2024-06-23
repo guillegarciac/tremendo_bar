@@ -15,7 +15,15 @@
   "selectDate": "Seleccione Fecha",
   "selectTime": "Seleccione Hora",
   "selectPax": "Número de Personas",
-  "next": "Siguiente",
+  "comments": "Comentarios",
+  "pleaseFillDate": "Por favor, rellene la fecha.",
+  "pleaseFillTime": "Por favor, rellene la hora.",
+  "pleaseFillPax": "Por favor, rellene el número de personas.",
+  "pleaseFillName": "Por favor, introduzca un nombre.",
+  "pleaseFillEmail": "Por favor, introduzca un correo electrónico.",
   "back": "Atrás",
-  "submit": "Enviar"
+  "next": "Siguiente",
+  "submit": "Enviar",
+  "makeAnotherReservation": "Hacer otra reserva",
+  "reservationConfirmed": "Reserva confirmada"
 }

@@ -15,7 +15,15 @@
   "selectDate": "Select Date",
   "selectTime": "Select Time",
   "selectPax": "Number of Guests",
-  "next": "Next",
+  "comments": "Comments",
+  "pleaseFillDate": "Please fill in the date.",
+  "pleaseFillTime": "Please fill in the time.",
+  "pleaseFillPax": "Please fill in the number of guests.",
+  "pleaseFillName": "Please enter a name.",
+  "pleaseFillEmail": "Please enter an email.",
   "back": "Back",
-  "submit": "Submit"
+  "next": "Next",
+  "submit": "Submit",
+  "makeAnotherReservation": "Make another reservation",
+  "reservationConfirmed": "Reservation confirmed"
 }
