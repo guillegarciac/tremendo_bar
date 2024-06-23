@@ -7,7 +7,7 @@
   font-family: 'Monoton', cursive;
   line-height: normal;
   margin-bottom: 32px; 
-  color: black;
+  color: #00b55e;
   text-align: left; 
 
   @media (max-width: 767px) {

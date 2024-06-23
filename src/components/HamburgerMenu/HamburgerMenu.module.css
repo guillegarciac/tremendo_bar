@@ -98,19 +98,19 @@
 
 .menuList li a {
   color: rgb(110, 110, 110);
-  font-size: 24px;
+  font-size: 20px;
   text-decoration: none;
   display: block;
 }
 
 .closeIcon {
-  font-size: 25px;
+  font-size: 30px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 18px;
-  width: 25px;
+  width: 30px;
   color: rgb(110, 110, 110); /* Black color for close icon */
 }
 
@@ -125,9 +125,10 @@
 
 .languageIcon {
   position: absolute;
-  top: 10px;  /* Adjust according to your design */
-  right: 10px; /* Adjust according to your design */
+  top: 15px;  /* Adjust according to your design */
+  right: 15px; /* Adjust according to your design */
   z-index: 1000; /* Ensure it's above other elements */
+  color: rgb(110, 110, 110); /* Black color for close icon */
 }
 
 .languageDropdown {
