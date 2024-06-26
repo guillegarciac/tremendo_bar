@@ -1,85 +1,32 @@
-/* BookATable.module.css */
-
 .container {
   max-width: 560px;
-  padding: 16px;
-  margin: 40px auto;
+  padding: 20px; /* Increased padding for better spacing */
+  margin: 60px auto;
   background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
   display: flex;
   flex-direction: column;
 }
 
-.stepIndicator {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
+.form {
+  position: relative;
+  padding-bottom: 100px; /* To make space for sticky buttons */
 }
 
-.stepIndicator li {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: gray;
-  line-height: 25px;
-  color: white;
+.pageTitle {
   text-align: center;
+  margin-top: 20px;
+  color: #00b55e;
 }
 
-.stepIndicator li.active {
-  background: #00b55e;
+.backButton {
+  background-color: #ccc !important;
+  color: #fff !important;
 }
 
-.inputGroup {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.inputGroup label {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.inputGroup input,
-.inputGroup textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px; /* Adds space below each input for clarity */
-}
-
-.buttonGroup {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px; /* Space above the button group */
-}
-
-.button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  background-color: #00b55e;
-  transition: background-color 0.3s ease;
-  flex-grow: 1; /* Allows the buttons to grow and fill the space */
-  margin: 0 5px; /* Adds margin between buttons */
-}
-
-.button:hover {
-  background-color: #008c4a;
-}
-
-.button.backButton {
-  background-color: #ccc;
-}
-
-.button.backButton:hover {
-  background-color: #bbb;
+.backButton:hover {
+  background-color: #bbb !important;
+  color: #fff !important;
 }
 
 .confirmationMessage {
@@ -88,57 +35,57 @@
   font-size: 1.2em;
 }
 
-.reservationForm {
+.primaryButton {
+  background-color: #00b55e !important;
+  color: #fff !important;
+}
+
+.primaryButton:hover {
+  background-color: #008c4a !important;
+  color: #fff !important;
+}
+
+.textField {
+  margin-bottom: 20px; 
+  margin-top: 60px;
+}
+
+.MuiFormHelperText-root {
+  margin-top: 4px; /* Added margin top to keep spacing consistent */
+  color: red !important; /* Error message color */
+}
+
+.stepIcon {
+  color: #ccc;
+}
+
+.stepIconActive {
+  color: #00b55e !important;
+}
+
+.stepIconCompleted {
+  color: #00b55e !important;
+}
+
+.stickyButtons {
+  position: fixed;
+  bottom: 80px;
+  width: 40%;
+  padding: 45px 30px;
   display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+  justify-content: flex-end;
+  gap: 20px;
 }
 
-.reservationForm label {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.reservationForm input,
-.reservationForm textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.reservationForm .buttonGroup {
-  display: flex;
-  justify-content: space-between;
-}
-
-.reservationForm .button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  flex-grow: 1;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  background-color: #00b55e;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.reservationForm .button:hover {
-  background-color: #008c4a;
-}
-
-.reservationForm .backButton {
-  background-color: #ccc;
-}
-
-.reservationForm .backButton:hover {
-  background-color: #bbb;
-}
-
-.error {
-  color: red;
-  margin-top: 5px;
+@media (max-width: 768px) {
+  .stickyButtons {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 45px 45px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  
 }

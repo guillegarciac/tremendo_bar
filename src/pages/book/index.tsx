@@ -1,7 +1,17 @@
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import { useTranslation } from "next-i18next";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Box,
+  Stepper,
+  Step,
+  StepLabel,
+} from "@mui/material";
 import styles from "./bookATable.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
@@ -21,18 +31,12 @@ interface FormData {
   comments: string;
 }
 
-interface FormErrors {
-  date: string;
-  time: string;
-  pax: string;
-  name: string;
-  email: string;
-  comments: string;
-}
+const steps = ["selectDateTitle", "selectTimeTitle", "selectPaxTitle", "selectDetailsTitle"];
 
 export default function BookATable() {
   const { t } = useTranslation("common");
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState<number>(0);
+  const [reservationConfirmed, setReservationConfirmed] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     date: "",
     time: "",
@@ -41,56 +45,56 @@ export default function BookATable() {
     email: "",
     comments: "",
   });
-  const [formErrors, setFormErrors] = useState<FormErrors>({
-    date: "",
-    time: "",
-    pax: "",
-    name: "",
-    email: "",
-    comments: ""
-  });
-  const [reservationConfirmed, setReservationConfirmed] = useState<boolean>(false);
+  const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
-  const handleChange = (key: keyof FormData, value: string) => {
-    setFormData((prevState) => ({ ...prevState, [key]: value }));
-    setFormErrors((prevErrors) => ({ ...prevErrors, [key]: "" }));
+  const handleNext = () => {
+    const errors = validateStep();
+    if (Object.keys(errors).length === 0) {
+      setStep((prevStep) => prevStep + 1);
+    } else {
+      setFormErrors(errors);
+    }
   };
 
-  const validateStep = (): boolean => {
-    const errors: Partial<FormErrors> = {};
-    switch(step) {
-      case 1:
+  const handleBack = () => {
+    setStep((prevStep) => prevStep - 1);
+  };
+
+  const handleChange =
+    (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData({ ...formData, [key]: event.target.value });
+      setFormErrors({ ...formErrors, [key]: "" });
+    };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    const errors = validateStep();
+    if (Object.keys(errors).length === 0) {
+      console.log(formData);
+      setReservationConfirmed(true);
+    } else {
+      setFormErrors(errors);
+    }
+  };
+
+  const validateStep = (): Partial<FormData> => {
+    const errors: Partial<FormData> = {};
+    switch (step) {
+      case 0:
         if (!formData.date) errors.date = t("pleaseFillDate");
         break;
-      case 2:
+      case 1:
         if (!formData.time) errors.time = t("pleaseFillTime");
         break;
-      case 3:
+      case 2:
         if (!formData.pax) errors.pax = t("pleaseFillPax");
         break;
-      case 4:
+      case 3:
         if (!formData.name) errors.name = t("pleaseFillName");
         if (!formData.email) errors.email = t("pleaseFillEmail");
         break;
     }
-
-    setFormErrors(errors as FormErrors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const nextStep = () => {
-    if (validateStep() && step < 4) setStep(step + 1);
-  };
-
-  const prevStep = () => {
-    if (step > 1) setStep(step - 1);
-  };
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    if (!validateStep()) return;
-    console.log(formData);
-    setReservationConfirmed(true);  // Set the confirmation state to true to show the message
+    return errors;
   };
 
   return (
@@ -111,33 +115,87 @@ export default function BookATable() {
               {t("pageTitle")}
             </Link>
             <div className="text-center">
-              <h2 className="font-dancing text-[60px] leading-none text-white" style={{ color: "#00b55e" }}>
+              <Typography variant="h2" style={{ color: "#00b55e" }}>
                 {t("book")}
-              </h2>
+              </Typography>
             </div>
             <div className="hidden lg:block">
-            <FooterMenu />
+              <FooterMenu />
               <NavFooter />
             </div>
           </div>
 
           <div className="w-full lg:w-1/2 flex-col justify-center items-center lg:flex lg:flex-col">
             {reservationConfirmed ? (
-              <div className={styles.confirmationMessage}>
-                <h2>{t("reservationConfirmed")}</h2>
-                <button className={styles.button} onClick={() => window.location.reload()}>
+              <Box textAlign="center" p={3}>
+                <Typography variant="h4">
+                  {t("reservationConfirmed")}
+                </Typography>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={styles.primaryButton}
+                  onClick={() => window.location.reload()}
+                >
                   {t("makeAnotherReservation")}
-                </button>
-              </div>
+                </Button>
+              </Box>
             ) : (
-              <div className={`${styles.stickyContainer} ${styles.container}`}>
-                <ul className={styles.stepIndicator}>
-                  {[1, 2, 3, 4].map((num) => (
-                    <li key={num} className={step >= num ? styles.active : ""}>{num}</li>
+              <Container maxWidth="sm" className={styles.container}>
+                <Stepper activeStep={step} alternativeLabel>
+                  {steps.map((label, index) => (
+                    <Step key={label}>
+                      <StepLabel
+                        StepIconProps={{
+                          classes: {
+                            root: styles.stepIcon,
+                            active: styles.stepIconActive,
+                            completed: styles.stepIconCompleted,
+                          },
+                        }}
+                      >
+                        {t(label)}
+                      </StepLabel>
+                    </Step>
                   ))}
-                </ul>
-                <div>{renderStepContent(step)}</div>
-              </div>
+                </Stepper>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                  {renderStepContent(step)}
+                  <Box
+                    display="flex"
+                    justifyContent="space-between"
+                    mt={2}
+                    className={styles.stickyButtons}
+                  >
+                    <Button
+                      disabled={step === 0}
+                      onClick={handleBack}
+                      className={styles.backButton}
+                    >
+                      {t("back")}
+                    </Button>
+                    {step === steps.length - 1 ? (
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        className={styles.primaryButton}
+                      >
+                        {t("submit")}
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={styles.primaryButton}
+                        onClick={handleNext}
+                      >
+                        {t("next")}
+                      </Button>
+                    )}
+                  </Box>
+                </form>
+              </Container>
             )}
           </div>
         </section>
@@ -148,95 +206,104 @@ export default function BookATable() {
   );
 
   function renderStepContent(step: number) {
-    const errorDisplay = (error: string) => error && <div className={styles.error}>{error}</div>;
     switch (step) {
+      case 0:
+        return (
+          <TextField
+            fullWidth
+            margin="normal"
+            id="date"
+            name="date"
+            label={t("selectDate")}
+            type="date"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={formData.date}
+            onChange={handleChange("date")}
+            error={!!formErrors.date}
+            helperText={formErrors.date}
+            className={styles.textField}
+          />
+        );
       case 1:
         return (
-          <div className={styles.inputGroup}>
-            <label>{t("selectDate")}</label>
-            <input
-              type="date"
-              value={formData.date}
-              onChange={(e) => handleChange("date", e.target.value)}
-            />
-            {errorDisplay(formErrors.date)}
-            <button className={styles.button} onClick={nextStep}>
-              {t("next")}
-            </button>
-          </div>
+          <TextField
+            fullWidth
+            margin="normal"
+            id="time"
+            name="time"
+            label={t("selectTime")}
+            type="time"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={formData.time}
+            onChange={handleChange("time")}
+            error={!!formErrors.time}
+            helperText={formErrors.time}
+            className={styles.textField}
+          />
         );
       case 2:
         return (
-          <div className={styles.inputGroup}>
-            <label>{t("selectTime")}</label>
-            <input
-              type="time"
-              value={formData.time}
-              onChange={(e) => handleChange("time", e.target.value)}
-            />
-            {errorDisplay(formErrors.time)}
-            <div className={styles.buttonGroup}>
-              <button className={`${styles.button} ${styles.backButton}`} onClick={prevStep}>
-                {t("back")}
-              </button>
-              <button className={styles.button} onClick={nextStep}>
-                {t("next")}
-              </button>
-            </div>
-          </div>
+          <TextField
+            fullWidth
+            margin="normal"
+            id="pax"
+            name="pax"
+            label={t("selectPax")}
+            type="number"
+            value={formData.pax}
+            onChange={handleChange("pax")}
+            error={!!formErrors.pax}
+            helperText={formErrors.pax}
+            className={styles.textField}
+          />
         );
       case 3:
         return (
-          <div className={styles.inputGroup}>
-            <label>{t("selectPax")}</label>
-            <input
-              type="number"
-              value={formData.pax}
-              onChange={(e) => handleChange("pax", e.target.value)}
-            />
-            {errorDisplay(formErrors.pax)}
-            <div className={styles.buttonGroup}>
-              <button className={`${styles.button} ${styles.backButton}`} onClick={prevStep}>
-                {t("back")}
-              </button>
-              <button className={styles.button} onClick={nextStep}>
-                {t("next")}
-              </button>
-            </div>
-          </div>
-        );
-      case 4:
-        return (
-          <form onSubmit={handleSubmit} className={styles.reservationForm}>
-            <label>{t("name")}</label>
-            <input
-              type="text"
+          <>
+            <TextField
+              fullWidth
+              margin="normal"
+              id="name"
+              name="name"
+              label={t("name")}
               value={formData.name}
-              onChange={(e) => handleChange("name", e.target.value)}
+              onChange={handleChange("name")}
+              error={!!formErrors.name}
+              helperText={formErrors.name}
+              className={styles.textField}
             />
-            {errorDisplay(formErrors.name)}
-            <label>{t("email")}</label>
-            <input
+            <TextField
+              fullWidth
+              margin="normal"
+              id="email"
+              name="email"
+              label={t("email")}
               type="email"
               value={formData.email}
-              onChange={(e) => handleChange("email", e.target.value)}
+              onChange={handleChange("email")}
+              error={!!formErrors.email}
+              helperText={formErrors.email}
+              className={styles.textField}
             />
-            {errorDisplay(formErrors.email)}
-            <label>{t("comments")}</label>
-            <textarea
+            <TextField
+              fullWidth
+              margin="normal"
+              id="comments"
+              name="comments"
+              label={t("comments")}
+              multiline
+              rows={4}
               value={formData.comments}
-              onChange={(e) => handleChange("comments", e.target.value)}
+              onChange={handleChange("comments")}
+              error={!!formErrors.comments}
+              helperText={formErrors.comments}
+              className={styles.textField}
             />
-            {errorDisplay(formErrors.comments)}
-            <div className={styles.buttonGroup}>
-              <button className={`${styles.button} ${styles.backButton}`} onClick={prevStep}>
-                {t("back")}
-              </button>
-              <button type="submit" className={styles.button}>
-                {t("submit")}
-              </button>
-            </div>
-          </form>
+          </>
         );
       default:
         return null;
