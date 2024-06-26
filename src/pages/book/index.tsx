@@ -100,7 +100,10 @@ export default function BookATable() {
   return (
     <>
       <HamburgerMenu />
-      <main className="min-h-screen relative overflow-hidden bg-white">
+      <main className="min-h-screen relativeoverflow-hidden bg-white">
+        <Typography variant="h3" className={styles.bookTitle}>
+          {t("book")}
+        </Typography>
         <section className="flex flex-col lg:flex-row w-full h-full min-h-screen bg-white">
           <div
             className="w-full lg:w-1/2 p-12 flex-col justify-between items-center min-h-screen h-full hidden lg:flex"

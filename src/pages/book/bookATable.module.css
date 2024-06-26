@@ -3,9 +3,9 @@
   padding: 20px; /* Increased padding for better spacing */
   margin: 60px auto;
   background: white;
-  
   display: flex;
   flex-direction: column;
+  border: white 1px solid;
 }
 
 .form {
@@ -17,6 +17,22 @@
   text-align: center;
   margin-top: 20px;
   color: #00b55e;
+}
+
+.bookTitle {
+  display: none; /* Initially hidden */
+  text-align: center;
+  margin-top: 20px;
+  color: #00b55e;
+}
+
+@media (max-width: 1024px) {
+  .bookTitle {
+    display: block; /* Show on mobile */
+    background-color: white;
+    font-family: 'Monoton', cursive; 
+    border: white 1px solid;
+  }
 }
 
 .backButton {
@@ -46,7 +62,7 @@
 }
 
 .textField {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
   margin-top: 60px;
 }
 
@@ -75,6 +91,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  background: white;
 }
 
 @media (max-width: 768px) {
@@ -86,6 +103,6 @@
     display: flex;
     justify-content: flex-end;
     gap: 20px;
+    background: white;
   }
-  
 }
