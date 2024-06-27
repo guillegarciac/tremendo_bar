@@ -58,27 +58,26 @@
 
 @media (max-width: 768px) {
   .stickyButtons {
-    justify-content: flex-end;
-    gap: 20px;
+    justify-content: flex-end !important;
+    gap: 20px !important;
     background: white;
-    align-items: baseline;
-    margin-top: 30px;
+    align-items: baseline !important;
+    margin-top: 30px !important;
     }
 
-    .container {
-      max-width: 560px;
-      margin: 75px auto;
-      background: white;
-      display: flex;
-      flex-direction: column;
-      gap:40px;
-    }
-    
-    .bookTitle {
-      text-align: center;
-      color: #00b55e;
-      font-family: 'Monoton', cursive;
-    }
+  .container {
+    max-width: 560px;
+    margin: 75px auto !important;
+    display: flex !important;
+    flex-direction: column;
+    gap:40px !important;
+  }
+  
+  .bookTitle {
+    text-align: center;
+    color: #00b55e;
+    font-family: 'Monoton', cursive !important;
+  }
 
 }
 

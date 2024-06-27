@@ -94,7 +94,7 @@ const BookSection = () => {
         </Box>
       ) : (
         <Container className={styles.container}>
-          <Typography variant="h3" className={styles.bookTitle}>
+          <Typography variant="h4" className={styles.bookTitle}>
             {t("book")}
           </Typography>
           <FormSteps steps={steps} activeStep={step} />
