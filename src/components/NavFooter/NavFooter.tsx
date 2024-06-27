@@ -1,11 +1,13 @@
 "use client";
 
+import { useTranslation } from 'next-i18next';  // Import useTranslation from next-i18next
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 
 export default function NavFooter() {
   const pathname = usePathname();
+  const { t } = useTranslation('common'); // Initialize translation hook
 
   const buttonStyle = {
     textDecoration: "none",
@@ -28,7 +30,7 @@ export default function NavFooter() {
                 className="cursor-pointer flex items-center justify-center px-[16px] text-black"
                 style={buttonStyle}
               >
-                Book a Table
+                {t('bookTable')}  
               </Link>
             </li>
           )}
@@ -39,7 +41,7 @@ export default function NavFooter() {
                 className="cursor-pointer flex items-center justify-center px-[16px] text-black"
                 style={buttonStyle}
               >
-                Check our Menu
+                {t('checkOurMenu')}  
               </Link>
             </li>
           )}
