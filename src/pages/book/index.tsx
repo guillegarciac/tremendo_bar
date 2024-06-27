@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BookSection from "@/components/BookComponents/BookSection";  // Ensure path is correct
 import backgroundImage from "../../assets/contacttremendo.jpeg";
+import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
-const HamburgerMenu = dynamic(() => import("@/components/HamburgerMenu/HamburgerMenu"));
 
 export default function BookATable() {
   return (
