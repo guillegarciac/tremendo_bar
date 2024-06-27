@@ -1,25 +1,15 @@
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
-import {
-  TextField,
-  Button,
-  Container,
-  Typography,
-  Box,
-  Stepper,
-  Step,
-  StepLabel,
-  MenuItem,
-} from "@mui/material";
+import { Button, Container, Typography, Box } from "@mui/material";
 import styles from "./bookATable.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
+import FormSteps from "@/components/BookComponents/FormSteps";
+import FormFields from "@/components/BookComponents/FormFields";
 
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
 const HamburgerMenu = dynamic(() => import("@/components/HamburgerMenu/HamburgerMenu"));
-const FooterMenu = dynamic(() => import("@/components/FooterMenu/FooterMenu"));
 
 interface FormData {
   date: string;
@@ -100,111 +90,6 @@ export default function BookATable() {
     return errors;
   };
 
-  function renderStepContent(step: number) {
-    switch (step) {
-      case 0:
-        return (
-          <TextField
-            fullWidth
-            margin="normal"
-            id="date"
-            name="date"
-            label={t("selectDate")}
-            type="date"
-            InputLabelProps={{ shrink: true }}
-            value={formData.date}
-            onChange={handleChange("date")}
-            error={!!formErrors.date}
-            helperText={formErrors.date}
-            className={styles.textField}
-          />
-        );
-      case 1:
-        return (
-          <TextField
-            fullWidth
-            margin="normal"
-            id="time"
-            name="time"
-            label={t("selectTime")}
-            type="time"
-            InputLabelProps={{ shrink: true }}
-            value={formData.time}
-            onChange={handleChange("time")}
-            error={!!formErrors.time}
-            helperText={formErrors.time}
-            className={styles.textField}
-          />
-        );
-      case 2:
-        return (
-          <TextField
-            select
-            fullWidth
-            margin="normal"
-            id="pax"
-            name="pax"
-            label={t("selectPax")}
-            value={formData.pax}
-            onChange={handleChange("pax")}
-            error={!!formErrors.pax}
-            helperText={formErrors.pax}
-            className={styles.textField}
-          >
-            {Array.from(Array(6).keys()).map((number) => (
-              <MenuItem key={number + 1} value={number + 1}>
-                {number + 1}
-              </MenuItem>
-            ))}
-          </TextField>
-        );
-      case 3:
-        return (
-          <>
-            <TextField
-              fullWidth
-              margin="normal"
-              id="name"
-              name="name"
-              label={t("name")}
-              value={formData.name}
-              onChange={handleChange("name")}
-              error={!!formErrors.name}
-              helperText={formErrors.name}
-              className={styles.textField}
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              id="email"
-              name="email"
-              label={t("email")}
-              type="email"
-              value={formData.email}
-              onChange={handleChange("email")}
-              error={!!formErrors.email}
-              helperText={formErrors.email}
-              className={styles.textField}
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              id="comments"
-              name="comments"
-              label={t("comments")}
-              multiline
-              rows={4}
-              value={formData.comments}
-              onChange={handleChange("comments")}
-              error={!!formErrors.comments}
-              helperText={formErrors.comments}
-              className={styles.textField}
-            />
-          </>
-        );
-    }
-  }
-
   return (
     <>
       <HamburgerMenu />
@@ -245,25 +130,14 @@ export default function BookATable() {
               </Box>
             ) : (
               <Container maxWidth="sm" className={styles.container}>
-                <Stepper activeStep={step} alternativeLabel>
-                  {steps.map((label, index) => (
-                    <Step key={label}>
-                      <StepLabel
-                        StepIconProps={{
-                          classes: {
-                            root: styles.stepIcon,
-                            active: styles.stepIconActive,
-                            completed: styles.stepIconCompleted,
-                          },
-                        }}
-                      >
-                        {t(label)}
-                      </StepLabel>
-                    </Step>
-                  ))}
-                </Stepper>
+                <FormSteps steps={steps} activeStep={step} />
                 <form onSubmit={handleSubmit} className={styles.form}>
-                  {renderStepContent(step)}
+                  <FormFields
+                    step={step}
+                    formData={formData}
+                    formErrors={formErrors}
+                    handleChange={handleChange}
+                  />
                   <Box
                     display="flex"
                     justifyContent="space-between"
