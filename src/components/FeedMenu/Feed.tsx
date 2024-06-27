@@ -15,8 +15,8 @@ const Feed: FC<IProps> = ({ startersRef, dinnerRef, hamburgersRef, dessertsRef }
 
   return (
     <div
-      className="max-w-[628px] overflow-hidden overflow-y-scroll"
-      style={{ padding: "20px" }}
+      className="overflow-hidden overflow-y-scroll"
+      style={{ padding: "20px", marginTop: "60px"}}
     >
       <div ref={startersRef} className="w-full px-[10px]">
         <h1
@@ -81,7 +81,7 @@ const Feed: FC<IProps> = ({ startersRef, dinnerRef, hamburgersRef, dessertsRef }
         ))}
       </div>
 
-      <div ref={dessertsRef} className="w-full px-[10px] mt-[96px]">
+      <div ref={dessertsRef} className="w-full px-[10px] mt-[96px] mb-[120px]">
         <h1
           className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}
         >

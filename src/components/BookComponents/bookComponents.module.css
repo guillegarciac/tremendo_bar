@@ -4,7 +4,7 @@
   background: white;
   display: flex;
   flex-direction: column;
-  gap:40px;
+  gap: 40px;
 }
 
 .bookTitle {
@@ -67,7 +67,7 @@
 
     .container {
       max-width: 560px;
-      margin: 60px auto;
+      margin: 75px auto;
       background: white;
       display: flex;
       flex-direction: column;
