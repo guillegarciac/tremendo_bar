@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
@@ -26,12 +25,6 @@ export default function Home() {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <style>{`
-          body, html {
-            overflow: hidden;
-            height: 100%;
-          }
-        `}</style>
       </Head>
 
       <main className="min-h-screen relative overflow-hidden w-full" style={{ backgroundImage: `url(${tremendologo})` }}>
