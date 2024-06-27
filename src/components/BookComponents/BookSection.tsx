@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { Button, Container, Typography, Box } from "@mui/material";
 import FormSteps from "@/components/BookComponents/FormSteps";
 import FormFields from "@/components/BookComponents/FormFields";
-import styles from "./bookComponents.module.css"; // Ensure this path matches the location of your CSS
+import styles from "./bookComponents.module.css";
 
 interface FormData {
   date: string;
@@ -23,29 +23,22 @@ const steps = [
 
 const BookSection = () => {
   const { t } = useTranslation("common");
-  const [step, setStep] = useState<number>(0);
-  const [reservationConfirmed, setReservationConfirmed] = useState<boolean>(false);
-  const [formData, setFormData] = useState<FormData>({
-    date: "",
-    time: "",
-    pax: "",
-    name: "",
-    email: "",
-    comments: "",
-  });
+  const [step, setStep] = useState(0);
+  const [reservationConfirmed, setReservationConfirmed] = useState(false);
+  const [formData, setFormData] = useState<FormData>({ date: "", time: "", pax: "", name: "", email: "", comments: "" });
   const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
   const handleNext = () => {
     const errors = validateStep();
     if (Object.keys(errors).length === 0) {
-      setStep((prevStep) => prevStep + 1);
+      setStep(prevStep => prevStep + 1);
     } else {
       setFormErrors(errors);
     }
   };
 
   const handleBack = () => {
-    setStep((prevStep) => prevStep - 1);
+    setStep(prevStep => prevStep - 1);
   };
 
   const handleChange = (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -57,7 +50,6 @@ const BookSection = () => {
     event.preventDefault();
     const errors = validateStep();
     if (Object.keys(errors).length === 0) {
-      console.log(formData);
       setReservationConfirmed(true);
     } else {
       setFormErrors(errors);
