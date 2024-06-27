@@ -1,16 +1,39 @@
 .container {
   max-width: 560px;
+  padding: 20px; /* Increased padding for better spacing */
   margin: 60px auto;
   background: white;
   display: flex;
   flex-direction: column;
+  border: white 1px solid;
 }
 
-.bookTitle {
+.form {
+  position: relative;
+  padding-bottom: 100px; /* To make space for sticky buttons */
+}
+
+.pageTitle {
   text-align: center;
   margin-top: 20px;
   color: #00b55e;
-  font-family: Monoton, cursive;
+}
+
+.bookTitle {
+  display: none; /* Initially hidden */
+  text-align: center;
+  margin-top: 20px;
+  color: #00b55e;
+}
+
+@media (max-width: 1024px) {
+  .bookTitle {
+    display: block; /* Show on mobile */
+    background-color: white;
+    font-family: 'Monoton', cursive; 
+    border: white 1px solid;
+  }
+
 }
 
 .backButton {
@@ -39,6 +62,16 @@
   color: #fff !important;
 }
 
+.textField {
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+.MuiFormHelperText-root {
+  margin-top: 4px; /* Added margin top to keep spacing consistent */
+  color: red !important; /* Error message color */
+}
+
 .stepIcon {
   color: #ccc;
 }
@@ -49,6 +82,17 @@
 
 .stepIconCompleted {
   color: #00b55e !important;
+}
+
+.stickyButtons {
+  position: fixed;
+  bottom: 80px;
+  width: 40%;
+  padding: 45px 30px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  background: white;
 }
 
 @media (max-width: 768px) {
@@ -63,4 +107,3 @@
     background: white;
   }
 }
-

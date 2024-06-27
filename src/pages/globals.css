@@ -25,6 +25,11 @@ main {
   background-attachment: fixed; /* Keeps the background fixed during scrolling */
 }
 
+
+form {
+
+}
+
 ::-webkit-scrollbar {
   width: 0;
   height: 0;

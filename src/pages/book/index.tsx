@@ -19,7 +19,9 @@ import contactTremendo from "../../assets/contacttremendo.jpeg";
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
   ssr: false,
 });
-const HamburgerMenu = dynamic(() => import("@/components/HamburgerMenu/HamburgerMenu"));
+const HamburgerMenu = dynamic(
+  () => import("@/components/HamburgerMenu/HamburgerMenu")
+);
 const FooterMenu = dynamic(() => import("@/components/FooterMenu/FooterMenu"));
 
 interface FormData {
@@ -31,12 +33,18 @@ interface FormData {
   comments: string;
 }
 
-const steps = ["selectDateTitle", "selectTimeTitle", "selectPaxTitle", "selectDetailsTitle"];
+const steps = [
+  "selectDateTitle",
+  "selectTimeTitle",
+  "selectPaxTitle",
+  "selectDetailsTitle",
+];
 
 export default function BookATable() {
   const { t } = useTranslation("common");
   const [step, setStep] = useState<number>(0);
-  const [reservationConfirmed, setReservationConfirmed] = useState<boolean>(false);
+  const [reservationConfirmed, setReservationConfirmed] =
+    useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     date: "",
     time: "",
@@ -100,13 +108,10 @@ export default function BookATable() {
   return (
     <>
       <HamburgerMenu />
-      <main className="min-h-screen relativeoverflow-hidden bg-white">
-        <Typography variant="h3" className={styles.bookTitle}>
-          {t("book")}
-        </Typography>
-        <section className="flex flex-col lg:flex-row w-full h-full min-h-screen bg-white">
+      <main className="lg:min-h-screen relative overflow-visible w-full">
+        <section className="flex flex-col lg:flex-row w-full h-full lg:min-h-screen bg-white">
           <div
-            className="w-full lg:w-1/2 p-12 flex-col justify-between items-center min-h-screen h-full hidden lg:flex"
+            className="w-full lg:w-1/2 p-12 flex-col justify-between items-center lg:min-h-screen h-full hidden lg:flex"
             style={{
               backgroundImage: `url(${contactTremendo.src || contactTremendo})`,
               backgroundRepeat: "no-repeat",
@@ -114,21 +119,17 @@ export default function BookATable() {
               backgroundColor: "rgba(255, 255, 255, 0.5)",
             }}
           >
-            <Link href="/" className="font-semibold cursor-pointer text-white">
-              {t("pageTitle")}
-            </Link>
-            <div className="text-center">
-              <Typography variant="h2" style={{ color: "#00b55e" }}>
-                {t("book")}
-              </Typography>
-            </div>
             <div className="hidden lg:block">
-              <FooterMenu />
               <NavFooter />
             </div>
           </div>
 
           <div className="w-full lg:w-1/2 flex-col justify-center items-center lg:flex lg:flex-col">
+            <div className="text-center">
+              <Typography variant="h2" className={styles.bookTitle}>
+                {t("book")}
+              </Typography>
+            </div>
             {reservationConfirmed ? (
               <Box textAlign="center" p={3}>
                 <Typography variant="h4">
@@ -203,8 +204,6 @@ export default function BookATable() {
           </div>
         </section>
       </main>
-      <FooterMenu />
-      <NavFooter />
     </>
   );
 
