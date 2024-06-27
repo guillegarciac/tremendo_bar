@@ -102,7 +102,7 @@ const BookSection = () => {
         </Box>
       ) : (
         <Container className={styles.container}>
-          <Typography variant="h3" className={styles.bookTitle}>
+          <Typography variant="h3" className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.bookTitle}`}>
             {t("book")}
           </Typography>
           <FormSteps steps={steps} activeStep={step} />
