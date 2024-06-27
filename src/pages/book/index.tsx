@@ -11,17 +11,14 @@ import {
   Stepper,
   Step,
   StepLabel,
+  MenuItem,
 } from "@mui/material";
 import styles from "./bookATable.module.css";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import contactTremendo from "../../assets/contacttremendo.jpeg";
 
-const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
-  ssr: false,
-});
-const HamburgerMenu = dynamic(
-  () => import("@/components/HamburgerMenu/HamburgerMenu")
-);
+const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
+const HamburgerMenu = dynamic(() => import("@/components/HamburgerMenu/HamburgerMenu"));
 const FooterMenu = dynamic(() => import("@/components/FooterMenu/FooterMenu"));
 
 interface FormData {
@@ -43,8 +40,7 @@ const steps = [
 export default function BookATable() {
   const { t } = useTranslation("common");
   const [step, setStep] = useState<number>(0);
-  const [reservationConfirmed, setReservationConfirmed] =
-    useState<boolean>(false);
+  const [reservationConfirmed, setReservationConfirmed] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     date: "",
     time: "",
@@ -68,11 +64,10 @@ export default function BookATable() {
     setStep((prevStep) => prevStep - 1);
   };
 
-  const handleChange =
-    (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setFormData({ ...formData, [key]: event.target.value });
-      setFormErrors({ ...formErrors, [key]: "" });
-    };
+  const handleChange = (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [key]: event.target.value });
+    setFormErrors({ ...formErrors, [key]: "" });
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -105,6 +100,111 @@ export default function BookATable() {
     return errors;
   };
 
+  function renderStepContent(step: number) {
+    switch (step) {
+      case 0:
+        return (
+          <TextField
+            fullWidth
+            margin="normal"
+            id="date"
+            name="date"
+            label={t("selectDate")}
+            type="date"
+            InputLabelProps={{ shrink: true }}
+            value={formData.date}
+            onChange={handleChange("date")}
+            error={!!formErrors.date}
+            helperText={formErrors.date}
+            className={styles.textField}
+          />
+        );
+      case 1:
+        return (
+          <TextField
+            fullWidth
+            margin="normal"
+            id="time"
+            name="time"
+            label={t("selectTime")}
+            type="time"
+            InputLabelProps={{ shrink: true }}
+            value={formData.time}
+            onChange={handleChange("time")}
+            error={!!formErrors.time}
+            helperText={formErrors.time}
+            className={styles.textField}
+          />
+        );
+      case 2:
+        return (
+          <TextField
+            select
+            fullWidth
+            margin="normal"
+            id="pax"
+            name="pax"
+            label={t("selectPax")}
+            value={formData.pax}
+            onChange={handleChange("pax")}
+            error={!!formErrors.pax}
+            helperText={formErrors.pax}
+            className={styles.textField}
+          >
+            {Array.from(Array(6).keys()).map((number) => (
+              <MenuItem key={number + 1} value={number + 1}>
+                {number + 1}
+              </MenuItem>
+            ))}
+          </TextField>
+        );
+      case 3:
+        return (
+          <>
+            <TextField
+              fullWidth
+              margin="normal"
+              id="name"
+              name="name"
+              label={t("name")}
+              value={formData.name}
+              onChange={handleChange("name")}
+              error={!!formErrors.name}
+              helperText={formErrors.name}
+              className={styles.textField}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              id="email"
+              name="email"
+              label={t("email")}
+              type="email"
+              value={formData.email}
+              onChange={handleChange("email")}
+              error={!!formErrors.email}
+              helperText={formErrors.email}
+              className={styles.textField}
+            />
+            <TextField
+              fullWidth
+              margin="normal"
+              id="comments"
+              name="comments"
+              label={t("comments")}
+              multiline
+              rows={4}
+              value={formData.comments}
+              onChange={handleChange("comments")}
+              error={!!formErrors.comments}
+              helperText={formErrors.comments}
+              className={styles.textField}
+            />
+          </>
+        );
+    }
+  }
+
   return (
     <>
       <HamburgerMenu />
@@ -123,7 +223,6 @@ export default function BookATable() {
               <NavFooter />
             </div>
           </div>
-
           <div className="w-full lg:w-1/2 flex-col justify-center items-center lg:flex lg:flex-col">
             <div className="text-center">
               <Typography variant="h2" className={styles.bookTitle}>
@@ -206,111 +305,6 @@ export default function BookATable() {
       </main>
     </>
   );
-
-  function renderStepContent(step: number) {
-    switch (step) {
-      case 0:
-        return (
-          <TextField
-            fullWidth
-            margin="normal"
-            id="date"
-            name="date"
-            label={t("selectDate")}
-            type="date"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            value={formData.date}
-            onChange={handleChange("date")}
-            error={!!formErrors.date}
-            helperText={formErrors.date}
-            className={styles.textField}
-          />
-        );
-      case 1:
-        return (
-          <TextField
-            fullWidth
-            margin="normal"
-            id="time"
-            name="time"
-            label={t("selectTime")}
-            type="time"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            value={formData.time}
-            onChange={handleChange("time")}
-            error={!!formErrors.time}
-            helperText={formErrors.time}
-            className={styles.textField}
-          />
-        );
-      case 2:
-        return (
-          <TextField
-            fullWidth
-            margin="normal"
-            id="pax"
-            name="pax"
-            label={t("selectPax")}
-            type="number"
-            value={formData.pax}
-            onChange={handleChange("pax")}
-            error={!!formErrors.pax}
-            helperText={formErrors.pax}
-            className={styles.textField}
-          />
-        );
-      case 3:
-        return (
-          <>
-            <TextField
-              fullWidth
-              margin="normal"
-              id="name"
-              name="name"
-              label={t("name")}
-              value={formData.name}
-              onChange={handleChange("name")}
-              error={!!formErrors.name}
-              helperText={formErrors.name}
-              className={styles.textField}
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              id="email"
-              name="email"
-              label={t("email")}
-              type="email"
-              value={formData.email}
-              onChange={handleChange("email")}
-              error={!!formErrors.email}
-              helperText={formErrors.email}
-              className={styles.textField}
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              id="comments"
-              name="comments"
-              label={t("comments")}
-              multiline
-              rows={4}
-              value={formData.comments}
-              onChange={handleChange("comments")}
-              error={!!formErrors.comments}
-              helperText={formErrors.comments}
-              className={styles.textField}
-            />
-          </>
-        );
-      default:
-        return null;
-    }
-  }
 }
 
 export async function getServerSideProps({ locale }: { locale: string }) {
