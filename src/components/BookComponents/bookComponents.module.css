@@ -52,7 +52,7 @@
   color: #00b55e !important;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .stickyButtons {
     position: fixed;
     bottom: 0;
@@ -63,5 +63,5 @@
     gap: 20px;
     background: white;
   }
-}
+} */
 
