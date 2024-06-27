@@ -1,7 +1,8 @@
 import React, { FC, MutableRefObject, useState } from "react";
+import { useTranslation } from 'next-i18next'; // Import useTranslation
 import styles from "./nav.module.css";
 
-//-------------------------------------------------------
+
 interface IProps {
   startersRef: MutableRefObject<HTMLDivElement | null>;
   dinnerRef: MutableRefObject<HTMLDivElement | null>;
@@ -9,7 +10,7 @@ interface IProps {
   dessertsRef: MutableRefObject<HTMLDivElement | null>;
   navigationHandler: (ref: MutableRefObject<HTMLDivElement | null>) => void;
 }
-//-------------------------------------------------------
+
 
 const Nav: FC<IProps> = ({
   navigationHandler,
@@ -19,6 +20,7 @@ const Nav: FC<IProps> = ({
   dessertsRef,
 }) => {
   const [active, setActive] = useState<string>("");
+  const { t } = useTranslation('common'); 
 
   const handleNavigation = (
     section: string,
@@ -36,7 +38,7 @@ const Nav: FC<IProps> = ({
           active === "appetizers" ? styles.active : ""
         }`}
       >
-        Appetizers
+        {t('appetizers')}  
       </button>
       <button
         onClick={() => handleNavigation("dishes", dinnerRef)}
@@ -44,7 +46,7 @@ const Nav: FC<IProps> = ({
           active === "dishes" ? styles.active : ""
         }`}
       >
-        Dishes
+        {t('dishes')}  
       </button>
       <button
         onClick={() => handleNavigation("hamburgers", hamburgersRef)}
@@ -52,7 +54,7 @@ const Nav: FC<IProps> = ({
           active === "hamburgers" ? styles.active : ""
         }`}
       >
-        Hamburgers
+        {t('hamburgers')} 
       </button>
       <button
         onClick={() => handleNavigation("desserts", dessertsRef)}
@@ -60,7 +62,7 @@ const Nav: FC<IProps> = ({
           active === "desserts" ? styles.active : ""
         }`}
       >
-        Desserts
+        {t('desserts')} 
       </button>
     </div>
   );

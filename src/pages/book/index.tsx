@@ -4,7 +4,7 @@ import BookSection from "@/components/BookComponents/BookSection";  // Ensure pa
 import backgroundImage from "../../assets/contacttremendo.jpeg";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 
-const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
+const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: true });
 
 export default function BookATable() {
   return (

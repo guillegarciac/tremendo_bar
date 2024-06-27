@@ -1,7 +1,6 @@
-import React, { FC, MutableRefObject, useEffect } from "react";
+import React, { FC, MutableRefObject } from "react";
 import { useTranslation } from 'next-i18next';
 import menuData from "../../data/menuData";
-import Footer from "@/components/FooterMenu/FooterMenu";
 import styles from "./feed.module.css";
 
 interface IProps {
@@ -97,8 +96,6 @@ const Feed: FC<IProps> = ({ startersRef, dinnerRef, hamburgersRef, dessertsRef }
           </div>
         ))}
       </div>
-
-      <Footer />
     </div>
   );
 };
