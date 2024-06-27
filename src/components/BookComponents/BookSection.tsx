@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { Button, Container, Typography, Box } from "@mui/material";
 import FormSteps from "@/components/BookComponents/FormSteps";
 import FormFields from "@/components/BookComponents/FormFields";
-import styles from "./bookComponents.module.css";  // Ensure this path matches the location of your CSS
+import styles from "./bookComponents.module.css"; // Ensure this path matches the location of your CSS
 
 interface FormData {
   date: string;
@@ -87,20 +87,24 @@ const BookSection = () => {
   return (
     <>
       {reservationConfirmed ? (
-        <Box textAlign="center" p={3}>
-          <Typography variant="h4">
+        <Box textAlign="center" p={3} className={styles.confirmationMessage}>
+          <Typography variant="h4" className={styles.confirmationMessage}>
             {t("reservationConfirmed")}
           </Typography>
           <Button
             variant="contained"
             color="primary"
+            className={styles.primaryButton}
             onClick={() => window.location.reload()}
           >
             {t("makeAnotherReservation")}
           </Button>
         </Box>
       ) : (
-        <Container maxWidth="sm">
+        <Container className={styles.container}>
+          <Typography variant="h2" className={styles.bookTitle}>
+            {t("book")}
+          </Typography>
           <FormSteps steps={steps} activeStep={step} />
           <form onSubmit={handleSubmit}>
             <FormFields
@@ -109,19 +113,20 @@ const BookSection = () => {
               formErrors={formErrors}
               handleChange={handleChange}
             />
-            <Box display="flex" justifyContent="space-between" mt={2}>
+            <Box display="flex" justifyContent="space-between" mt={2} className={styles.stickyButtons}>
               <Button
                 disabled={step === 0}
                 onClick={handleBack}
+                className={styles.backButton}
               >
                 {t("back")}
               </Button>
               {step === steps.length - 1 ? (
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" className={styles.primaryButton}>
                   {t("submit")}
                 </Button>
               ) : (
-                <Button variant="contained" color="primary" onClick={handleNext}>
+                <Button variant="contained" className={styles.primaryButton} onClick={handleNext}>
                   {t("next")}
                 </Button>
               )}
