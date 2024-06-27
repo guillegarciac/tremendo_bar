@@ -9,7 +9,6 @@
 
 .bookTitle {
   text-align: center;
-  margin-top: 20px;
   color: #00b55e;
   font-family: Monoton, cursive;
 }
@@ -52,16 +51,13 @@
   color: #00b55e !important;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .stickyButtons {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 45px 45px;
-    display: flex;
     justify-content: flex-end;
     gap: 20px;
     background: white;
-  }
-} */
+    align-items: baseline;
+    margin-top: 30px;
+    }
+}
 
