@@ -16,7 +16,7 @@ const Feed: FC<IProps> = ({ startersRef, dinnerRef, hamburgersRef, dessertsRef }
   return (
     <div
       className="overflow-hidden overflow-y-scroll"
-      style={{ padding: "20px", marginTop: "60px"}}
+      style={{ padding: "20px", marginTop: "50px"}}
     >
       <div ref={startersRef} className="w-full px-[10px]">
         <h1
