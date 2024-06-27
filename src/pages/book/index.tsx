@@ -15,7 +15,7 @@ export default function BookATable() {
       <main className="relative overflow-visible w-full">
         <section className="flex flex-col lg:flex-row w-full min-h-screen bg-white">
           <div
-            className="w-full lg:w-1/2 p-12 flex-col justify-between items-center hidden lg:flex"
+            className="w-full lg:w-1/2 p-12 flex-col justify-center items-center hidden lg:flex"
             style={{
               background: `url(${backgroundImage.src})`,
               backgroundRepeat: "no-repeat",
