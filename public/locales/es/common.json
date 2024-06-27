@@ -12,7 +12,7 @@
   "email": "Correo electrónico",
   "message": "Mensaje",
   "bookTable": "Reservar una Mesa",
-  "checkOurMenu": "Echa un vistazo a nuestro menú",
+  "checkOurMenu": "Nuestro menú",
   "selectDate": "Seleccione Fecha",
   "selectTime": "Seleccione Hora",
   "selectPax": "Número de Personas",
@@ -31,5 +31,9 @@
   "next": "Siguiente",
   "submit": "Enviar",
   "makeAnotherReservation": "Hacer otra reserva",
-  "reservationConfirmed": "Reserva confirmada"
+  "reservationConfirmed": "Reserva confirmada",
+  "footerCopyright": "Tremendo Sant Cugat",
+  "allRightsReserved": "Grupo Clorofila Barcelona",
+  "designedBy": "Diseñado por",
+  "preferPhoneBooking": "¿Prefieres reservar por teléfono?"
 }

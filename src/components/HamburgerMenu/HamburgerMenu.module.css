@@ -115,12 +115,14 @@
 }
 
 .footerContainer {
-  width: 85%;
+  width: 100%;
   position: absolute;
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(99, 99, 99, 0.05); /* Black color for close icon */
+  margin-left: -25px;
 }
 
 .languageIcon {

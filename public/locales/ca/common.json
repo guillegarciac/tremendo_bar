@@ -2,7 +2,7 @@
   "home": "Inici",
   "book": "Reserva",
   "menu": "Menú",
-  "pageTitle": "Tremendo Bar Sant Cugat",
+  "pageTitle": "Tremendo Sant Cugat",
   "logoAlt": "Logo de Tremendo",
   "appetizers": "Aperitius",
   "dishes": "Plats",
@@ -12,7 +12,7 @@
   "email": "Correu electrònic",
   "message": "Missatge",
   "bookTable": "Reserva una Taula",
-  "checkOurMenu": "Consulta el nostre menú",
+  "checkOurMenu": "El nostre menú",
   "selectDate": "Trieu la Data",
   "selectTime": "Trieu l'Hora",
   "selectPax": "Nombre de Comensals",
@@ -31,5 +31,9 @@
   "next": "Següent",
   "submit": "Enviar",
   "makeAnotherReservation": "Fer una altra reserva",
-  "reservationConfirmed": "Reserva confirmada"
+  "reservationConfirmed": "Reserva confirmada",
+  "footerCopyright": "Tremendo Sant Cugat",
+  "allRightsReserved": "Grupo Clorofila Barcelona",
+  "designedBy": "Dissenyat per",
+  "preferPhoneBooking": "Prefereixes reservar per telèfon?"
 }

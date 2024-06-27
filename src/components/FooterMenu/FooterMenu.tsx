@@ -1,33 +1,16 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { useTranslation } from 'next-i18next'; 
+import { FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
-  const buttonStyle = {
-    textDecoration: "none",
-    border: "1px solid #ccc",
-    borderRadius: "0",
-    height: "48px",
-    width: "200px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "black",
-    backgroundColor: "white",
-  };
-
+  const { t } = useTranslation('common'); 
+  
   return (
-    <div className="flex flex-col items-center justify-between mt-[96px] mb-[10px] px-[10px]">
-      <div className="text-center mt-10 mb-0">
+    <div className="flex flex-col items-center justify-between mb-[20px] px-[10px]">
+      {/* <div className="text-center mt-4 mb-0">
         <p className="text-xs text-black">
-          © 2024 Tremendo Bar Sant Cugat
-          <br />
-          All rights reserved.
-        </p>
-      </div>
-
-      <div className="text-center mt-4 mb-0">
-        <p className="text-xs text-black">
-          Designed by
+          {t('designedBy')}
           <Link
             href="https://guillegarciac.github.io/mycv/"
             target="_blank"
@@ -37,7 +20,21 @@ const Footer = () => {
             guillegarciac
           </Link>
         </p>
+      </div> */}
+      <div className="text-center mt-4 mb-0">
+        <a href="https://www.instagram.com/tremendo.santcugat/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
+          <FaInstagram size={24} />
+        </a>
       </div>
+      <div className="text-center mt-6 mb-0">
+        <p className="text-xs text-black">
+          © 2024, {t('footerCopyright')}
+          <br />
+          {t('allRightsReserved')}
+        </p>
+      </div>
+
+      
     </div>
   );
 };

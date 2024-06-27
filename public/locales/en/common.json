@@ -31,5 +31,10 @@
   "next": "Next",
   "submit": "Submit",
   "makeAnotherReservation": "Make another reservation",
-  "reservationConfirmed": "Reservation confirmed"
+  "reservationConfirmed": "Reservation confirmed",
+  "footerCopyright": "Tremendo Sant Cugat",
+  "allRightsReserved": "Grupo Clorofila Barcelona",
+  "designedBy": "Designed by",
+  "preferPhoneBooking": "Prefer phone booking?"
+  
 }
