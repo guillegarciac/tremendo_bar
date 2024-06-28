@@ -4,7 +4,7 @@ import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image";
 import tremendologo from "../assets/tremendologo.png";
-import tremendoImage from "../assets/tremendoIndex.jpg"; // Import the new image
+import tremendoImage from "../assets/tremendoIndex.jpg"; 
 import { useTranslation } from 'next-i18next'; 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
