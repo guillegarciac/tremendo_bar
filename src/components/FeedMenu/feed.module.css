@@ -9,13 +9,16 @@
   margin-bottom: 32px; 
   color: #00b55e;
   text-align: left; 
+  white-space: normal; /* Ensure normal word spacing */
+  word-spacing: 0.3em; /* Add spacing between words */
 
   @media (max-width: 767px) {
     text-align: center;
-      font-size: 32px; /* Smaller font size for mobile screens */
-    
+    font-size: 32px; /* Smaller font size for mobile screens */
+    word-spacing: 0.2em; /* Adjust word spacing for mobile screens */
   }
 }
+
 
 .subtitle {
   font-size: 24px;
