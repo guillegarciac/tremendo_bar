@@ -19,14 +19,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 main {
-  background-size: cover;
+  background-size: 120%; /* Zoom in by increasing the background size */
   background-position: center;
   background-attachment: fixed; /* Keeps the background fixed during scrolling */
-  background-color: #008c4a;
+  background-color: white;
   min-height: 100vh; /* Ensures the minimum height of the viewport */
   width: 100vw; /* Width is set to the width of the viewport */
   overflow: hidden; /* Hides both vertical and horizontal overflow */
   position: relative; /* Added to maintain the positioning context */
+}
+
+/* Specific styles for mobile devices */
+@media (max-width: 767px) {
+  main {
+    background-size: 140%; /* Further zoom in for mobile devices */
+    background-position: center top; /* Adjusts the position for better fit */
+  }
 }
 
 .navigation-footer {
