@@ -4,6 +4,7 @@ import Head from "next/head";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import Image from "next/image";
 import tremendologo from "../assets/tremendologo.png";
+import tremendoImage from "../assets/tremendoIndex.jpg"; // Import the new image
 import { useTranslation } from 'next-i18next'; 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
@@ -27,19 +28,19 @@ export default function Home() {
         />
       </Head>
 
-      <main className="min-h-screen relative overflow-hidden w-full" style={{ backgroundImage: `url(${tremendologo})` }}>
+      <main className="min-h-screen relative overflow-hidden w-full" style={{ backgroundImage: `url(${tremendoImage.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="stickyContainer">
           <HamburgerMenu />
         </div>
         <section className="fixed inset-0 min-h-screen w-full bg-transparent flex flex-col items-center justify-center p-8 md:p-12 z-[20] text-center text-white">
-          <div className="my-4 md:my-8">
+          {/* <div className="my-4 md:my-8">
             <Image
               src={tremendologo}
               alt={t('logoAlt', "Tremendo Logo")}
               width={400}
               height={200}
             />
-          </div>
+          </div> */}
 
           <div className="flex flex-col items-center">
             <div className="navigation-footer">
