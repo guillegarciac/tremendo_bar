@@ -8,10 +8,11 @@ import Feed from "../FeedMenu/Feed";
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), { ssr: false });
 
 const MenuSection: FC = () => {
-  const startersRef = useRef<HTMLDivElement | null>(null);
-  const dinnerRef = useRef<HTMLDivElement | null>(null);
-  const hamburgersRef = useRef<HTMLDivElement | null>(null);
+  const appetizersRef = useRef<HTMLDivElement | null>(null);
+  const tapasRef = useRef<HTMLDivElement | null>(null);
   const dessertsRef = useRef<HTMLDivElement | null>(null);
+  const winesRef = useRef<HTMLDivElement | null>(null);
+  const beersRef = useRef<HTMLDivElement | null>(null);  // Added reference for beers
 
   function scrollToSection(sectionRef: MutableRefObject<HTMLDivElement | null>) {
     sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -34,17 +35,19 @@ const MenuSection: FC = () => {
       </div>
       <div className="w-full lg:w-[50%] flex flex-col items-center h-screen">
         <Nav
-          startersRef={startersRef}
-          dinnerRef={dinnerRef}
-          hamburgersRef={hamburgersRef}
+          appetizersRef={appetizersRef}
+          tapasRef={tapasRef}
           dessertsRef={dessertsRef}
+          winesRef={winesRef}
+          beersRef={beersRef}  // Pass beersRef to the Nav component
           navigationHandler={scrollToSection}
         />
         <Feed
-          startersRef={startersRef}
-          dinnerRef={dinnerRef}
-          hamburgersRef={hamburgersRef}
+          appetizersRef={appetizersRef}
+          tapasRef={tapasRef}
           dessertsRef={dessertsRef}
+          winesRef={winesRef}
+          beersRef={beersRef}  // Pass beersRef to the Feed component
         />
       </div>
     </section>
