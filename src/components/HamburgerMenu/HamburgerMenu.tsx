@@ -16,14 +16,23 @@ const HamburgerMenu = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchPosition, setTouchPosition] = useState<number | null>(null);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
+  const [shadowOpacity, setShadowOpacity] = useState(0.674);
+
+  const minSwipeWidth = 50;
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setCurrentTranslate(0);
+    setShadowOpacity(0.674); // Reset shadow opacity when toggling
   };
 
   const handleLanguageChange = (selectedLanguage: string) => {
     router.push(router.pathname, router.pathname, { locale: selectedLanguage });
-    setIsOpen(false); // Close the menu when changing language
-    setShowLanguageOptions(false); // Close the language dropdown
+    setIsOpen(false);
+    setShowLanguageOptions(false);
   };
 
   const toggleLanguageDropdown = () => {
@@ -35,6 +44,39 @@ const HamburgerMenu = () => {
       setIsOpen(false);
       setShowLanguageOptions(false);
     }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const start = e.targetTouches[0].clientX;
+    setTouchStart(start);
+    setTouchPosition(start);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const touchCurrent = e.targetTouches[0].clientX;
+    if (touchStart !== null) {
+      const diff = touchStart - touchCurrent;
+      if (diff > 0) {
+        const translateAmount = Math.min(diff, window.innerWidth * 0.9);  // Assume the menu is at most 90% of the viewport width
+        setCurrentTranslate(-translateAmount);
+
+        // Increase the rate of opacity change
+        const opacityFactor = 1 - (2 * (translateAmount / (window.innerWidth * 0.9))); // Doubling the rate at which opacity changes
+        setShadowOpacity(Math.max(0.674 * opacityFactor, 0));  // Ensure opacity does not go negative or exceed initial state
+      }
+    }
+    setTouchPosition(touchCurrent);
+};
+
+
+  const handleTouchEnd = () => {
+    if (touchStart !== null && touchPosition !== null && (touchStart - touchPosition) > minSwipeWidth) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+    setCurrentTranslate(0);
+    setShadowOpacity(0); // Hide shadow completely on menu close
   };
 
   useEffect(() => {
@@ -50,7 +92,6 @@ const HamburgerMenu = () => {
     { code: "ca", label: "Català" },
   ];
 
-  // Define menu items based on the current path
   const getMenuItems = () => {
     const links = [
       { path: "/", label: t("home"), alwaysShow: pathname !== "/" },
@@ -74,7 +115,14 @@ const HamburgerMenu = () => {
           <span></span><span></span><span></span>
         </div>}
       </button>
-      <div className={styles.menuOverlay} style={{ transform: isOpen ? "translateX(0)" : "translateX(-100%)" }} ref={menuRef}>
+      <div 
+        className={styles.menuOverlay} 
+        style={{ transform: isOpen ? `translateX(${Math.max(currentTranslate, -100)}%)` : "translateX(-100%)" }} 
+        ref={menuRef} 
+        onTouchStart={handleTouchStart} 
+        onTouchMove={handleTouchMove} 
+        onTouchEnd={handleTouchEnd}
+      >
         <ul className={styles.menuList}>{getMenuItems()}</ul>
         <div className={styles.footerContainer}>
           <Footer />
@@ -92,7 +140,7 @@ const HamburgerMenu = () => {
           </ul>
         )}
       </div>
-      {isOpen && <div className={styles.shadowOverlay}></div>}
+      {isOpen && <div className={styles.shadowOverlay} style={{ opacity: shadowOpacity }}></div>}
     </div>
   );
 };
