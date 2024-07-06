@@ -1,80 +1,80 @@
 import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Button, Container, Typography, Box } from "@mui/material";
-import FormSteps from "@/components/BookComponents/FormSteps";
-import FormFields from "@/components/BookComponents/FormFields";
+// import FormSteps from "@/components/BookComponents/FormSteps";
+// import FormFields from "@/components/BookComponents/FormFields";
 import styles from "./bookComponents.module.css";
 
-interface FormData {
-  date: string;
-  time: string;
-  pax: string;
-  name: string;
-  email: string;
-  comments: string;
-}
+// interface FormData {
+//   date: string;
+//   time: string;
+//   pax: string;
+//   name: string;
+//   email: string;
+//   comments: string;
+// }
 
-const steps = [
-  "selectDateTitle",
-  "selectTimeTitle",
-  "selectPaxTitle",
-  "selectDetailsTitle",
-];
+// const steps = [
+//   "selectDateTitle",
+//   "selectTimeTitle",
+//   "selectPaxTitle",
+//   "selectDetailsTitle",
+// ];
 
 const BookSection = () => {
   const { t } = useTranslation("common");
-  const [step, setStep] = useState(0);
+  // const [step, setStep] = useState(0);
   const [reservationConfirmed, setReservationConfirmed] = useState(false);
-  const [formData, setFormData] = useState<FormData>({ date: "", time: "", pax: "", name: "", email: "", comments: "" });
-  const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
+  // const [formData, setFormData] = useState<FormData>({ date: "", time: "", pax: "", name: "", email: "", comments: "" });
+  // const [formErrors, setFormErrors] = useState<Partial<FormData>>({});
 
-  const handleNext = () => {
-    const errors = validateStep();
-    if (Object.keys(errors).length === 0) {
-      setStep(prevStep => prevStep + 1);
-    } else {
-      setFormErrors(errors);
-    }
-  };
+  // const handleNext = () => {
+  //   const errors = validateStep();
+  //   if (Object.keys(errors).length === 0) {
+  //     setStep(prevStep => prevStep + 1);
+  //   } else {
+  //     setFormErrors(errors);
+  //   }
+  // };
 
-  const handleBack = () => {
-    setStep(prevStep => prevStep - 1);
-  };
+  // const handleBack = () => {
+  //   setStep(prevStep => prevStep - 1);
+  // };
 
-  const handleChange = (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [key]: event.target.value });
-    setFormErrors({ ...formErrors, [key]: "" });
-  };
+  // const handleChange = (key: keyof FormData) => (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setFormData({ ...formData, [key]: event.target.value });
+  //   setFormErrors({ ...formErrors, [key]: "" });
+  // };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    const errors = validateStep();
-    if (Object.keys(errors).length === 0) {
-      setReservationConfirmed(true);
-    } else {
-      setFormErrors(errors);
-    }
-  };
+  // const handleSubmit = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const errors = validateStep();
+  //   if (Object.keys(errors).length === 0) {
+  //     setReservationConfirmed(true);
+  //   } else {
+  //     setFormErrors(errors);
+  //   }
+  // };
 
-  const validateStep = (): Partial<FormData> => {
-    const errors: Partial<FormData> = {};
-    switch (step) {
-      case 0:
-        if (!formData.date) errors.date = t("pleaseFillDate");
-        break;
-      case 1:
-        if (!formData.time) errors.time = t("pleaseFillTime");
-        break;
-      case 2:
-        if (!formData.pax) errors.pax = t("pleaseFillPax");
-        break;
-      case 3:
-        if (!formData.name) errors.name = t("pleaseFillName");
-        if (!formData.email) errors.email = t("pleaseFillEmail");
-        break;
-    }
-    return errors;
-  };
+  // const validateStep = (): Partial<FormData> => {
+  //   const errors: Partial<FormData> = {};
+  //   switch (step) {
+  //     case 0:
+  //       if (!formData.date) errors.date = t("pleaseFillDate");
+  //       break;
+  //     case 1:
+  //       if (!formData.time) errors.time = t("pleaseFillTime");
+  //       break;
+  //     case 2:
+  //       if (!formData.pax) errors.pax = t("pleaseFillPax");
+  //       break;
+  //     case 3:
+  //       if (!formData.name) errors.name = t("pleaseFillName");
+  //       if (!formData.email) errors.email = t("pleaseFillEmail");
+  //       break;
+  //   }
+  //   return errors;
+  // };
 
   return (
     <>
@@ -97,7 +97,8 @@ const BookSection = () => {
           <Typography variant="h4" className={styles.bookTitle}>
             {t("book")}
           </Typography>
-          <FormSteps steps={steps} activeStep={step} />
+          {/* Commented out the form steps and fields */}
+          {/* <FormSteps steps={steps} activeStep={step} />
           <form onSubmit={handleSubmit}>
             <FormFields
               step={step}
@@ -123,7 +124,8 @@ const BookSection = () => {
                 </Button>
               )}
             </Box>
-          </form>
+          </form> */}
+          
         </Container>
       )}
     </>
