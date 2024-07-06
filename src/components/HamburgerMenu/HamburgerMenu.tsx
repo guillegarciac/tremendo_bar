@@ -40,7 +40,10 @@ const HamburgerMenu = () => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (!menuRef.current?.contains(event.target as Node) && !languageRef.current?.contains(event.target as Node)) {
+    if (
+      !menuRef.current?.contains(event.target as Node) &&
+      !languageRef.current?.contains(event.target as Node)
+    ) {
       setIsOpen(false);
       setShowLanguageOptions(false);
     }
@@ -58,26 +61,28 @@ const HamburgerMenu = () => {
       const diff = touchStart - touchCurrent;
       if (diff > 0) {
         // Translate only a fraction of the swipe difference to slow down the transition
-        const translateAmount = Math.min(diff * 0.3, window.innerWidth * 0.9);  // Assume the menu is at most 90% of the viewport width
+        const translateAmount = Math.min(diff * 0.3, window.innerWidth * 0.9); // Assume the menu is at most 90% of the viewport width
         setCurrentTranslate(-translateAmount);
-        
+
         // Adjust the opacity reduction rate to be slower to match the slower translation
-        const opacityFactor = 1 - (0.5 * (translateAmount / (window.innerWidth * 0.9)));
-        setShadowOpacity(Math.max(0.674 * opacityFactor, 0));  // Ensure opacity doesn't exceed initial state
+        const opacityFactor =
+          1 - 0.5 * (translateAmount / (window.innerWidth * 0.9));
+        setShadowOpacity(Math.max(0.674 * opacityFactor, 0)); // Ensure opacity doesn't exceed initial state
       }
     }
     setTouchPosition(touchCurrent);
-};
-
+  };
 
   const handleTouchEnd = () => {
-    if (touchStart !== null && touchPosition !== null && (touchStart - touchPosition) > minSwipeWidth) {
+    // Use absolute translation to determine if the menu should close
+    if (Math.abs(currentTranslate) > minSwipeWidth) {
       setIsOpen(false);
     } else {
       setIsOpen(true);
     }
+    // Reset values after deciding the state
     setCurrentTranslate(0);
-    setShadowOpacity(0); // Hide shadow completely on menu close
+    setShadowOpacity(isOpen ? 0.674 : 0); // Reset to full opacity if open, none if closed
   };
 
   useEffect(() => {
@@ -97,31 +102,51 @@ const HamburgerMenu = () => {
     const links = [
       { path: "/", label: t("home"), alwaysShow: pathname !== "/" },
       { path: "/menu", label: t("menu"), alwaysShow: pathname !== "/menu" },
-      { path: "/book", label: t("book"), alwaysShow: pathname !== "/book" }
+      { path: "/book", label: t("book"), alwaysShow: pathname !== "/book" },
     ];
 
-    return links.filter(link => link.alwaysShow).map(link => (
-      <li key={link.path}>
-        <Link href={link.path} locale={router.locale}>
-          {link.label}
-        </Link>
-      </li>
-    ));
+    return links
+      .filter((link) => link.alwaysShow)
+      .map((link) => (
+        <li key={link.path}>
+          <Link href={link.path} locale={router.locale}>
+            {link.label}
+          </Link>
+        </li>
+      ));
   };
 
   return (
-    <div className={styles.stickyContainer} style={{ borderBottom: isOpen ? "none" : "0.5px solid rgb(200, 200, 200)" }}>
-      <button className={`${styles.hamburgerButton} ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
-        {isOpen ? <span className={styles.closeIcon}>&times;</span> : <div className={styles.hamburgerIcon}>
-          <span></span><span></span><span></span>
-        </div>}
+    <div
+      className={styles.stickyContainer}
+      style={{
+        borderBottom: isOpen ? "none" : "0.5px solid rgb(200, 200, 200)",
+      }}
+    >
+      <button
+        className={`${styles.hamburgerButton} ${isOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+      >
+        {isOpen ? (
+          <span className={styles.closeIcon}>&times;</span>
+        ) : (
+          <div className={styles.hamburgerIcon}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        )}
       </button>
-      <div 
-        className={styles.menuOverlay} 
-        style={{ transform: isOpen ? `translateX(${Math.max(currentTranslate, -100)}%)` : "translateX(-100%)" }} 
-        ref={menuRef} 
-        onTouchStart={handleTouchStart} 
-        onTouchMove={handleTouchMove} 
+      <div
+        className={styles.menuOverlay}
+        style={{
+          transform: isOpen
+            ? `translateX(${Math.max(currentTranslate, -100)}%)`
+            : "translateX(-100%)",
+        }}
+        ref={menuRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
         <ul className={styles.menuList}>{getMenuItems()}</ul>
@@ -129,19 +154,42 @@ const HamburgerMenu = () => {
           <Footer />
         </div>
       </div>
-      <div className={styles.languageIcon} onClick={toggleLanguageDropdown} ref={languageRef}>
-        <IoIosGlobe size={24} style={{ cursor: "pointer", fontWeight: showLanguageOptions ? "bold" : "normal", color: showLanguageOptions ? "#00b55e" : "inherit" }} />
+      <div
+        className={styles.languageIcon}
+        onClick={toggleLanguageDropdown}
+        ref={languageRef}
+      >
+        <IoIosGlobe
+          size={24}
+          style={{
+            cursor: "pointer",
+            fontWeight: showLanguageOptions ? "bold" : "normal",
+            color: showLanguageOptions ? "#00b55e" : "inherit",
+          }}
+        />
         {showLanguageOptions && (
           <ul className={styles.languageDropdown}>
-            {languageOptions.map(lang => (
-              <li key={lang.code} onClick={() => handleLanguageChange(lang.code)} style={{ fontWeight: router.locale === lang.code ? "bold" : "normal", color: router.locale === lang.code ? "#00b55e" : "inherit" }}>
+            {languageOptions.map((lang) => (
+              <li
+                key={lang.code}
+                onClick={() => handleLanguageChange(lang.code)}
+                style={{
+                  fontWeight: router.locale === lang.code ? "bold" : "normal",
+                  color: router.locale === lang.code ? "#00b55e" : "inherit",
+                }}
+              >
                 {lang.label}
               </li>
             ))}
           </ul>
         )}
       </div>
-      {isOpen && <div className={styles.shadowOverlay} style={{ opacity: shadowOpacity }}></div>}
+      {isOpen && (
+        <div
+          className={styles.shadowOverlay}
+          style={{ opacity: shadowOpacity }}
+        ></div>
+      )}
     </div>
   );
 };
