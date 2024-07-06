@@ -57,12 +57,13 @@ const HamburgerMenu = () => {
     if (touchStart !== null) {
       const diff = touchStart - touchCurrent;
       if (diff > 0) {
-        const translateAmount = Math.min(diff, window.innerWidth * 0.9);  // Assume the menu is at most 90% of the viewport width
+        // Translate only a fraction of the swipe difference to slow down the transition
+        const translateAmount = Math.min(diff * 0.3, window.innerWidth * 0.9);  // Assume the menu is at most 90% of the viewport width
         setCurrentTranslate(-translateAmount);
-
-        // Increase the rate of opacity change
-        const opacityFactor = 1 - (2 * (translateAmount / (window.innerWidth * 0.9))); // Doubling the rate at which opacity changes
-        setShadowOpacity(Math.max(0.674 * opacityFactor, 0));  // Ensure opacity does not go negative or exceed initial state
+        
+        // Adjust the opacity reduction rate to be slower to match the slower translation
+        const opacityFactor = 1 - (0.5 * (translateAmount / (window.innerWidth * 0.9)));
+        setShadowOpacity(Math.max(0.674 * opacityFactor, 0));  // Ensure opacity doesn't exceed initial state
       }
     }
     setTouchPosition(touchCurrent);
