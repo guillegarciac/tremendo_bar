@@ -30,16 +30,17 @@ export default function BookATable() {
           </div>
           <div className="w-full lg:w-1/2 flex-col justify-center items-center flex">
             <BookSection />
-            <div className="text-center mt-6">
-              <p className="text-lg mt-20 mb-2">
-                {t('preferPhoneBooking')} 
-              </p>
-            </div>
-            <div className="mt-2">
-              <a href="tel:936393970" className="flex items-center justify-center text-green-600 hover:text-green-700">
-                <FaPhone className="mr-2" /> 936 393 970
-              </a>
-            </div>
+            <div className="text-center mt-10"> 
+  <p className="text-2xl mt-20 mb-4"> 
+    {t('preferPhoneBooking')}
+  </p>
+</div>
+<div className="mt-4"> 
+  <a href="tel:936393970" className="flex items-center justify-center text-green-600 hover:text-green-700 text-xl"> 
+    <FaPhone className="mr-2 text-3xl" /> 
+    936 393 970
+  </a>
+</div>
           </div>
         </section>
       </main>

@@ -67,7 +67,7 @@ export default function Home() {
             <div className="md:hidden w-full relative">
               <div className="relative w-full">
                 <Image src={image5} alt="Image 5" layout="responsive" width={700} height={467} className="w-full"/>
-                <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4">
+                <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-12">
                   <Image src={tremendoLogo} alt="Tremendo Logo" width={300} height={150} />
                 </div>
               </div>
