@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BookSection from "@/components/BookComponents/BookSection";
-import backgroundImage from "../../assets/contacttremendo.jpeg";
+import backgroundImage from "../../assets/book-a-table.jpg";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import { FaPhone } from 'react-icons/fa';
 import { useTranslation } from "next-i18next";  // Import useTranslation
