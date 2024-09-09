@@ -15,20 +15,16 @@ interface LocationPageProps {
 
 export default function LocationPage({ locale }: LocationPageProps) {
   const { t } = useTranslation("common");
-  const googleApiKey = process.env.GOOGLE_KEY; // Access the API key from environment variables
+  const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY; // Access API key directly from client-side environment variable
 
   // State to manage iframe src
-  const [mapSrc, setMapSrc] = useState<string>(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
+  const [mapSrc, setMapSrc] = useState<string>("");
 
+  // Update iframe src when locale or googleApiKey changes
   useEffect(() => {
     if (googleApiKey) {
       setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
     }
-  }, [locale, googleApiKey]);
-
-  // Update iframe src when locale changes
-  useEffect(() => {
-    setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
   }, [locale, googleApiKey]);
 
   return (
@@ -61,11 +57,11 @@ export default function LocationPage({ locale }: LocationPageProps) {
   );
 }
 
+// Only return the locale; googleApiKey is no longer needed here
 export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
       locale,
-      googleApiKey: process.env.GOOGLE_KEY,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
