@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import dynamic from "next/dynamic";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
@@ -16,12 +17,19 @@ export default function LocationPage({ locale }: LocationPageProps) {
   const { t } = useTranslation("common");
   const googleApiKey = process.env.GOOGLE_KEY; // Access the API key from environment variables
 
+  // State to manage iframe src
+  const [mapSrc, setMapSrc] = useState<string>(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
+
+  // Update iframe src when locale changes
+  useEffect(() => {
+    setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
+  }, [locale, googleApiKey]);
+
   return (
     <>
       <HamburgerMenu />
       <main className="relative overflow-visible w-full h-screen">
         <section className="flex flex-col lg:flex-row w-full h-full bg-white">
-          {/* Map container, make full screen on mobile */}
           <div className="w-full h-full flex flex-col justify-between">
             <iframe
               width="100%"
@@ -29,9 +37,8 @@ export default function LocationPage({ locale }: LocationPageProps) {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src={`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`}
+              src={mapSrc}
             ></iframe>
-            {/* Sticky Navigation button at the bottom */}
             <div className="text-center p-4 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=41.4744337,2.0827327"
