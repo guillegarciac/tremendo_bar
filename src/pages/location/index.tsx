@@ -21,13 +21,8 @@ export default function LocationPage({ locale }: LocationPageProps) {
       <HamburgerMenu />
       <main className="relative overflow-visible w-full h-screen">
         <section className="flex flex-col lg:flex-row w-full h-full bg-white">
-          {/* Hide everything except map on mobile */}
+          {/* Map container, make full screen on mobile */}
           <div className="w-full h-full flex flex-col justify-between">
-            {/* Hide title on mobile */}
-            <div className="text-center lg:p-10 hidden lg:block">
-              <h1 className="text-4xl font-bold mb-5">{t("findUs")}</h1>
-            </div>
-            {/* Map container, make full screen on mobile */}
             <iframe
               width="100%"
               height="100%"
@@ -36,8 +31,8 @@ export default function LocationPage({ locale }: LocationPageProps) {
               allowFullScreen
               src={`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`}
             ></iframe>
-            {/* Navigation button at the bottom */}
-            <div className="text-center p-4" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
+            {/* Sticky Navigation button at the bottom */}
+            <div className="text-center p-4 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=41.4744337,2.0827327"
                 className="flex items-center justify-center text-green-600 hover:text-green-700 text-xl"
