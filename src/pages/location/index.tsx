@@ -20,6 +20,12 @@ export default function LocationPage({ locale }: LocationPageProps) {
   // State to manage iframe src
   const [mapSrc, setMapSrc] = useState<string>(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
 
+  useEffect(() => {
+    if (googleApiKey) {
+      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
+    }
+  }, [locale, googleApiKey]);
+
   // Update iframe src when locale changes
   useEffect(() => {
     setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
@@ -58,6 +64,8 @@ export default function LocationPage({ locale }: LocationPageProps) {
 export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
+      locale,
+      googleApiKey: process.env.GOOGLE_KEY,
       ...(await serverSideTranslations(locale, ["common"])),
     },
   };
