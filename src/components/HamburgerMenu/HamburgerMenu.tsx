@@ -93,9 +93,9 @@ const HamburgerMenu = () => {
   }, [isOpen, showLanguageOptions]);
 
   const languageOptions = [
-    { code: "en", label: "English" },
-    { code: "es", label: "Español" },
-    { code: "ca", label: "Català" },
+    { code: "en", label: "en" },
+    { code: "es", label: "es" },
+    { code: "ca", label: "ca" },
   ];
 
   const getMenuItems = () => {
