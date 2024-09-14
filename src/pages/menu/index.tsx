@@ -9,7 +9,7 @@ export default function Menu() {
   return (
     <>
       <Head>
-        <title>Tremendo Bar Sant Cugat</title>
+        <title>tremendo Sant Cugat</title>
       </Head>
       <main className="min-h-screen relative overflow-hidden bg-white" style={{ backgroundImage: 'none' }}>
         <HamburgerMenu />

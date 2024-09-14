@@ -45,10 +45,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{t('pageTitle', "Tremendo Bar Sant Cugat")}</title>
+        <title>{t('pageTitle', "Tremendo Sant Cugat")}</title>
         <meta
           name="description"
-          content="Explore the best dishes at Tremendo Bar in Sant Cugat!"
+          content="Explore the best dishes at tremendo in Sant Cugat!"
         />
         <meta
           name="viewport"
