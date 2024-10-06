@@ -63,7 +63,8 @@ export default function Home() {
             <HamburgerMenu />
           </div>
           <section className="w-full flex flex-col items-center justify-center md:p-12 z-[20] text-center text-white">
-            <div className="hidden md:block absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tremendoImage.src})` }}></div>
+          <div className="hidden md:block absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tremendoImage.src})`, minHeight: '100vh' }}></div>
+
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
                 <div className="relative w-full">
