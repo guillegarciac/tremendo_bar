@@ -70,6 +70,7 @@ const HamburgerMenu = () => {
       { path: "/menu", label: t("menu"), alwaysShow: pathname !== "/menu" },
       { path: "/book", label: t("book"), alwaysShow: pathname !== "/book" },
       { path: "/location", label: t("location"), alwaysShow: pathname !== "/location" },
+      { path: "/gallery", label: t("gallery"), alwaysShow: pathname !== "/gallery" },
     ];
   
     return links
