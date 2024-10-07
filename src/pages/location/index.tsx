@@ -23,16 +23,18 @@ export default function LocationPage({ locale }: LocationPageProps) {
   // Update iframe src when locale or googleApiKey changes
   useEffect(() => {
     if (googleApiKey) {
-      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327`);
+      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`);
+
     }
   }, [locale, googleApiKey]);
 
   return (
     <>
-      <HamburgerMenu />
+     
       <main className="relative overflow-visible w-full h-screen">
         <section className="flex flex-col lg:flex-row w-full h-full bg-white">
-          <div className="w-full h-full flex flex-col justify-between">
+           <HamburgerMenu />
+          <div className="w-full h-full flex flex-col justify-between mt-10 mb-10">
             <iframe
               width="100%"
               height="100%"
@@ -41,12 +43,12 @@ export default function LocationPage({ locale }: LocationPageProps) {
               allowFullScreen
               src={mapSrc}
             ></iframe>
-            <div className="text-center p-4 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
+            <div className="text-center p-2 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
               <a
                 href="https://www.google.com/maps/dir/?api=1&destination=41.4744337,2.0827327"
                 className="flex items-center justify-center text-green-600 hover:text-green-700 text-xl"
               >
-                <FaMapMarkerAlt className="mr-2 text-3xl" />
+                <FaMapMarkerAlt className="mr-1 text-2xl" />
                 {t("navigate")}
               </a>
             </div>

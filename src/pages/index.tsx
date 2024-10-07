@@ -39,7 +39,6 @@ export default function Home() {
     justifyContent: "center",
     backgroundColor: "white",
     color: "black",
-    fontWeight: "bold",
     cursor: "pointer",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     transition: "background-color 0.3s ease, color 0.3s ease"
@@ -54,10 +53,11 @@ export default function Home() {
       </Head>
 
       <main className="min-h-screen w-full">
-        <motion.div
+        <motion.div className='motionDiv'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
+          style={{ willChange: 'none' }}
         >
           <div className="stickyContainer">
             <HamburgerMenu />

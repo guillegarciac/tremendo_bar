@@ -18,7 +18,6 @@ export default function NavFooter() {
     backgroundColor: "white", // A pleasant medium slate blue
     color: "green", // White text for high contrast
     boxShadow: "-4px -4px 10px green", // Subtle shadow for depth
-    textTransform: "uppercase", // Makes the button text more prominent
     cursor: "pointer", // Changes the cursor to a pointer to indicate it's clickable
     transition: "all 0.3s ease-in-out", // Smooth transition for hover effects
   };

@@ -1,22 +1,19 @@
-/* Base styles for stickyContainer */
 .stickyContainer {
-  position: -webkit-sticky;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 50px; /* Ensure container height is sufficient */
   background-color: white;
-  z-index: 130;
-  display: none; /* Default setting to not display on desktop */
+  z-index: 5003;
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
-  border-bottom: rgb(200, 200, 200) 0.5px solid;
+  justify-content: space-between; /* Manage space within container */
+  border-bottom: 0.5px solid rgb(200, 200, 200);
 }
 
-/* Base styles for hamburgerButton */
 .hamburgerButton {
-  display: none;
+  display: flex;
   cursor: pointer;
   background: transparent;
   border: none;
@@ -26,17 +23,6 @@
   z-index: 120;
 }
 
-/* Media query for devices with a max-width of 768px (tablet landscape and below) */
-@media (max-width: 768px) {
-  .stickyContainer {
-    display: flex; /* Make sticky container visible on mobile devices */
-  }
-  .hamburgerButton {
-    display: flex; /* Ensure button is visible on smaller screens */
-  }
-}
-
-/* Styles for hamburgerIcon and its children */
 .hamburgerIcon {
   display: flex;
   flex-direction: column;
@@ -49,7 +35,7 @@
 .hamburgerIcon span {
   height: 3px;
   width: 20px;
-  background-color: rgb(110, 110, 110); /* Icon color black for visibility */
+  background-color: rgb(110, 110, 110);
   transition: all 0.3s ease-in-out;
 }
 
@@ -59,20 +45,19 @@
   top: 50px;
   left: 0;
   width: 90%;
-  height: calc(100% - 50px);
+  height: 100vh; /* Full viewport height */
   background-color: white;
-  border-top: rgb(200, 200, 200) 0.5px solid;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures footer sticks to the bottom */
   align-items: flex-start;
   z-index: 104;
   padding: 25px;
-  transform: translateX(-100%); /* Start off-screen to the left */
-  transition: transform 0.1s ease-out; /* Smooth slide-in effect */
+  transform: translateX(-100%); /* Initially hidden */
+  transition: transform 0.3s ease; /* Smooth slide-in transition */
 }
 
 .shadowOverlay {
-  content: "";
   position: fixed;
   top: 50px;
   left: 0;
@@ -88,8 +73,8 @@
   list-style: none;
   text-align: left;
   padding: 0;
-  width: 100%;
   margin: 0;
+  flex-grow: 1; /* Allows list to fill available space */
 }
 
 .menuList li {
@@ -109,46 +94,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 18px;
-  width: 30px;
-  color: rgb(110, 110, 110); /* Black color for close icon */
+  color: rgb(110, 110, 110);
 }
 
 .footerContainer {
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(99, 99, 99, 0.05); /* Black color for close icon */
-  margin-left: -25px;
+  text-align: center;
+  padding: 10px 0;
+  background-color: rgba(99, 99, 99, 0.1);
+  margin-top: 100px; /* Move footer up */
 }
 
 .languageIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
   position: absolute;
-  top: 15px;  /* Adjust according to your design */
-  right: 15px; /* Adjust according to your design */
-  z-index: 1000; /* Ensure it's above other elements */
-  color: rgb(110, 110, 110); /* Black color for close icon */
+  right: 10px;
 }
 
 .languageDropdown {
   position: absolute;
-  top: 30px;  /* Adjust based on the size of the icon */
   right: 0;
+  top: 100%;
   background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px 10px;
-  list-style: none;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 105;
+  min-width: 100px;
 }
 
 .languageDropdown li {
-  padding: 5px 10px;
+  padding: 10px;
   cursor: pointer;
+}
+
+.languageDropdown li.languageActive {
+  font-weight: bold;
+  color: #00b55e;
 }
 
 .languageDropdown li:hover {
   background-color: #f0f0f0;
+}
+
+.dropdownArrow {
+  margin-left: 5px;
 }

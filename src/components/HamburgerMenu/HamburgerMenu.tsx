@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { IoIosGlobe } from "react-icons/io";
 import styles from "./HamburgerMenu.module.css";
 import Footer from "@/components/FooterMenu/FooterMenu";
 
@@ -16,22 +15,23 @@ const HamburgerMenu = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
 
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchPosition, setTouchPosition] = useState<number | null>(null);
-  const [currentTranslate, setCurrentTranslate] = useState(0);
-  const [shadowOpacity, setShadowOpacity] = useState(0.674);
+  const languageOptions = [
+    { code: "en", label: "English" },
+    { code: "es", label: "Español" },
+    { code: "ca", label: "Català" },
+  ];
 
-  const minSwipeWidth = 50;
+  const getCurrentLanguageLabel = () => {
+    const currentLang = languageOptions.find(lang => lang.code === router.locale);
+    return currentLang ? currentLang.label : "Language"; // Default label if not found
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    setCurrentTranslate(0);
-    setShadowOpacity(0.674); // Reset shadow opacity when toggling
   };
 
   const handleLanguageChange = (selectedLanguage: string) => {
     router.push(router.pathname, router.pathname, { locale: selectedLanguage });
-    setIsOpen(false);
     setShowLanguageOptions(false);
   };
 
@@ -49,54 +49,20 @@ const HamburgerMenu = () => {
     }
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    const start = e.targetTouches[0].clientX;
-    setTouchStart(start);
-    setTouchPosition(start);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
-    const touchCurrent = e.targetTouches[0].clientX;
-    if (touchStart !== null) {
-      const diff = touchStart - touchCurrent;
-      if (diff > 0) {
-        // Translate only a fraction of the swipe difference to slow down the transition
-        const translateAmount = Math.min(diff * 0.3, window.innerWidth * 0.9); // Assume the menu is at most 90% of the viewport width
-        setCurrentTranslate(-translateAmount);
-
-        // Adjust the opacity reduction rate to be slower to match the slower translation
-        const opacityFactor =
-          1 - 0.5 * (translateAmount / (window.innerWidth * 0.9));
-        setShadowOpacity(Math.max(0.674 * opacityFactor, 0)); // Ensure opacity doesn't exceed initial state
-      }
-    }
-    setTouchPosition(touchCurrent);
-  };
-
-  const handleTouchEnd = () => {
-    // Use absolute translation to determine if the menu should close
-    if (Math.abs(currentTranslate) > minSwipeWidth) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
-    // Reset values after deciding the state
-    setCurrentTranslate(0);
-    setShadowOpacity(isOpen ? 0.674 : 0); // Reset to full opacity if open, none if closed
-  };
-
   useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (!languageRef.current?.contains(event.target as Node)) {
+        setShowLanguageOptions(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isOpen, showLanguageOptions]);
-
-  const languageOptions = [
-    { code: "en", label: "en" },
-    { code: "es", label: "es" },
-    { code: "ca", label: "ca" },
-  ];
+  }, []);
 
   const getMenuItems = () => {
     const links = [
@@ -118,79 +84,35 @@ const HamburgerMenu = () => {
   };
 
   return (
-    <div
-      className={styles.stickyContainer}
-      style={{
-        borderBottom: isOpen ? "none" : "0.5px solid rgb(200, 200, 200)",
-      }}
-    >
-      <button
-        className={`${styles.hamburgerButton} ${isOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-      >
-        {isOpen ? (
-          <span className={styles.closeIcon}>&times;</span>
-        ) : (
-          <div className={styles.hamburgerIcon}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        )}
+    <div className={styles.stickyContainer}>
+      <button className={`${styles.hamburgerButton} ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+        {isOpen ? <span className={styles.closeIcon}>&times;</span> : <div className={styles.hamburgerIcon}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>}
       </button>
-      <div
-        className={styles.menuOverlay}
-        style={{
-          transform: isOpen
-            ? `translateX(${Math.max(currentTranslate, -100)}%)`
-            : "translateX(-100%)",
-        }}
-        ref={menuRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+      <div className={styles.menuOverlay} style={{
+          transform: `translateX(${isOpen ? "0" : "-100%"})`,
+          overflow: isOpen ? "auto" : "hidden", // This handles scrolling within the menu
+        }} ref={menuRef}>
         <ul className={styles.menuList}>{getMenuItems()}</ul>
-        <div className={styles.footerContainer}>
-          <Footer />
-        </div>
+        <Footer />
       </div>
-      <div
-        className={styles.languageIcon}
-        onClick={toggleLanguageDropdown}
-        ref={languageRef}
-      >
-        <IoIosGlobe
-          size={24}
-          style={{
-            cursor: "pointer",
-            fontWeight: showLanguageOptions ? "bold" : "normal",
-            color: showLanguageOptions ? "#00b55e" : "inherit",
-          }}
-        />
-        {showLanguageOptions && (
+      <div className={styles.languageIcon} onClick={toggleLanguageDropdown} ref={languageRef}>
+        {showLanguageOptions ? (
           <ul className={styles.languageDropdown}>
             {languageOptions.map((lang) => (
-              <li
-                key={lang.code}
-                onClick={() => handleLanguageChange(lang.code)}
-                style={{
-                  fontWeight: router.locale === lang.code ? "bold" : "normal",
-                  color: router.locale === lang.code ? "#00b55e" : "inherit",
-                }}
-              >
+              <li key={lang.code} onClick={() => handleLanguageChange(lang.code)} className={router.locale === lang.code ? styles.languageActive : ""}>
                 {lang.label}
               </li>
             ))}
           </ul>
+        ) : (
+          <span>{getCurrentLanguageLabel()} <span className={styles.dropdownArrow}>▼</span></span> // Display current language with a dropdown arrow
         )}
       </div>
-      {isOpen && (
-        <div
-          className={styles.shadowOverlay}
-          style={{ opacity: shadowOpacity }}
-        ></div>
-      )}
+      {isOpen && <div className={styles.shadowOverlay} style={{ opacity: 0.5 }}></div>}
     </div>
   );
 };
