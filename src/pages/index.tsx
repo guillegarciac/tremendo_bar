@@ -9,7 +9,7 @@ import Head from "next/head";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import useMediaQuery from '@/hooks/useMediaQuery'; // Custom hook for media query
+import useMediaQuery from "@/hooks/useMediaQuery"; // Custom hook for media query
 
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
@@ -18,7 +18,7 @@ import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
 import image3 from "../assets/image3.jpg";
 import image4 from "../assets/image4.jpg";
-import image5 from "../assets/image5.jpg";
+import image5 from "../assets/handSteak.jpg";
 
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
   ssr: false,
@@ -26,7 +26,7 @@ const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
 
 export default function Home() {
   const { t } = useTranslation("common");
-  const isMobile = useMediaQuery('(max-width: 768px)'); // Detect if it's mobile
+  const isMobile = useMediaQuery("(max-width: 768px)"); // Detect if it's mobile
 
   // Google Maps API key
   const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
@@ -34,7 +34,9 @@ export default function Home() {
 
   useEffect(() => {
     if (googleApiKey) {
-      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`);
+      setMapSrc(
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`
+      );
     }
   }, [googleApiKey]);
 
@@ -97,8 +99,8 @@ export default function Home() {
                     alt="Image 5"
                     layout="responsive"
                     width={700}
-                    height={467}
-                    className="w-full"
+                    height={900}
+                    className="w-full md:h-[500px] lg:h-[600px] xl:h-[700px]"
                   />
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-12">
                     <Image
@@ -109,7 +111,18 @@ export default function Home() {
                     />
                   </div>
                 </div>
-
+                <div className="w-full flex items-center justify-center py-8">
+                  <a
+                    href="https://www.instagram.com/tremendo.santcugat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-4 py-2 rounded-full transition duration-300 hover:bg-black hover:text-white"
+                    style={buttonStyle}
+                  >
+                    <FaInstagram className="mr-2 text-lg" />
+                    {t("@tremendo.santcugat")}
+                  </a>
+                </div>
                 {/* Mobile Version: Display the Map iframe */}
                 {isMobile ? (
                   <div className="w-full h-72 my-4">
@@ -125,26 +138,13 @@ export default function Home() {
                   </div>
                 ) : null}
 
-                <div className="w-full flex items-center justify-center py-8">
-                  <a
-                    href="https://www.instagram.com/tremendo.santcugat/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center px-4 py-2 rounded-full transition duration-300 hover:bg-black hover:text-white"
-                    style={buttonStyle}
-                  >
-                    <FaInstagram className="mr-2 text-lg" />
-                    {t("@tremendo.santcugat")}
-                  </a>
-                </div>
-
                 <div className="w-full">
                   <Image
                     src={image2}
                     alt="Image 2"
                     layout="responsive"
                     width={700}
-                    height={467}
+                    height={695}
                     className="w-full"
                   />
                 </div>
