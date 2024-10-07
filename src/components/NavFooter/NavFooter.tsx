@@ -10,7 +10,6 @@ export default function NavFooter() {
   const { t } = useTranslation("common"); // Initialize translation hook
 
   const buttonStyle: CSSProperties = {
-
     margin: "10px",
     borderRadius: "12px", // Rounded corners for a modern look
     height: "50px",

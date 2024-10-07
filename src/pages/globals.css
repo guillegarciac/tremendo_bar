@@ -38,12 +38,16 @@ main {
 }
 
 .navigation-footer {
-  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 20px; /* Adjust as needed for spacing */
+  left: 0;
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .navigation-footer {
-    display: block; 
+    display: none;
   }
 }
-

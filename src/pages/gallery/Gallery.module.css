@@ -1,0 +1,63 @@
+/* Gallery container with three flexbox columns */
+.imageGallery {
+  display: flex;
+  justify-content: space-between; /* Evenly space the columns */
+  gap: 16px; /* Space between columns */
+  margin-top: -320px;
+  padding: 20px;
+}
+
+.column1 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between items in each column */
+  margin-top: 225px;
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between items in each column */
+  
+}
+
+.column3 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Space between items in each column */
+  margin-top: 175px;
+}
+
+.galleryItem {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  display: block;
+  
+}
+
+.galleryItem img {
+  width: 100%; /* Makes sure the images fit the column's width */
+  height: 200px; /* Fixed height for all images */
+}
+
+.whiterDiv {
+  position: absolute; /* Position it relative to the main container */
+  top: 2px; /* Adjust based on the height of the stickyContainer (Hamburger Menu) */
+  left: 0;
+  width: 100%;
+  height: 65px; /* Adjust the height as needed */
+  background-color: white;
+  z-index: 10; /* Higher z-index to keep it above the other content */
+}
+
+@media (max-width: 768px) {
+  /* Mobile responsiveness adjustments */
+  .imageGallery {
+    flex-direction: column; /* Switch to a single column on smaller screens */
+  }
+
+  .column {
+    gap: 12px; /* Reduced gap on mobile */
+  }
+}
