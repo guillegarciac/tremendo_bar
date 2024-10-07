@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
@@ -9,6 +9,7 @@ import Head from "next/head";
 import { motion } from "framer-motion"; // Import Framer Motion
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import useMediaQuery from '@/hooks/useMediaQuery'; // Custom hook for media query
 
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
@@ -25,6 +26,17 @@ const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
 
 export default function Home() {
   const { t } = useTranslation("common");
+  const isMobile = useMediaQuery('(max-width: 768px)'); // Detect if it's mobile
+
+  // Google Maps API key
+  const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
+  const [mapSrc, setMapSrc] = useState<string>("");
+
+  useEffect(() => {
+    if (googleApiKey) {
+      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`);
+    }
+  }, [googleApiKey]);
 
   const buttonStyle = {
     textDecoration: "none",
@@ -97,6 +109,22 @@ export default function Home() {
                     />
                   </div>
                 </div>
+
+                {/* Mobile Version: Display the Map iframe */}
+                {isMobile ? (
+                  <div className="w-full h-72 my-4">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      src={mapSrc}
+                      allowFullScreen
+                    />
+                  </div>
+                ) : null}
+
                 <div className="w-full flex items-center justify-center py-8">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
@@ -109,6 +137,7 @@ export default function Home() {
                     {t("@tremendo.santcugat")}
                   </a>
                 </div>
+
                 <div className="w-full">
                   <Image
                     src={image2}
