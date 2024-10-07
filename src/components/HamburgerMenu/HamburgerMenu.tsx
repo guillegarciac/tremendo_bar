@@ -71,17 +71,18 @@ const HamburgerMenu = () => {
       { path: "/book", label: t("book"), alwaysShow: pathname !== "/book" },
       { path: "/location", label: t("location"), alwaysShow: pathname !== "/location" },
     ];
-
+  
     return links
       .filter((link) => link.alwaysShow)
       .map((link) => (
-        <li key={link.path}>
-          <Link href={link.path} locale={router.locale}>
+        <li key={link.path} className={styles.menuItem}>
+          <Link href={link.path} locale={router.locale} className={styles.menuLink}>
             {link.label}
           </Link>
         </li>
       ));
   };
+  
 
   return (
     <div className={styles.stickyContainer}>

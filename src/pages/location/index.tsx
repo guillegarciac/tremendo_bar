@@ -38,9 +38,9 @@ export default function LocationPage({ locale }: LocationPageProps) {
             <iframe
               width="100%"
               height="100%"
-              style={{ border: 0 }}
+              
               loading="lazy"
-              allowFullScreen
+              
               src={mapSrc}
             ></iframe>
             <div className="text-center p-2 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>

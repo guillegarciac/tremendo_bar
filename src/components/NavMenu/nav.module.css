@@ -1,5 +1,7 @@
 .desktopNav {
-  min-height: 70px;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  font-size: 16px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -8,6 +10,7 @@
 
 .active {
   text-decoration: underline;
+  font-weight: bold;
 }
 
 @media (max-width: 767px) {
