@@ -111,7 +111,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="w-full flex items-center justify-center py-8">
+                <div className="w-full flex items-center justify-center py-9">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
                     target="_blank"
