@@ -29,7 +29,7 @@ import image17 from "../../assets/handSteak.jpg";
 import image18 from "../../assets/musclosClosques.jpg";
 import image19 from "../../assets/salmon.jpg";
 import image20 from "../../assets/salmonAbove.jpg";
-import image21 from "../../assets/SalmonWine.jpg";
+import image21 from "../../assets/salmonWine.jpg";
 import image22 from "../../assets/tomatoSalad.jpg";
 import image23 from "../../assets/tartar.jpg";
 import image24 from "../../assets/tuna2.jpg";
