@@ -102,7 +102,7 @@ export default function Home() {
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
                 <div className="w-full px-6">
-                  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1">
+                  <div className="flex items-center justify-center space-x-4 py-4 mt-13 mb-1">
                     {/* "Book with us" button initiates a phone call */}
                     <a
                       href="tel:936393970"
