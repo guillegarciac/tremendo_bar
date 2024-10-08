@@ -114,27 +114,27 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="relative w-full custom-image-container">
-  <Image
-    src={image5}
-    alt="Image 5"
-    layout="fill" // Ensure the image fills the container
-    className="object-cover filter-darken" // Custom class to control brightness
-  />
-  <div className="absolute top-10 left-0 right-0 flex justify-center mt-4">
-    <Image
-      src={tremendoLogo}
-      alt="Tremendo Logo"
-      width={300}
-      height={150}
-    />
-  </div>
-</div>
-                <div className="w-full flex items-center justify-center py-4">
+                  <Image
+                    src={image5}
+                    alt="Image 5"
+                    layout="fill" // Ensure the image fills the container
+                    className="object-cover filter-darken" // Custom class to control brightness
+                  />
+                  <div className="absolute top-10 left-0 right-0 flex justify-center mt-4">
+                    <Image
+                      src={tremendoLogo}
+                      alt="Tremendo Logo"
+                      width={300}
+                      height={150}
+                    />
+                  </div>
+                </div>
+                <div className="w-full flex items-center justify-center py-3">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center px-4 py-2 rounded-full transition duration-300 hover:bg-black hover:text-white"
+                    className="flex items-center justify-center px-4 py-2 rounded-full transition duration-300 hover:bg-black hover:text-white text-sm" // Add text-sm to reduce the font size
                     style={buttonStyle}
                   >
                     <FaInstagram className="mr-2 text-lg" />

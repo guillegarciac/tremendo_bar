@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./HamburgerMenu.module.css";
 import Footer from "@/components/FooterMenu/FooterMenu";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,7 @@ const HamburgerMenu = () => {
   const { t } = useTranslation("common");
   const menuRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const languageOptions = [
     { code: "en", label: "English" },
@@ -74,7 +76,12 @@ const HamburgerMenu = () => {
     ];
   
     return links
-      .filter((link) => link.alwaysShow)
+      .filter((link) => {
+        if (link.path === "/book" && isMobile) {
+          return false; // Exclude "Book" link on mobile devices
+        }
+        return link.alwaysShow;
+      })
       .map((link) => (
         <li key={link.path} className={styles.menuItem}>
           <Link href={link.path} locale={router.locale} className={styles.menuLink}>
