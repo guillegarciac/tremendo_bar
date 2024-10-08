@@ -23,8 +23,9 @@ export default function LocationPage({ locale }: LocationPageProps) {
   // Update iframe src when locale or googleApiKey changes
   useEffect(() => {
     if (googleApiKey) {
-      setMapSrc(`https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`);
-
+      setMapSrc(
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=satellite&zoom=19`
+      );
     }
   }, [locale, googleApiKey]);
 

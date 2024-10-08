@@ -33,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     if (googleApiKey) {
       setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=41.4744337,2.0827327&maptype=satellite`
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=satellite&zoom=19`
       );
     }
   }, [googleApiKey]);
@@ -130,34 +130,36 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="w-full flex items-center justify-center py-6 gap-6">
-  <a
-    href="https://www.instagram.com/tremendo.santcugat/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center px-3 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs" // Reduced padding and font size
-    style={{
-      ...buttonStyle,
-      height: '40px', // Reduced height
-      fontSize: '12px', // Smaller font size
-    }}
-  >
-    <FaInstagram className="mr-1 text-base" /> {/* Smaller icon */}
-    {t("@tremendo.santcugat")}
-  </a>
-  <motion.div
-    initial={{ y: 0 }}
-    animate={{ y: [0, 6, 0] }}
-    transition={{ duration: 1.5, repeat: Infinity }}
-    className="text-black text-xs font-medium flex items-center"
-  >
-    <span>{t("location")}</span>
-    <FaChevronDown className="text-lg ml-1" /> {/* Smaller arrow icon */}
-  </motion.div>
-</div>
+                  <a
+                    href="https://www.instagram.com/tremendo.santcugat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-3 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs" // Reduced padding and font size
+                    style={{
+                      ...buttonStyle,
+                      height: "40px", // Reduced height
+                      fontSize: "12px", // Smaller font size
+                    }}
+                  >
+                    <FaInstagram className="mr-1 text-base" />{" "}
+                    {/* Smaller icon */}
+                    {t("@tremendo.santcugat")}
+                  </a>
+                  <motion.div
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-black text-xs font-medium flex items-center"
+                  >
+                    <span>{t("location")}</span>
+                    <FaChevronDown className="text-lg ml-1" />{" "}
+                    {/* Smaller arrow icon */}
+                  </motion.div>
+                </div>
                 {/* Mobile Version: Display the Map iframe */}
                 {isMobile ? (
                   <>
-                    <div className="w-full h-72 my-4">
+                    <div className="w-full" style={{ height: '22rem' }}>
                       <iframe
                         width="100%"
                         height="100%"
