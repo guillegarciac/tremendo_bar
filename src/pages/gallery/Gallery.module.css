@@ -70,7 +70,6 @@
 
 .galleryItem {
   position: relative;
-  margin-bottom: 16px; /* Add spacing between gallery items */
 }
 
 @media (max-width: 768px) {
