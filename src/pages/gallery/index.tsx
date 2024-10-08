@@ -23,8 +23,8 @@ import image8 from "../../assets/croquetasCalamars.jpg";
 import image9 from "../../assets/figas.jpg";
 import image10 from "../../assets/hildas.jpg";
 import image11 from "../../assets/navajas.jpg";
-import image12 from "../../assets/perrins.jpg";
-import image13 from "../../assets/tartar.jpg";
+import image12 from "../../assets/flan.jpg";
+import image13 from "../../assets/tortilla.jpg";
 import image14 from "../../assets/tuna1.jpg";
 import image15 from "../../assets/vieiras.jpg";
 import image16 from "../../assets/anxovas.jpg";
@@ -32,10 +32,15 @@ import image17 from "../../assets/handSteak.jpg";
 import image18 from "../../assets/musclosClosques.jpg";
 import image19 from "../../assets/salmon.jpg";
 import image20 from "../../assets/salmonAbove.jpg";
-import image21 from "../../assets/salmonWine.jpg";
+import image21 from "../../assets/buffala2.jpg";
 import image22 from "../../assets/tomatoSalad.jpg";
 import image23 from "../../assets/tartar.jpg";
 import image24 from "../../assets/tuna2.jpg";
+import image25 from "../../assets/anxovas2.jpg";
+import image26 from "../../assets/sirope.jpg";
+import image27 from "../../assets/handFigas.jpg";
+import image28 from "../../assets/paella.jpg";
+import image29 from "../../assets/tartar3.jpg";
 
 // Dynamically import the footer to improve page load speed
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
@@ -79,6 +84,11 @@ const MasonryImageGallery: React.FC = () => {
     { src: image22.src, width: 4, height: 3 },
     { src: image23.src, width: 3, height: 2 },
     { src: image24.src, width: 4, height: 3 },
+    { src: image25.src, width: 3, height: 2 },
+    { src: image26.src, width: 4, height: 3 },
+    { src: image27.src, width: 3, height: 4 },
+    { src: image28.src, width: 4, height: 3 },
+    { src: image29.src, width: 3, height: 2 },
   ];
 
   // State for lightbox viewer
@@ -116,61 +126,32 @@ const MasonryImageGallery: React.FC = () => {
           <div className={styles.imageGallery}>
             {/* Column 1 */}
             <div className={styles.column1}>
-              {photos.slice(0, 8).map((photo, index) => (
-                <div
-                  key={index}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 1}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
+              {photos.slice(0, 10).map((photo, index) => (
+                <div key={index} className={styles.galleryItem} onClick={() => openViewer(index)}>
+                  <Image src={photo.src} alt={`Gallery Image ${index + 1}`} layout="responsive" width={photo.width * 100} height={photo.height * 100} />
                 </div>
               ))}
             </div>
 
             {/* Column 2 */}
             <div className={styles.column2}>
-              {photos.slice(8, 16).map((photo, index) => (
-                <div
-                  key={index + 8}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index + 8)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 9}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
+              {photos.slice(10, 20).map((photo, index) => (
+                <div key={index + 10} className={styles.galleryItem} onClick={() => openViewer(index + 10)}>
+                  <Image src={photo.src} alt={`Gallery Image ${index + 11}`} layout="responsive" width={photo.width * 100} height={photo.height * 100} />
                 </div>
               ))}
             </div>
 
             {/* Column 3 */}
             <div className={styles.column3}>
-              {photos.slice(16).map((photo, index) => (
-                <div
-                  key={index + 16}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index + 16)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 17}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
+              {photos.slice(20).map((photo, index) => (
+                <div key={index + 20} className={styles.galleryItem} onClick={() => openViewer(index + 20)}>
+                  <Image src={photo.src} alt={`Gallery Image ${index + 21}`} layout="responsive" width={photo.width * 100} height={photo.height * 100} />
                 </div>
               ))}
             </div>
           </div>
+
 
           {/* Lightbox Viewer */}
           {isViewerOpen && (

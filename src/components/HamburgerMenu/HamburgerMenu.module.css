@@ -86,7 +86,7 @@
 
 .menuList li a {
   color: rgb(110, 110, 110);
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   display: block;
   width: 100%; /* Make the link take up the full width of the list item */
@@ -97,6 +97,7 @@
 .menuItem {
   width: 100%;
   cursor: pointer; /* Changes the cursor to a pointer to indicate a clickable area */
+  font-size: 10px;
 }
 
 .menuLink {
@@ -105,7 +106,7 @@
   padding: 15px; /* Adds padding for a larger clickable area */
   color: rgb(110, 110, 110);
   text-decoration: none;
-  font-size: 20px;
+  font-size: 10px;
 }
 
 .menuLink:hover {

@@ -10,15 +10,20 @@
 .column1, .column2, .column3 {
   display: flex;
   flex-direction: column;
+  width: 33%;
   gap: 16px; /* Space between items in each column */
 }
 
 .column1 {
-  margin-top: 225px;
+  margin-top: 300px;
+}
+
+.column2 {
+  margin-top: -110px;
 }
 
 .column3 {
-  margin-top: 175px;
+  margin-top: 270px;
 }
 
 .galleryItem {
@@ -52,7 +57,7 @@
 
 
   .column1 {
-    margin-top: 225px; /* Custom margin top for column 1 */
+    margin-top: 365px; /* Custom margin top for column 1 */
   }
 
   .column2 {
@@ -60,7 +65,7 @@
   }
 
   .column3 {
-    margin-top: 175px; /* Custom margin top for column 3 */
+    margin-top: 365px; /* Custom margin top for column 3 */
   }
 
   .galleryItem img {
