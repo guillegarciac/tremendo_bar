@@ -113,24 +113,22 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="relative w-full">
-                  <Image
-                    src={image5}
-                    alt="Image 5"
-                    layout="responsive"
-                    width={700}
-                    height={900}
-                    className="w-full md:h-[700px] lg:h-[700px] xl:h-[700px]"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-12">
-                    <Image
-                      src={tremendoLogo}
-                      alt="Tremendo Logo"
-                      width={300}
-                      height={150}
-                    />
-                  </div>
-                </div>
+                <div className="relative w-full custom-image-container">
+  <Image
+    src={image5}
+    alt="Image 5"
+    layout="fill" // Ensure the image fills the container
+    className="object-cover filter-darken" // Custom class to control brightness
+  />
+  <div className="absolute top-10 left-0 right-0 flex justify-center mt-4">
+    <Image
+      src={tremendoLogo}
+      alt="Tremendo Logo"
+      width={300}
+      height={150}
+    />
+  </div>
+</div>
                 <div className="w-full flex items-center justify-center py-4">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
