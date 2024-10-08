@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .custom-image-container {
-  height: 430px; /* Adjust this value to make the image shorter */
+  height: 500px; /* Adjust this value to make the image shorter */
   position: relative; /* Necessary for Image to use layout fill */
   overflow: hidden; /* Ensures no unwanted overflow */
 }
