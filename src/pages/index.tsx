@@ -43,7 +43,7 @@ export default function Home() {
   useEffect(() => {
     if (googleApiKey) {
       setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=19`
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=18`
       );
     }
   }, [googleApiKey]);
@@ -140,56 +140,86 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="w-full flex items-center justify-center py-6 gap-6">
-        <a
-          href="https://www.instagram.com/tremendo.santcugat/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center px-4 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs"
-          style={{
-            ...buttonStyle,
-            height: "40px",
-            fontSize: "14px",
-          }}
-        >
-          <FaInstagram className="mr-1 text-base" /> {/* Smaller icon */}
-          {t("@tremendo.santcugat")}
-        </a>
-        <motion.div
-          initial={{ y: 0 }}
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-black text-xs font-medium flex items-center cursor-pointer"
-          onClick={scrollToMap} // Call scrollToMap when clicking
-        >
-          <span>{t("location")}</span>
-          <FaChevronDown className="text-lg ml-1" /> {/* Smaller arrow icon */}
-        </motion.div>
-      </div>
+                  <a
+                    href="https://www.instagram.com/tremendo.santcugat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center px-4 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs"
+                    style={{
+                      ...buttonStyle,
+                      height: "40px",
+                      fontSize: "14px",
+                    }}
+                  >
+                    <FaInstagram className="mr-1 text-base" />{" "}
+                    {/* Smaller icon */}
+                    {t("@tremendo.santcugat")}
+                  </a>
+                  <motion.div
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-black text-xs font-medium flex items-center cursor-pointer"
+                    onClick={scrollToMap} // Call scrollToMap when clicking
+                  >
+                    <span>{t("location")}</span>
+                    <FaChevronDown className="text-lg ml-1" />{" "}
+                    {/* Smaller arrow icon */}
+                  </motion.div>
+                </div>
 
-      {/* Mobile Version: Display the Map iframe */}
-      {isMobile ? (
-        <>
-          <div ref={mapRef} className="w-full relative" style={{ height: "30rem" }}>
-            <a
-              href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-2.5 left-2 mt-2 bg-white text-green-600 px-2 py-1 text-xs font-medium z-10 flex items-center"
-            >
-              <FaMapMarkerAlt className="ml-1 text-green-600" />
-              <span className="ml-2">{t("openMaps")}</span>
-            </a>
-            <iframe
-              width="100%"
-              height="100%"
-              loading="lazy"
-              src={mapSrc}
-              allowFullScreen
-              style={{ pointerEvents: "none" }} // Ensures the iframe is not interactive, allowing the click to go to the link
-            />
-          </div>
-        </>
-      ) : null}
+                {/* Mobile Version: Display the Map iframe */}
+                {isMobile ? (
+                  <>
+                    <div
+                      ref={mapRef}
+                      className="w-full relative"
+                      style={{ height: "35rem" }}
+                    >
+                      {/* The div covering the map as a full row */}
+                      <div
+                        className="absolute top-0 left-0 w-full flex items-center justify-center z-[20] bg-white"
+                        style={{ height: "4rem" }}
+                      >
+                        <Link href="/gallery">
+                          <div
+                            className="flex items-center justify-center px-8 py-3 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black mt-2 mb-8"
+                            style={{
+                              ...buttonStyle,
+                              height: "40px",
+                              width: "350px",
+                              fontSize: "15px",
+                            }}
+                          >
+                            {t("gallery2")}
+                          </div>
+                        </Link>
+                      </div>
+
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        loading="lazy"
+                        src={mapSrc}
+                        allowFullScreen
+                        className="relative z-[10]"
+                        style={{ border: "0" }}
+                      />
+                    </div>
+
+                    <div className="text-center p-2">
+                      <a
+                        href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 px-4 py-2 text-sm font-medium flex items-center justify-center"
+                      >
+                        <FaMapMarkerAlt className="mr-2 text-green-600" />
+                        {t("openMaps")}
+                      </a>
+                    </div>
+                  </>
+                ) : null}
 
                 {/* 
                 <div className="w-full">
