@@ -48,6 +48,31 @@
   z-index: 10; /* Higher z-index to keep it above the other content */
 }
 
+.skeletonLoader {
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.67%; /* Aspect ratio placeholder */
+  background-color: #e0e0e0; /* Gray placeholder */
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+.galleryItem {
+  position: relative;
+  margin-bottom: 16px; /* Add spacing between gallery items */
+}
+
 @media (max-width: 768px) {
   /* Mobile responsiveness adjustments */
   .imageGallery {
