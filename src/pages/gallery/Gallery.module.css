@@ -7,24 +7,17 @@
   padding: 20px;
 }
 
-.column1 {
+.column1, .column2, .column3 {
   display: flex;
   flex-direction: column;
   gap: 16px; /* Space between items in each column */
+}
+
+.column1 {
   margin-top: 225px;
 }
 
-.column2 {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Space between items in each column */
-  
-}
-
 .column3 {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Space between items in each column */
   margin-top: 175px;
 }
 
@@ -33,7 +26,6 @@
   height: auto;
   object-fit: cover; /* Ensures the image covers the entire container */
   display: block;
-  
 }
 
 .galleryItem img {
@@ -54,10 +46,24 @@
 @media (max-width: 768px) {
   /* Mobile responsiveness adjustments */
   .imageGallery {
-    flex-direction: column; /* Switch to a single column on smaller screens */
+    flex-direction: row; /* Maintain three columns even on smaller screens */
+    flex-wrap: nowrap; /* Prevents wrapping of columns */
   }
 
-  .column {
-    gap: 12px; /* Reduced gap on mobile */
+
+  .column1 {
+    margin-top: 225px; /* Custom margin top for column 1 */
+  }
+
+  .column2 {
+    margin-top: 0; /* Standard top margin for column 2, adjust if necessary */
+  }
+
+  .column3 {
+    margin-top: 175px; /* Custom margin top for column 3 */
+  }
+
+  .galleryItem img {
+    height: auto; /* Make height responsive */
   }
 }

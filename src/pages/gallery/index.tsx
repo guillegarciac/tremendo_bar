@@ -1,5 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import Masonry from "react-masonry-css";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -8,7 +11,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import styles from "../gallery/Gallery.module.css";
 
-// Importing gallery images
+// Import your images
 import image1 from "../../assets/calamars.jpg";
 import image2 from "../../assets/musclos.jpg";
 import image3 from "../../assets/perrins.jpg";
@@ -39,8 +42,54 @@ const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
   ssr: false,
 });
 
-export default function Gallery() {
+// Define photo type
+interface Photo {
+  src: string;
+  width: number;
+  height: number;
+}
+
+// Image gallery component
+const MasonryImageGallery: React.FC = () => {
   const { t } = useTranslation("common");
+
+  // Image data
+  const photos: Photo[] = [
+    { src: image1.src, width: 3, height: 2 },
+    { src: image2.src, width: 4, height: 3 },
+    { src: image3.src, width: 3, height: 4 },
+    { src: image4.src, width: 4, height: 3 },
+    { src: image5.src, width: 3, height: 2 },
+    { src: image6.src, width: 3, height: 2 },
+    { src: image7.src, width: 3, height: 2 },
+    { src: image8.src, width: 4, height: 3 },
+    { src: image9.src, width: 3, height: 4 },
+    { src: image10.src, width: 4, height: 3 },
+    { src: image11.src, width: 3, height: 2 },
+    { src: image12.src, width: 4, height: 3 },
+    { src: image13.src, width: 3, height: 2 },
+    { src: image14.src, width: 4, height: 3 },
+    { src: image15.src, width: 3, height: 4 },
+    { src: image16.src, width: 4, height: 3 },
+    { src: image17.src, width: 3, height: 2 },
+    { src: image18.src, width: 4, height: 3 },
+    { src: image19.src, width: 3, height: 2 },
+    { src: image20.src, width: 4, height: 3 },
+    { src: image21.src, width: 3, height: 4 },
+    { src: image22.src, width: 4, height: 3 },
+    { src: image23.src, width: 3, height: 2 },
+    { src: image24.src, width: 4, height: 3 },
+  ];
+
+  // State for lightbox viewer
+  const [isViewerOpen, setIsViewerOpen] = useState<boolean>(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  // Open the viewer with the selected image index
+  const openViewer = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsViewerOpen(true);
+  };
 
   return (
     <>
@@ -63,94 +112,75 @@ export default function Gallery() {
         <div className={styles.whiterDiv}></div>
 
         <section className="w-full flex flex-col items-center justify-center md:p-12 z-[20] text-center">
-          <h1 className="text-3xl font-bold mb-8">Our Gallery</h1>
-
-                   {/* Image Gallery Section */}
-                   <div className={styles.imageGallery}>
+          {/* Image Gallery Section */}
+          <div className={styles.imageGallery}>
             {/* Column 1 */}
             <div className={styles.column1}>
-              <div className={styles.galleryItem}>
-                <Image src={image1} alt="Calamari Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image4} alt="Rusa Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image7} alt="Bravas Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image10} alt="Hildas Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image13} alt="Tartar Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image16} alt="New Dish 1" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image19} alt="New Dish 2" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image22} alt="New Dish 3" layout="responsive" width={130} height={200} />
-              </div>
+              {photos.slice(0, 8).map((photo, index) => (
+                <div
+                  key={index}
+                  className={styles.galleryItem}
+                  onClick={() => openViewer(index)}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={`Gallery Image ${index + 1}`}
+                    layout="responsive"
+                    width={photo.width * 100}
+                    height={photo.height * 100}
+                  />
+                </div>
+              ))}
             </div>
 
             {/* Column 2 */}
             <div className={styles.column2}>
-              <div className={styles.galleryItem}>
-                <Image src={image2} alt="Mussels Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image5} alt="Salmon with Wine" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image8} alt="Croquetas Calamari Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image11} alt="Navajas Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image14} alt="Tuna Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image17} alt="New Dish 4" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image20} alt="New Dish 5" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image23} alt="New Dish 6" layout="responsive" width={130} height={200} />
-              </div>
+              {photos.slice(8, 16).map((photo, index) => (
+                <div
+                  key={index + 8}
+                  className={styles.galleryItem}
+                  onClick={() => openViewer(index + 8)}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={`Gallery Image ${index + 9}`}
+                    layout="responsive"
+                    width={photo.width * 100}
+                    height={photo.height * 100}
+                  />
+                </div>
+              ))}
             </div>
 
             {/* Column 3 */}
             <div className={styles.column3}>
-              <div className={styles.galleryItem}>
-                <Image src={image3} alt="Perrins Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image6} alt="Buffala Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image9} alt="Figas Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image12} alt="Perrins Dish Again" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image15} alt="Vieiras Dish" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image18} alt="New Dish 7" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image21} alt="New Dish 8" layout="responsive" width={130} height={200} />
-              </div>
-              <div className={styles.galleryItem}>
-                <Image src={image24} alt="New Dish 9" layout="responsive" width={130} height={200} />
-              </div>
+              {photos.slice(16).map((photo, index) => (
+                <div
+                  key={index + 16}
+                  className={styles.galleryItem}
+                  onClick={() => openViewer(index + 16)}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={`Gallery Image ${index + 17}`}
+                    layout="responsive"
+                    width={photo.width * 100}
+                    height={photo.height * 100}
+                  />
+                </div>
+              ))}
             </div>
           </div>
+
+          {/* Lightbox Viewer */}
+          {isViewerOpen && (
+            <Lightbox
+              open={isViewerOpen}
+              close={() => setIsViewerOpen(false)}
+              slides={photos.map((photo) => ({ src: photo.src }))}
+              index={currentImageIndex}
+            />
+          )}
 
           {/* Footer Section */}
           <div className="navigation-footer mt-8">
@@ -160,7 +190,9 @@ export default function Gallery() {
       </main>
     </>
   );
-}
+};
+
+export default MasonryImageGallery;
 
 export async function getServerSideProps({ locale }: { locale: string }) {
   return {

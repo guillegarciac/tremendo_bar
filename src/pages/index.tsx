@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
@@ -14,10 +13,6 @@ import useMediaQuery from "@/hooks/useMediaQuery"; // Custom hook for media quer
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
 import tremendoLogo from "../assets/tremendologo.png";
-import image1 from "../assets/image1.jpg";
-import image2 from "../assets/image2.jpg";
-import image3 from "../assets/image3.jpg";
-import image4 from "../assets/image4.jpg";
 import image5 from "../assets/handSteak.jpg";
 
 const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
@@ -69,7 +64,7 @@ export default function Home() {
         />
       </Head>
 
-      <main className="min-h-screen w-full relative pb-24">
+      <main className="min-h-screen w-full relative">
         <motion.div
           className="motionDiv"
           initial={{ opacity: 0 }}
@@ -100,7 +95,7 @@ export default function Home() {
                     layout="responsive"
                     width={700}
                     height={900}
-                    className="w-full md:h-[500px] lg:h-[600px] xl:h-[700px]"
+                    className="w-full md:h-[700px] lg:h-[700px] xl:h-[700px]"
                   />
                   <div className="absolute bottom-0 left-0 right-0 flex justify-center mb-12">
                     <Image
@@ -129,15 +124,13 @@ export default function Home() {
                     <iframe
                       width="100%"
                       height="100%"
-                      frameBorder="0"
-                      style={{ border: 0 }}
                       loading="lazy"
                       src={mapSrc}
                       allowFullScreen
                     />
                   </div>
                 ) : null}
-
+{/* 
                 <div className="w-full">
                   <Image
                     src={image2}
@@ -177,7 +170,7 @@ export default function Home() {
                     height={467}
                     className="w-full"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
