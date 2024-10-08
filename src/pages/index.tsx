@@ -101,28 +101,28 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
-                <div className="w-full px-6">
-                  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
-                    {/* "Book with us" button initiates a phone call */}
-                    <a
-                      href="tel:936393970"
-                      className="flex-grow flex items-center justify-center px-6 py-3 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[25%] lg:w-[20%]"
-                      style={{ ...buttonStyle, fontSize: "14px" }}
-                    >
-                      <BiPhone className="mr-1 text-justify text-base" />
-                      {t("book")}
-                    </a>
+              <div className="w-full px-6">
+  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
+    {/* "Book with us" button initiates a phone call */}
+    <a
+      href="tel:936393970"
+      className="flex-grow flex items-center justify-center px-4 py-2 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[15%] lg:w-[12%]"
+      style={{ ...buttonStyle, fontSize: "16px" }}
+    >
+      <BiPhone className="mr-1 text-justify text-base" />
+      {t("book")}
+    </a>
 
-                    <Link href="/menu">
-                      <div
-                        className="flex-grow flex items-center justify-center px-6 py-3 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[25%] lg:w-[20%]"
-                        style={{ ...buttonStyle, fontSize: "14px" }}
-                      >
-                        {t("menu")}
-                      </div>
-                    </Link>
-                  </div>
-                </div>
+    <Link href="/menu">
+      <div
+        className="flex-grow flex items-center justify-center px-4 py-2 text-center bg-black text-white hover:bg-white hover:text-black md:w-[45%] lg:w-[40%]"
+        style={{ ...buttonStyle, fontSize: "14px" }}
+      >
+        {t("menu")}
+      </div>
+    </Link>
+  </div>
+</div>
                 <div className="relative w-full custom-image-container">
                   <Image
                     src={image5}
@@ -158,7 +158,7 @@ export default function Home() {
                     initial={{ y: 0 }}
                     animate={{ y: [0, 6, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-black text-xs font-medium flex items-center cursor-pointer md:text-sm lg:text-base"
+                    className="text-green-600  text-xs font-medium flex items-center cursor-pointer md:text-sm lg:text-base"
                     onClick={scrollToMap} // Call scrollToMap when clicking
                   >
                     <span>{t("location")}</span>
@@ -174,21 +174,22 @@ export default function Home() {
                       className="w-full relative"
                       style={{ height: "35rem" }}
                     >
-                      <div className="w-full flex items-center justify-center bg-white pb-6">
-                        <Link href="/gallery">
-                          <div
-                            className="flex items-center justify-center px-8  text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
-                            style={{
-                              ...buttonStyle,
-                              height: "40px",
-                              width: "350px",
-                              fontSize: "15px",
-                            }}
-                          >
-                            {t("gallery2")}
-                          </div>
-                        </Link>
-                      </div>
+                     <div className="w-full flex items-center justify-center bg-white pb-6">
+  <Link href="/gallery">
+    <div
+      className="flex items-center justify-center px-8 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
+      style={{
+        ...buttonStyle,
+        height: "40px",
+        width: "350px",
+        maxWidth: "100%",
+        fontSize: isMobile ? "12px" : "15px",
+      }}
+    >
+      {t("gallery2")}
+    </div>
+  </Link>
+</div>
 
                       <iframe
                         width="100%"
@@ -201,16 +202,16 @@ export default function Home() {
                     </div>
 
                     <div className="text-center p-6 mt-12 bg-white">
-  <a
-    href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-green-600 px-4 py-2 text-sm font-medium flex items-center justify-center"
-  >
-    <FaMapMarkerAlt className="mr-2 text-green-600" />
-    {t("openMaps")}
-  </a>
-</div>
+                      <a
+                        href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-green-600 px-4 py-2 text-sm font-medium flex items-center justify-center"
+                      >
+                        <FaMapMarkerAlt className="mr-2 text-green-600" />
+                        {t("openMaps")}
+                      </a>
+                    </div>
                   </>
                 ) : null}
 

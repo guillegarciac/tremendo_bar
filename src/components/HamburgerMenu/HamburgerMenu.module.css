@@ -35,7 +35,7 @@
 .hamburgerIcon span {
   height: 3px;
   width: 20px;
-  background-color: rgb(110, 110, 110);
+  background-color: rgb(78, 78, 78);
   transition: all 0.3s ease-in-out;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .menuList li a {
-  color: rgb(110, 110, 110);
+  color: rgb(26, 158, 43);
   font-size: 16px;
   text-decoration: none;
   display: block;
@@ -104,7 +104,7 @@
   display: block; /* Makes the link cover the entire list item area */
   width: 100%; /* Ensures it takes the full width of the parent list item */
   padding: 15px; /* Adds padding for a larger clickable area */
-  color: rgb(110, 110, 110);
+  color: rgb(26, 158, 43);
   text-decoration: none;
   font-size: 10px;
 }
@@ -119,7 +119,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(110, 110, 110);
+  color: rgb(78, 78, 78);
 }
 
 .footerContainer {
@@ -137,6 +137,7 @@
   font-size: 14px;
   position: absolute;
   right: 10px;
+  color: rgb(26, 158, 43);
 }
 
 .languageDropdown {
@@ -144,6 +145,7 @@
   right: 0;
   top: 100%;
   background-color: white;
+  color: rgb(26, 158, 43);
   box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
   z-index: 105;
   min-width: 100px;
@@ -152,11 +154,12 @@
 .languageDropdown li {
   padding: 10px;
   cursor: pointer;
+  color: rgb(78, 78, 78);
 }
 
 .languageDropdown li.languageActive {
   font-weight: bold;
-  color: #00b55e;
+  color: rgb(26, 158, 43);
 }
 
 .languageDropdown li:hover {
