@@ -10,19 +10,22 @@ export default function NavFooter() {
   const { t } = useTranslation("common"); // Initialize translation hook
 
   const buttonStyle: CSSProperties = {
-    margin: "10px",
-    borderRadius: "12px", // Rounded corners for a modern look
-    height: "50px",
-    width: "200px",
-    backgroundColor: "white", // A pleasant medium slate blue
-    color: "green", // White text for high contrast
-    boxShadow: "-4px -4px 10px green", // Subtle shadow for depth
-    cursor: "pointer", // Changes the cursor to a pointer to indicate it's clickable
-    transition: "all 0.3s ease-in-out", // Smooth transition for hover effects
+    textDecoration: "none",
+    border: "1px solid black",
+    borderRadius: "0",
+    height: "48px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    color: "black",
+    cursor: "pointer",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+    transition: "background-color 0.3s ease, color 0.3s ease",
   };
 
   return (
-    <div className="flex justify-center items-center w-full mt-[80px] mb-[80px]">
+    <div className="flex justify-center items-center w-full mt-[1000px] mb-[80px]">
       <div className="text-black">
         <ul
           className={`flex ${pathname === "/" ? "flex-col md:flex-row" : ""}`}

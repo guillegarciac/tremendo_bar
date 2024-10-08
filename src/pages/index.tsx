@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
@@ -9,6 +10,8 @@ import { motion } from "framer-motion"; // Import Framer Motion
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import useMediaQuery from "@/hooks/useMediaQuery"; // Custom hook for media query
+import { BiPhone } from "react-icons/bi";
+import { FaChevronDown } from "react-icons/fa";
 
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
@@ -39,7 +42,7 @@ export default function Home() {
     textDecoration: "none",
     border: "1px solid black",
     borderRadius: "0",
-    height: "48px",
+    height: "60px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -88,6 +91,28 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
+                <div className="w-full px-6">
+                  <div className="flex items-center justify-center space-x-4 py-4 mt-11 mb-1">
+                    {/* "Book with us" button initiates a phone call */}
+                    <a
+                      href="tel:936393970"
+                      className="flex-grow flex items-center justify-center px-6 py-3 w-full max-w-[200px] text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
+                      style={{ ...buttonStyle, fontSize: "14px" }}
+                    >
+                      <BiPhone className="mr-1 text-justify text-base" />
+                      {t("book")}
+                    </a>
+
+                    <Link href="/menu">
+                      <div
+                        className="flex-grow flex items-center justify-center px-6 py-3 w-full min-w-[135px] text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
+                        style={{ ...buttonStyle, fontSize: "14px" }}
+                      >
+                        {t("menu")}
+                      </div>
+                    </Link>
+                  </div>
+                </div>
                 <div className="relative w-full">
                   <Image
                     src={image5}
@@ -106,7 +131,7 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="w-full flex items-center justify-center py-9">
+                <div className="w-full flex items-center justify-center py-4">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
                     target="_blank"
@@ -118,19 +143,34 @@ export default function Home() {
                     {t("@tremendo.santcugat")}
                   </a>
                 </div>
+
+                {/* Scroll down indicator for mobile */}
+                <div className="md:hidden w-full flex items-center justify-center mb-6">
+                  <motion.div
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-black text-sm font-medium flex flex-col items-center"
+                  >
+                    <span>{t("location")}</span>
+                    <FaChevronDown className=" text-2xl" />
+                  </motion.div>
+                </div>
                 {/* Mobile Version: Display the Map iframe */}
                 {isMobile ? (
-                  <div className="w-full h-72 my-4">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      loading="lazy"
-                      src={mapSrc}
-                      allowFullScreen
-                    />
-                  </div>
+                  <>
+                    <div className="w-full h-72 my-4">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        loading="lazy"
+                        src={mapSrc}
+                        allowFullScreen
+                      />
+                    </div>
+                  </>
                 ) : null}
-{/* 
+                {/* 
                 <div className="w-full">
                   <Image
                     src={image2}
