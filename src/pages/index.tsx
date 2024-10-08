@@ -101,28 +101,30 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
-                <div className="w-full px-6">
-                  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1">
-                    {/* "Book with us" button initiates a phone call */}
-                    <a
-                      href="tel:936393970"
-                      className="flex-grow flex items-center justify-center px-6 py-3 w-full max-w-[200px] text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
-                      style={{ ...buttonStyle, fontSize: "14px" }}
-                    >
-                      <BiPhone className="mr-1 text-justify text-base" />
-                      {t("book")}
-                    </a>
+              <div className="w-full px-6">
+  <div
+    className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6"
+  >
+    {/* "Book with us" button initiates a phone call */}
+    <a
+      href="tel:936393970"
+      className="flex-grow flex items-center justify-center px-6 py-3 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[25%] lg:w-[20%]"
+      style={{ ...buttonStyle, fontSize: "14px" }}
+    >
+      <BiPhone className="mr-1 text-justify text-base" />
+      {t("book")}
+    </a>
 
-                    <Link href="/menu">
-                      <div
-                        className="flex-grow flex items-center justify-center px-6 py-3 w-full min-w-[135px] text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
-                        style={{ ...buttonStyle, fontSize: "14px" }}
-                      >
-                        {t("menu")}
-                      </div>
-                    </Link>
-                  </div>
-                </div>
+    <Link href="/menu">
+      <div
+        className="flex-grow flex items-center justify-center px-6 py-3 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[25%] lg:w-[20%]"
+        style={{ ...buttonStyle, fontSize: "14px" }}
+      >
+        {t("menu")}
+      </div>
+    </Link>
+  </div>
+</div>
                 <div className="relative w-full custom-image-container">
                   <Image
                     src={image5}
