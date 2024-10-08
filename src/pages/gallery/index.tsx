@@ -125,61 +125,63 @@ const MasonryImageGallery: React.FC = () => {
           {/* Image Gallery Section */}
           <div className={styles.imageGallery}>
             {/* Column 1 */}
-            <div className={styles.column1}>
-              {photos.slice(0, 10).map((photo, index) => (
-                <div
-                  key={index}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 1}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
-                </div>
-              ))}
-            </div>
+{/* Column 1 */}
+<div className={styles.column1}>
+  {photos.slice(0, 9).map((photo, index) => (
+    <div
+      key={index}
+      className={styles.galleryItem}
+      onClick={() => openViewer(index)}
+    >
+      <Image
+        src={photo.src}
+        alt={`Gallery Image ${index + 1}`}
+        layout="responsive"
+        width={photo.width * 100}
+        height={photo.height * 100}
+      />
+    </div>
+  ))}
+</div>
 
-            {/* Column 2 */}
-            <div className={styles.column2}>
-              {photos.slice(10, 20).map((photo, index) => (
-                <div
-                  key={index + 10}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index + 10)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 11}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
-                </div>
-              ))}
-            </div>
+{/* Column 2 */}
+<div className={styles.column2}>
+  {photos.slice(9, 20).map((photo, index) => (
+    <div
+      key={index + 9}
+      className={styles.galleryItem}
+      onClick={() => openViewer(index + 9)}
+    >
+      <Image
+        src={photo.src}
+        alt={`Gallery Image ${index + 10}`}
+        layout="responsive"
+        width={photo.width * 100}
+        height={photo.height * 100}
+      />
+    </div>
+  ))}
+</div>
 
-            {/* Column 3 */}
-            <div className={styles.column3}>
-              {photos.slice(20).map((photo, index) => (
-                <div
-                  key={index + 20}
-                  className={styles.galleryItem}
-                  onClick={() => openViewer(index + 20)}
-                >
-                  <Image
-                    src={photo.src}
-                    alt={`Gallery Image ${index + 21}`}
-                    layout="responsive"
-                    width={photo.width * 100}
-                    height={photo.height * 100}
-                  />
-                </div>
-              ))}
-            </div>
+{/* Column 3 */}
+<div className={styles.column3}>
+  {photos.slice(20).map((photo, index) => (
+    <div
+      key={index + 20}
+      className={styles.galleryItem}
+      onClick={() => openViewer(index + 20)}
+    >
+      <Image
+        src={photo.src}
+        alt={`Gallery Image ${index + 21}`}
+        layout="responsive"
+        width={photo.width * 100}
+        height={photo.height * 100}
+      />
+    </div>
+  ))}
+</div>
+
           </div>
 
           {/* Lightbox Viewer */}
