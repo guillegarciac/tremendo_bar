@@ -75,6 +75,11 @@ export default function Home() {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <meta
+          property="og:image"
+          content="https://www.tremendosantcugat.com/assets/tremendoIndexShort.png"
+        />
+        <meta property="og:url" content="https://www.tremendosantcugat.com" />
       </Head>
 
       <main className="min-h-screen w-full relative">
@@ -101,28 +106,28 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
-              <div className="w-full px-6">
-  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
-    {/* "Book with us" button initiates a phone call */}
-    <a
-      href="tel:936393970"
-      className="flex-grow flex items-center justify-center px-4 py-2 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[15%] lg:w-[12%]"
-      style={{ ...buttonStyle, fontSize: "16px" }}
-    >
-      <BiPhone className="mr-1 text-justify text-base" />
-      {t("book")}
-    </a>
+                <div className="w-full px-6">
+                  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
+                    {/* "Book with us" button initiates a phone call */}
+                    <a
+                      href="tel:936393970"
+                      className="flex-grow flex items-center justify-center px-4 py-2 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[15%] lg:w-[12%]"
+                      style={{ ...buttonStyle, fontSize: "16px" }}
+                    >
+                      <BiPhone className="mr-1 text-justify text-base" />
+                      {t("book")}
+                    </a>
 
-    <Link href="/menu">
-      <div
-        className="flex-grow flex items-center justify-center px-4 py-2 text-center bg-black text-white hover:bg-white hover:text-black md:w-[45%] lg:w-[40%]"
-        style={{ ...buttonStyle, fontSize: "14px" }}
-      >
-        {t("menu")}
-      </div>
-    </Link>
-  </div>
-</div>
+                    <Link href="/menu">
+                      <div
+                        className="flex-grow flex items-center justify-center px-4 py-2 text-center bg-black text-white hover:bg-white hover:text-black md:w-[45%] lg:w-[40%]"
+                        style={{ ...buttonStyle, fontSize: "14px" }}
+                      >
+                        {t("menu")}
+                      </div>
+                    </Link>
+                  </div>
+                </div>
                 <div className="relative w-full custom-image-container">
                   <Image
                     src={image5}
@@ -174,22 +179,22 @@ export default function Home() {
                       className="w-full relative"
                       style={{ height: "35rem" }}
                     >
-                     <div className="w-full flex items-center justify-center bg-white pb-6">
-  <Link href="/gallery">
-    <div
-      className="flex items-center justify-center px-8 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
-      style={{
-        ...buttonStyle,
-        height: "40px",
-        width: "350px",
-        maxWidth: "100%",
-        fontSize: isMobile ? "12px" : "15px",
-      }}
-    >
-      {t("gallery2")}
-    </div>
-  </Link>
-</div>
+                      <div className="w-full flex items-center justify-center bg-white pb-6">
+                        <Link href="/gallery">
+                          <div
+                            className="flex items-center justify-center px-8 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
+                            style={{
+                              ...buttonStyle,
+                              height: "40px",
+                              width: "350px",
+                              maxWidth: "100%",
+                              fontSize: isMobile ? "14px" : "16px",
+                            }}
+                          >
+                            {t("gallery2")}
+                          </div>
+                        </Link>
+                      </div>
 
                       <iframe
                         width="100%"
