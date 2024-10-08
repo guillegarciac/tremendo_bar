@@ -24,7 +24,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
   useEffect(() => {
     if (googleApiKey) {
       setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=satellite&zoom=19`
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=19`
       );
     }
   }, [locale, googleApiKey]);
@@ -46,7 +46,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
             ></iframe>
             <div className="text-center p-2 fixed inset-x-0 bottom-0 bg-white" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=41.4744337,2.0827327"
+                href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
                 className="flex items-center justify-center text-green-600 hover:text-green-700 text-xl"
               >
                 <FaMapMarkerAlt className="mr-1 text-2xl" />

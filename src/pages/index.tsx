@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
@@ -12,6 +12,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import useMediaQuery from "@/hooks/useMediaQuery"; // Custom hook for media query
 import { BiPhone } from "react-icons/bi";
 import { FaChevronDown } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
@@ -26,6 +27,15 @@ export default function Home() {
   const { t } = useTranslation("common");
   const isMobile = useMediaQuery("(max-width: 768px)"); // Detect if it's mobile
 
+  // Create a ref for the map section
+  const mapRef = useRef<HTMLDivElement | null>(null);
+
+  // Scroll to map function
+  const scrollToMap = () => {
+    if (mapRef.current) {
+      mapRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   // Google Maps API key
   const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
   const [mapSrc, setMapSrc] = useState<string>("");
@@ -33,7 +43,7 @@ export default function Home() {
   useEffect(() => {
     if (googleApiKey) {
       setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=satellite&zoom=19`
+        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=19`
       );
     }
   }, [googleApiKey]);
@@ -130,46 +140,57 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="w-full flex items-center justify-center py-6 gap-6">
-                  <a
-                    href="https://www.instagram.com/tremendo.santcugat/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center px-3 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs" // Reduced padding and font size
-                    style={{
-                      ...buttonStyle,
-                      height: "40px", // Reduced height
-                      fontSize: "12px", // Smaller font size
-                    }}
-                  >
-                    <FaInstagram className="mr-1 text-base" />{" "}
-                    {/* Smaller icon */}
-                    {t("@tremendo.santcugat")}
-                  </a>
-                  <motion.div
-                    initial={{ y: 0 }}
-                    animate={{ y: [0, 6, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-black text-xs font-medium flex items-center"
-                  >
-                    <span>{t("location")}</span>
-                    <FaChevronDown className="text-lg ml-1" />{" "}
-                    {/* Smaller arrow icon */}
-                  </motion.div>
-                </div>
-                {/* Mobile Version: Display the Map iframe */}
-                {isMobile ? (
-                  <>
-                    <div className="w-full" style={{ height: '22rem' }}>
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        loading="lazy"
-                        src={mapSrc}
-                        allowFullScreen
-                      />
-                    </div>
-                  </>
-                ) : null}
+        <a
+          href="https://www.instagram.com/tremendo.santcugat/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center px-4 py-1 rounded transition duration-300 hover:bg-black hover:text-white text-xs"
+          style={{
+            ...buttonStyle,
+            height: "40px",
+            fontSize: "14px",
+          }}
+        >
+          <FaInstagram className="mr-1 text-base" /> {/* Smaller icon */}
+          {t("@tremendo.santcugat")}
+        </a>
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-black text-xs font-medium flex items-center cursor-pointer"
+          onClick={scrollToMap} // Call scrollToMap when clicking
+        >
+          <span>{t("location")}</span>
+          <FaChevronDown className="text-lg ml-1" /> {/* Smaller arrow icon */}
+        </motion.div>
+      </div>
+
+      {/* Mobile Version: Display the Map iframe */}
+      {isMobile ? (
+        <>
+          <div ref={mapRef} className="w-full relative" style={{ height: "30rem" }}>
+            <a
+              href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-2.5 left-2 mt-2 bg-white text-green-600 px-2 py-1 text-xs font-medium z-10 flex items-center"
+            >
+              <FaMapMarkerAlt className="ml-1 text-green-600" />
+              <span className="ml-2">{t("openMaps")}</span>
+            </a>
+            <iframe
+              width="100%"
+              height="100%"
+              loading="lazy"
+              src={mapSrc}
+              allowFullScreen
+              style={{ pointerEvents: "none" }} // Ensures the iframe is not interactive, allowing the click to go to the link
+            />
+          </div>
+        </>
+      ) : null}
+
                 {/* 
                 <div className="w-full">
                   <Image
