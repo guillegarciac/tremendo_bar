@@ -102,7 +102,7 @@ export default function Home() {
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
               <div className="md:hidden w-full relative">
                 <div className="w-full px-6">
-                  <div className="flex items-center justify-center space-x-4 py-4 mt-13 mb-1">
+                  <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1">
                     {/* "Book with us" button initiates a phone call */}
                     <a
                       href="tel:936393970"
@@ -139,7 +139,10 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="w-full flex items-center justify-center py-6 gap-6">
+                <div
+                  className="w-full flex items-center justify-center py-6 gap-6"
+                  style={{ marginBottom: "-20px" }}
+                >
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
                     target="_blank"
@@ -176,14 +179,10 @@ export default function Home() {
                       className="w-full relative"
                       style={{ height: "35rem" }}
                     >
-                      {/* The div covering the map as a full row */}
-                      <div
-                        className="absolute top-0 left-0 w-full flex items-center justify-center z-[20] bg-white"
-                        style={{ height: "4rem" }}
-                      >
+                      <div className="w-full flex items-center justify-center bg-white py-4">
                         <Link href="/gallery">
                           <div
-                            className="flex items-center justify-center px-8 py-3 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black mt-2 mb-8"
+                            className="flex items-center justify-center px-8 py-3 text-center text-sm rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black"
                             style={{
                               ...buttonStyle,
                               height: "40px",
@@ -202,7 +201,6 @@ export default function Home() {
                         loading="lazy"
                         src={mapSrc}
                         allowFullScreen
-                        className="relative z-[10]"
                         style={{ border: "0" }}
                       />
                     </div>
