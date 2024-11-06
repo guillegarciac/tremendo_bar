@@ -75,19 +75,18 @@ export default function Home() {
     <>
       <Head>
         <title>{t("pageTitle", "Tremendo Sant Cugat")}</title>
-        <meta
-          name="description"
-          content="Explore the best dishes at tremendo in Sant Cugat!"
-        />
-        <meta
+        {/* Open Graph tags for preview */}
+        <meta property="og:title" content="Your Page Title" />
+        <meta property="og:description" content="Explore the best dishes at tremendo in Sant Cugat!" />
+        <meta property="og:image" content="https://www.tremendosantcugat.com/_next/static/media/tremendoIndexShort.e3a8a106.png" /> {/* Thumbnail image */}
+        <meta property="og:url" content="https://www.tremendosantcugat.com" /> {/* URL to your site */}
+        <meta property="og:type" content="website" />
+
+{/*         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta
-          property="og:image"
-          content="https://www.tremendosantcugat.com/assets/tremendoIndexShort.png"
-        />
-        <meta property="og:url" content="https://www.tremendosantcugat.com" />
+        /> */}
+
         <style>
           {`
           @keyframes scroll {
