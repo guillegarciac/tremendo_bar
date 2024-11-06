@@ -6,10 +6,10 @@ import { FaInstagram } from "react-icons/fa";
 import HamburgerMenu from "@/components/HamburgerMenu/HamburgerMenu";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import useMediaQuery from "@/hooks/useMediaQuery"; // Custom hook for media query
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { BiPhone } from "react-icons/bi";
 import { FaChevronDown } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
@@ -23,20 +23,28 @@ const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
   ssr: false,
 });
 
+// Banner Component
+const MobileBanner = () => {
+  const { t } = useTranslation("common");
+  return (
+    <div className="mobile-banner">
+      <span>{t("bannerMessage")}</span> 
+    </div>
+  );
+};
+
 export default function Home() {
   const { t } = useTranslation("common");
-  const isMobile = useMediaQuery("(max-width: 768px)"); // Detect if it's mobile
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
-  // Create a ref for the map section
   const mapRef = useRef<HTMLDivElement | null>(null);
 
-  // Scroll to map function
   const scrollToMap = () => {
     if (mapRef.current) {
       mapRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-  // Google Maps API key
+
   const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
   const [mapSrc, setMapSrc] = useState<string>("");
 
@@ -80,7 +88,17 @@ export default function Home() {
           content="https://www.tremendosantcugat.com/assets/tremendoIndexShort.png"
         />
         <meta property="og:url" content="https://www.tremendosantcugat.com" />
+        <style>
+          {`
+          @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
+          `}
+        </style>
       </Head>
+
+      
 
       <main className="min-h-screen w-full relative">
         <motion.div
@@ -108,7 +126,6 @@ export default function Home() {
               <div className="md:hidden w-full relative">
                 <div className="w-full px-6">
                   <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
-                    {/* "Book with us" button initiates a phone call */}
                     <a
                       href="tel:936393970"
                       className="flex-grow flex items-center justify-center px-4 py-2 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[15%] lg:w-[12%]"
@@ -132,8 +149,8 @@ export default function Home() {
                   <Image
                     src={image5}
                     alt="Image 5"
-                    layout="fill" // Ensure the image fills the container
-                    className="object-cover filter-darken" // Custom class to control brightness
+                    layout="fill"
+                    className="object-cover filter-darken"
                   />
                   <div className="absolute top-10 left-0 right-0 flex justify-center mt-4">
                     <Image
@@ -143,6 +160,9 @@ export default function Home() {
                       height={150}
                     />
                   </div>
+
+                  {isMobile && <MobileBanner />}
+
                 </div>
                 <div className="w-full flex items-center justify-center p-6 gap-6 md:gap-8 lg:gap-10">
                   <a
@@ -163,15 +183,14 @@ export default function Home() {
                     initial={{ y: 0 }}
                     animate={{ y: [0, 6, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
-                    className="text-green-600  text-xs font-medium flex items-center cursor-pointer md:text-sm lg:text-base"
-                    onClick={scrollToMap} // Call scrollToMap when clicking
+                    className="text-green-600 text-xs font-medium flex items-center cursor-pointer md:text-sm lg:text-base"
+                    onClick={scrollToMap}
                   >
                     <span>{t("location")}</span>
                     <FaChevronDown className="text-lg ml-1" />
                   </motion.div>
                 </div>
 
-                {/* Mobile Version: Display the Map iframe */}
                 {isMobile ? (
                   <>
                     <div
@@ -219,48 +238,6 @@ export default function Home() {
                     </div>
                   </>
                 ) : null}
-
-                {/* 
-                <div className="w-full">
-                  <Image
-                    src={image2}
-                    alt="Image 2"
-                    layout="responsive"
-                    width={700}
-                    height={695}
-                    className="w-full"
-                  />
-                </div>
-                <div className="w-full">
-                  <Image
-                    src={image1}
-                    alt="Image 1"
-                    layout="responsive"
-                    width={700}
-                    height={467}
-                    className="w-full"
-                  />
-                </div>
-                <div className="w-full">
-                  <Image
-                    src={image3}
-                    alt="Image 3"
-                    layout="responsive"
-                    width={700}
-                    height={467}
-                    className="w-full"
-                  />
-                </div>
-                <div className="w-full">
-                  <Image
-                    src={image4}
-                    alt="Image 4"
-                    layout="responsive"
-                    width={700}
-                    height={467}
-                    className="w-full"
-                  />
-                </div> */}
               </div>
             </div>
           </section>
