@@ -78,7 +78,7 @@ export default function Home() {
         {/* Open Graph tags for preview */}
         <meta property="og:title" content="Tremendo Sant Cugat" />
         <meta property="og:description" content="Explore the best dishes at tremendo in Sant Cugat!" />
-        <meta property="og:image" content="https://www.tremendosantcugat.com/_next/static/media/tremendoIndexShort.e3a8a106.png" /> {/* Thumbnail image */}
+        <meta property="og:image" content="https://www.tremendosantcugat.com/tremendoIndexShort.png" /> {/* Thumbnail image */}
         <meta property="og:url" content="https://www.tremendosantcugat.com" /> {/* URL to your site */}
         <meta property="og:type" content="website" />
 
