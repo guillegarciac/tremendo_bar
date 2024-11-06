@@ -30,6 +30,10 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Monoton&family=Bebas+Neue&family=Oswald:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" 
+            rel="stylesheet"
+          />
           {/* Import Font Awesome Icons */}
           <link
             rel="icon"

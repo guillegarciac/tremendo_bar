@@ -31,10 +31,12 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-banner {
   position: relative;
   width: 100%;
-  background-color: #000; /* Adjusted color for better contrast */
-  color: #fff;
+  background-color: #fff201; /* Adjusted color for better contrast */
+  color: #000;
+  font-family: "Bangers", system-ui;
   text-align: center;
-  padding: 10px 0;
+  padding: 8px 0;
+  margin-top: 14px;
   font-size: 18px;
   z-index: 1000;
   overflow: hidden;
@@ -43,7 +45,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .mobile-banner span {
   display: inline-block;
-  animation: scroll 18s linear infinite; /* Set duration to control speed */
+  padding-right: 100%; /* Extra padding for smooth exit and re-entry */
+  animation: scroll 10s linear infinite; /* Maintained speed */
+  animation-delay: 0s; /* No initial delay */
+  animation-fill-mode: forwards; /* Ensure it stays visible */
 }
 
 @keyframes scroll {
