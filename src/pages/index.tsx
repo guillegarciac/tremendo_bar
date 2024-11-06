@@ -97,8 +97,6 @@ export default function Home() {
         </style>
       </Head>
 
-      
-
       <main className="min-h-screen w-full relative">
         <motion.div
           className="motionDiv"

@@ -34,6 +34,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" 
             rel="stylesheet"
           />
+          <link 
+            href="https://fonts.googleapis.com/css2?family=Bangers&family=Encode+Sans+SC:wght@100..900&display=swap" rel="stylesheet"
+          />
           {/* Import Font Awesome Icons */}
           <link
             rel="icon"
