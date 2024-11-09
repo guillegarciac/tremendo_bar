@@ -1,6 +1,6 @@
 import React, { FC, MutableRefObject } from "react";
 import { useTranslation } from "next-i18next";
-import menuData from "../../data/menuData";
+import menuData from "../../data/menuDataUpdateNov24";
 import styles from "./feed.module.css";
 
 interface IProps {
@@ -15,7 +15,7 @@ const Feed: FC<IProps> = ({ appetizersRef, tapasRef, dessertsRef, winesRef, beer
   const { t } = useTranslation("common");
 
   return (
-    <div className="overflow-hidden overflow-y-scroll" style={{ padding: "20px", marginTop: "50px" }}>
+    <div className="overflow-hidden overflow-y-scroll" style={{ padding: "30px", marginTop: "50px" }}>
       {/* Appetizers Section */}
       <div ref={appetizersRef} className="w-full px-[10px]">
         <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
@@ -36,8 +36,8 @@ const Feed: FC<IProps> = ({ appetizersRef, tapasRef, dessertsRef, winesRef, beer
         ))}
       </div>
 
-      {/* Tapas Section */}
-      <div ref={tapasRef} className="w-full px-[10px] mt-[96px]">
+          {/* Tapas Section */}
+          <div ref={tapasRef} className="w-full px-[10px] mt-[96px]">
         <h1 className={`font-dancing text-[45px] leading-none mb-[32px] text-black ${styles.title}`}>
           {t("tapas")}
         </h1>
@@ -47,6 +47,11 @@ const Feed: FC<IProps> = ({ appetizersRef, tapasRef, dessertsRef, winesRef, beer
               <h1 className="text-[15px] text-black">{t(item.key)}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
+            {item.descriptionKey && (
+              <p className={`${styles.itemdescription} text-[13px]`}>
+                {t(item.descriptionKey)}
+              </p>
+            )}
           </div>
         ))}
       </div>
@@ -62,7 +67,7 @@ const Feed: FC<IProps> = ({ appetizersRef, tapasRef, dessertsRef, winesRef, beer
               <h1 className="text-[15px] text-black">{t(item.key)}</h1>
               <p className="pl-[40px] text-black">{item.price}</p>
             </div>
-          </div>
+           </div>
         ))}
       </div>
 

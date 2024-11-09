@@ -68,7 +68,7 @@
   "iberian_ham_croquettes": "Iberian ham croquettes (1u)",
   "clams_a_la_marinera": "Clams a la marinera",
   "cod_fritters_with_citrus_mayo": "Cod fritters with citrus mayo (1u)",
-  "iberian_ham_100_bellota": "Iberian ham 100% bellota, hand cut 80gr",
+  "iberian_ham_100_bellota": "Iberian ham 100% bellota",
   "bread_with_tomato": "Bread with tomato",
   "grilled_mussels": "Grilled mussels",
   "fried_chicken_marinated": "Fried chicken (marinated 12h)",
@@ -80,7 +80,7 @@
   "veal_cheek_low_temp": "Veal cheek at low temperature with parmentier and its reduction",
   "tomato_purple_onion_tuna_salad": "Tomato, purple onion, and tuna belly salad",
   "andalusian_calamari": "Andalusian calamari",
-  "grilled_octopus_with_kimchi": "Grilled octopus with a touch of kimchi (slightly spicy), causa limeña and pico de gallo",
+  "grilled_octopus_with_kimchi": "Grilled octopus with a touch of kimchi",
   "marinated_salmon": "Marinated salmon, tomato Barbastro, avocado, mozzarella and soy and honey emulsion",
   "yellowfin_tuna_tataki": "Grilled yellowfin red tuna tataki, teriyaki sauce, wasabi mayonnaise, sesame and sprouts",
   "yellowfin_tuna_tartar": "Yellowfin red tuna tartar with avocado cream",
@@ -91,6 +91,35 @@
   "cheesecake_with_fruit_jam": "Cheesecake with fruit jam",
   "chocolate_cake_with_cocoa": "Chocolate cake with cocoa coating, flaked salt, and homemade caramel",
   "ultra_creamy_flan": "Ultra creamy flan with homemade cream",
+
+
+
+
+
+  
+
+  "olives_stuffed_with_anchovy": "Olives stuffed with anchovy",
+  "meatballs_with_cuttlefish": "Meatballs",
+  "cod_fritters_with_honey_aioli": "Cod fritters",
+  "artichoke_chips_with_romesco": "Artichoke chips",
+  "sobrasada_mahon_cheese_omelet": "Sobrasada and Mahón cheese omelet",
+  "potato_omelet_with_caramelized_onion": "Potato omelet",
+  "burrata_figs_red_pesto": "Burrata",
+  "death_trumpet_mushrooms_sweet_potato": "Death trumpet mushrooms",
+  "three_tomato_tuna_salad": "Three tomato salad",
+  "marinated_salmon_dish": "Marinated salmon",
+  "barcelona_style_seafood_rice": "Barcelona-style seafood rice",
+  "cerdanya_beef_rib_steak": "Beef rib steak from Cerdanya",
+  "aged_girona_beef_rib_steak": "Aged beef rib steak from Girona",
+  "vanilla_chocolate_ice_cream": "Vanilla and chocolate ice cream",
+
+  "marinated_salmon_dish_desc": "with Barbastro tomato, avocado, mozzarella, soy, and honey emulsion",
+  "grilled_octopus_with_kimchi_desc": "(lightly spicy), limeña causa, and pico de gallo",
+  "barcelona_style_seafood_rice_desc": "(price per person - minimum 2 people)",
+  "cerdanya_beef_rib_steak_desc": "(500g to share)",
+  "aged_girona_beef_rib_steak_desc": "(1kg for 4 people)",
+  "three_tomato_tuna_salad_desc": "with tuna belly",
+  "iberian_ham_100_bellota_desc": "Hand-cut 80g",
 
   "estrella_galicia_glass": "Estrella Galicia glass",
   "estrella_galicia_small": "Estrella Galicia small",

@@ -50,13 +50,13 @@
   "designedBy": "Diseñado por",
   "preferPhoneBooking": "Llámanos para reservar",
 
-  "olives": "Aceitunas",
+  "olives": "Olivas",
   "house_chips": "Patatas de la casa",
-  "house_chips_desc": "Patatas, aceitunas, piparras y salsa de aperitivo",
+  "house_chips_desc": "Patatas, olivas, piparras y salsa de aperitivo",
   "combo_with_mussels": "Combo con mejillones",
-  "combo_with_mussels_desc": "Patatas, aceitunas, piparras, mejillones y salsa de aperitivo",
+  "combo_with_mussels_desc": "Patatas, olivas, piparras, mejillones y salsa de aperitivo",
   "combo_with_anchovies": "Combo con boquerones",
-  "combo_with_anchovies_desc": "Patatas, aceitunas, piparras, boquerones y salsa de aperitivo",
+  "combo_with_anchovies_desc": "Patatas, olivas, piparras, boquerones y salsa de aperitivo",
   "anchovy_cantabrico": "Anchoa del Cantábrico '00' (1 filete)",
   "anchovies_in_vinegar": "Boquerones en vinagre (6u)",
   "gilda": "Gilda",
@@ -69,7 +69,7 @@
   "clams_a_la_marinera": "Almejas a la marinera",
   "cod_fritters_with_citrus_mayo": "Buñuelos de bacalao con mayonesa de cítricos (1u)",
   "iberian_ham_100_bellota": "Jamón ibérico 100% bellota, cortado a mano 80gr",
-  "bread_with_tomato": "Pan con tomate",
+  "bread_with_tomato": "Pan de cristal con tomate",
   "grilled_mussels": "Mejillones a la brasa",
   "fried_chicken_marinated": "Pollo frito (macerado 12h)",
   "fresh_squid_from_market": "Chipirones frescos de lonja (según disponibilidad)",
@@ -80,7 +80,8 @@
   "veal_cheek_low_temp": "Carrillera de ternera a baja temperatura con parmentier y su reducción",
   "tomato_purple_onion_tuna_salad": "Tomate Barbastro, cebolla morada y ventresca de atún",
   "andalusian_calamari": "Calamares a la andaluza",
-  "grilled_octopus_with_kimchi": "Pulpo a la brasa con pincelada de kimchi (ligeramente picante), causa limeña y pico de gallo",
+  "grilled_octopus_with_kimchi": "Pulpo a la brasa con pincelada de kimchi",
+  "grilled_octopus_with_kimchi_desc": "(ligeramente picante), causa limeña y pico de gallo",
   "marinated_salmon": "Salmón marinado, tomate Barbastro, aguacate, mozzarella y emulsión de soja y miel",
   "yellowfin_tuna_tataki": "Tataki de atún rojo yellowfin a la brasa, salsa teriyaki, mayonesa de wasabi, sésamo y brotes",
   "yellowfin_tuna_tartar": "Tartar de atún rojo yellowfin con crema de aguacate",
@@ -88,9 +89,37 @@
   "grilled_beef_tenderloin_with_foie": "Solomillo de ternera a la brasa con foie y cebolla caramelizada",
   "grilled_beef_rib_steak": "Chuletón de ternera de la Cerdanya a la brasa (500gr para compartir)",
 
-  "cheesecake_with_fruit_jam": "Tarta de queso con confitura de frutas",
+  "cheesecake_with_fruit_jam": "Cheesecake con confitura de frutas",
   "chocolate_cake_with_cocoa": "Tarta de chocolate con cobertura de cacao, sal en escamas y caramelo casero",
   "ultra_creamy_flan": "Flan ultracremoso con nata casera",
+
+
+
+
+
+  
+  "olives_stuffed_with_anchovy": "Aceitunas rellenas de anchoa",
+  "meatballs_with_cuttlefish": "Albóndigas",
+  "cod_fritters_with_honey_aioli": "Buñuelos de bacalao",
+  "artichoke_chips_with_romesco": "Chips de alcachofa",
+  "sobrasada_mahon_cheese_omelet": "Tortilla de sobrasada y queso",
+  "potato_omelet_with_caramelized_onion": "Tortilla de patata",
+  "burrata_figs_red_pesto": "Burrata",
+  "death_trumpet_mushrooms_sweet_potato": "Trompetas de la muerte",
+  "three_tomato_tuna_salad": "Ensalada de tres tomates",
+  "marinated_salmon_dish": "Salmón marinado",
+  "barcelona_style_seafood_rice": "Arroz seco de marisco",
+  "cerdanya_beef_rib_steak": "Chuletón de ternera de la Cerdanya",
+  "aged_girona_beef_rib_steak": "Chuletón de ternera de Girona",
+  "vanilla_chocolate_ice_cream": "Helado de vainilla y chocolate",
+
+  "marinated_salmon_dish_desc": "con tomate de Barbastro, aguacate, mozzarella, emulsión de soja y miel",
+  "barcelona_style_seafood_rice_desc": "(precio por persona - mínimo 2 personas)",
+  "cerdanya_beef_rib_steak_desc": "(500g para compartir)",
+  "aged_girona_beef_rib_steak_desc": "(1kg para 4 personas)",
+  "three_tomato_tuna_salad_desc": "con ventresca de atún",
+  
+
 
   "estrella_galicia_glass": "Copa Estrella Galicia",
   "estrella_galicia_small": "Caña Estrella Galicia",
