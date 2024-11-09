@@ -31,9 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-banner {
   position: relative;
   width: 100%;
-  background-color: #000; /* Adjusted color for better contrast */
+  background-color: transparent; /* Start with a transparent background */
   color: #fff;
-  font-family: "Courier", monospace; 
+  font-family: "Courier", monospace;
   font-weight: 500;
   text-align: center;
   padding: 2px 0;
@@ -41,22 +41,27 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1000;
   overflow: hidden;
   white-space: nowrap;
+  /* Smooth transition for background color */
+  transition: background-color 3s ease; 
+}
+
+.mobile-banner.show-bg {
+  background-color: #000; /* Final black background color */
 }
 
 .mobile-banner span {
   display: inline-block;
-  /* padding-right: 100%; */ /* Extra padding for smooth exit and re-entry */
-  animation: scroll 14s linear infinite; /* Maintained speed */
-  /* animation-delay: 0s; */ /* No initial delay */
-  /* animation-fill-mode: forwards; */ /* Ensure it stays visible */
+  animation: scroll 14s linear infinite; /* Scroll immediately */
+  opacity: 1;
 }
 
+/* Keyframes to make text scroll from right to left */
 @keyframes scroll {
   0% {
-    transform: translateX(100%); /* Start from outside the right edge */
+    transform: translateX(100%); /* Start from right off-screen */
   }
   100% {
-    transform: translateX(-100%); /* Move to outside the left edge */
+    transform: translateX(-100%); /* End off-screen to the left */
   }
 }
 

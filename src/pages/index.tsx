@@ -26,8 +26,15 @@ const NavFooter = dynamic(() => import("@/components/NavFooter/NavFooter"), {
 // Banner Component
 const MobileBanner = () => {
   const { t } = useTranslation("common");
+  const [showBg, setShowBg] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBg(true), 3000);
+    return () => clearTimeout(timer); // Clean up the timer on component unmount
+  }, []);
+
   return (
-    <div className="mobile-banner">
+    <div className={`mobile-banner ${showBg ? "show-bg" : ""}`}>
       <span>{t("bannerMessage")}</span> 
     </div>
   );
