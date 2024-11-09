@@ -31,7 +31,7 @@ const menuData = {
     { id: 4, key: "iberian_ham_croquettes", price: "2.2€/u" },
     { id: 5, key: "clams_a_la_marinera", price: "15€" },
     { id: 6, key: "cod_fritters_with_citrus_mayo", price: "2.2€/u" },
-    { id: 7, key: "iberian_ham_100_bellota", price: "18€" },
+    { id: 7, key: "iberian_ham_100_bellota", descriptionKey: "iberian_ham_100_bellota_desc", price: "18€" },
     { id: 8, key: "bread_with_tomato", price: "3€" },
     { id: 9, key: "grilled_mussels", price: "9.5€" },
     { id: 10, key: "fried_chicken_marinated", price: "10.5€" },

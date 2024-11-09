@@ -4,7 +4,7 @@ const menuData = {
     { id: 2, key: "house_chips", descriptionKey: "house_chips_desc", price: "3.8€" },
     { id: 3, key: "combo_with_mussels", descriptionKey: "combo_with_mussels_desc", price: "6.5€" },
     { id: 4, key: "combo_with_anchovies", descriptionKey: "combo_with_anchovies_desc", price: "6.5€" },
-    { id: 5, key: "cantabrian_anchovy", price: "2.5€" },
+    { id: 5, key: "anchovy_cantabrico", price: "2.5€" },
     { id: 6, key: "anchovies_in_vinegar", price: "6.5€" },
     { id: 7, key: "gilda", price: "3€" },
     { id: 8, key: "mussels_in_escabeche", price: "7.5€" },
