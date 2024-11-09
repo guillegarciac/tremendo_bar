@@ -31,9 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-banner {
   position: relative;
   width: 100%;
-  background-color: #fff201; /* Adjusted color for better contrast */
-  color: #000;
-  font-family: "Encode Sans SC", sans-serif;
+  background-color: #000; /* Adjusted color for better contrast */
+  color: #fff;
+  font-family: "Courier", monospace; 
   font-weight: 500;
   text-align: center;
   padding: 2px 0;
