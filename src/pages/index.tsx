@@ -135,7 +135,7 @@ export default function Home() {
                       className="flex-grow flex items-center justify-center px-4 py-2 w-full text-center text-lg rounded-full transition duration-300 bg-black text-white hover:bg-white hover:text-black md:w-[15%] lg:w-[12%]"
                       style={{ ...buttonStyle, fontSize: "16px" }}
                     >
-                      <BiPhone className="mr-1 text-justify text-base" />
+                      <BiPhone className="mr-1 text-green-600 text-justify text-base" />
                       {t("book")}
                     </a>
 

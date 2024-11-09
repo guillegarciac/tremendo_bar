@@ -7,7 +7,7 @@ const Footer = () => {
   const { t } = useTranslation('common'); 
   
   return (
-    <div className="flex flex-col items-center justify-between mb-[80px] px-[10px] w-full">
+    <div className="flex flex-col items-center justify-between mb-[140px] px-[10px] w-full">
       <div className="text-center mt-4 mb-0">
         <a href="https://www.instagram.com/tremendo.santcugat/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-gray-600">
           <FaInstagram size={24} />
