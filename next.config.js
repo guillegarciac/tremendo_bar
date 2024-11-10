@@ -5,6 +5,7 @@ module.exports = {
       "images.unsplash.com",
       "plus.unsplash.com",
       "avatars.githubusercontent.com",
+      "lh3.googleusercontent.com",
     ],
   },
   i18n: {

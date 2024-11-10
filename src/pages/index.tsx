@@ -13,6 +13,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { BiPhone } from "react-icons/bi";
 import { FaChevronDown } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import GoogleReviews from "@/components/Google/GoogleReviews";
 
 // Importing assets
 import tremendoImage from "../assets/tremendoIndexShort.png";
@@ -89,11 +90,6 @@ export default function Home() {
         <meta property="og:url" content="https://www.tremendosantcugat.com" /> {/* URL to your site */}
         <meta property="og:type" content="website" />
 
-{/*         <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        /> */}
-
         <style>
           {`
           @keyframes scroll {
@@ -127,7 +123,7 @@ export default function Home() {
               <NavFooter />
             </div>
             <div className="flex flex-col items-center w-full relative md:bg-transparent bg-white">
-              <div className="md:hidden w-full relative">
+              <div className="w-full relative">
                 <div className="w-full px-6">
                   <div className="flex items-center justify-center space-x-4 py-4 mt-12 mb-1 md:mb-4 md:space-x-6">
                     <a
@@ -166,8 +162,8 @@ export default function Home() {
                   </div>
 
                   {isMobile && <MobileBanner />}
-
                 </div>
+
                 <div className="w-full flex items-center justify-center p-6 gap-6 md:gap-8 lg:gap-10">
                   <a
                     href="https://www.instagram.com/tremendo.santcugat/"
@@ -229,19 +225,21 @@ export default function Home() {
                       />
                     </div>
 
-                    <div className="text-center p-6 mt-12 bg-white">
+                    <div className="text-center p-2 mt-12 bg-green-600">
                       <a
                         href="https://www.google.com/maps/dir/41.3929988,2.1615579/Tremendo+Sant+cugat,+Pla%C3%A7a+de+Pep+Ventura,+6,+08172+Sant+Cugat+del+Vall%C3%A8s,+Barcelona"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-green-600 px-4 py-2 text-sm font-medium flex items-center justify-center"
+                        className="text-white px-4 py-2 text-sm font-medium flex items-center justify-center"
                       >
-                        <FaMapMarkerAlt className="mr-2 text-green-600" />
+                        <FaMapMarkerAlt className="mr-2 text-white" />
                         {t("openMaps")}
                       </a>
                     </div>
                   </>
                 ) : null}
+                {/* Move GoogleReviews component here */}
+                <GoogleReviews />
               </div>
             </div>
           </section>
