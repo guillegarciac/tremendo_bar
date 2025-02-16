@@ -18,17 +18,24 @@ export default function LocationPage({ locale }: LocationPageProps) {
   const [mapSrc, setMapSrc] = useState<string>("");
 
   useEffect(() => {
-    // Move this inside useEffect to ensure it's only run on client side
-    const googleApiKey = process.env.GOOGLE_MAPS;
-    
-    if (!googleApiKey) {
-      console.error('Google Maps API key is missing');
-      return;
+    async function fetchMapUrl() {
+      try {
+        const response = await fetch('/api/maps-url')
+        const data = await response.json()
+        
+        if (data.error) {
+          console.error('Error loading map:', data.error)
+          return
+        }
+        
+        setMapSrc(data.mapUrl)
+      } catch (error) {
+        console.error('Failed to load map:', error)
+      }
     }
 
-    const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=20`;
-    setMapSrc(mapUrl);
-  }, []);
+    fetchMapUrl()
+  }, [])
 
   return (
     <>

@@ -43,8 +43,8 @@ const MobileBanner = () => {
 export default function Home() {
   const { t } = useTranslation("common");
   const isMobile = useMediaQuery("(max-width: 768px)");
-
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const [mapSrc, setMapSrc] = useState<string>("");
 
   const scrollToMap = () => {
     if (mapRef.current) {
@@ -52,16 +52,25 @@ export default function Home() {
     }
   };
 
-  const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
-  const [mapSrc, setMapSrc] = useState<string>("");
-
   useEffect(() => {
-    if (googleApiKey) {
-      setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=18`
-      );
+    async function fetchMapUrl() {
+      try {
+        const response = await fetch('/api/maps-url')
+        const data = await response.json()
+        
+        if (data.error) {
+          console.error('Error loading map:', data.error)
+          return
+        }
+        
+        setMapSrc(data.mapUrl)
+      } catch (error) {
+        console.error('Failed to load map:', error)
+      }
     }
-  }, [googleApiKey]);
+
+    fetchMapUrl()
+  }, [])
 
   const buttonStyle = {
     textDecoration: "none",
@@ -219,14 +228,20 @@ export default function Home() {
                         </Link>
                       </div>
 
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        loading="lazy"
-                        src={mapSrc}
-                        allowFullScreen
-                        style={{ border: "0" }}
-                      />
+                      {mapSrc ? (
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          loading="lazy"
+                          src={mapSrc}
+                          allowFullScreen
+                          style={{ border: "0" }}
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <p>Loading map...</p>
+                        </div>
+                      )}
                     </div>
 
                     <div className="text-center p-6 mt-12 bg-white">
