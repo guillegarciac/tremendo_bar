@@ -92,12 +92,6 @@
   "chocolate_cake_with_cocoa": "Chocolate cake with cocoa coating, flaked salt, and homemade caramel",
   "ultra_creamy_flan": "Ultra creamy flan with homemade cream",
 
-
-
-
-
-  
-
   "olives_stuffed_with_anchovy": "Olives stuffed with anchovy",
   "meatballs_with_cuttlefish": "Meatballs",
   "cod_fritters_with_honey_aioli": "Cod fritters",
@@ -183,5 +177,11 @@
   "fontallada_brut_nature_2020_desc": "Macabeo, Xarel.lo, Parellada",
   "llopart_brut_nature_reserva_2019": "Llopart Brut Nature reserva 2019",
   "llopart_brut_nature_reserva_2019_desc": "Macabeo, Xarel.lo, Parellada, Chardonnay",
-  "do_cava": "D.O Cava"
+  "do_cava": "D.O Cava",
+
+  "tempura_hake_cubes_with_marinade": "Tempura hake cubes with marinade mayonnaise",
+  "iberian_bacon_demi_glace": "Iberian bacon in its demi-glace with mint sour sauce",
+  "madrid_style_tripe": "Madrid-style tripe stew",
+  "goat_cheese_salad": "Goat cheese salad",
+  "goat_cheese_salad_desc": "apple compote and honey-mustard vinaigrette"
 }

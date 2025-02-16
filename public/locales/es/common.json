@@ -93,11 +93,6 @@
   "chocolate_cake_with_cocoa": "Tarta de chocolate con cobertura de cacao, sal en escamas y caramelo casero",
   "ultra_creamy_flan": "Flan ultracremoso con nata casera",
 
-
-
-
-
-  
   "olives_stuffed_with_anchovy": "Aceitunas rellenas de anchoa",
   "meatballs_with_cuttlefish": "Albóndigas",
   "cod_fritters_with_honey_aioli": "Buñuelos de bacalao",
@@ -119,8 +114,6 @@
   "aged_girona_beef_rib_steak_desc": "(1kg para 4 personas)",
   "three_tomato_tuna_salad_desc": "con ventresca de atún",
   
-
-
   "estrella_galicia_glass": "Copa Estrella Galicia",
   "estrella_galicia_small": "Caña Estrella Galicia",
   "estrella_galicia_mug": "Jarra Estrella Galicia",
@@ -183,5 +176,12 @@
   "fontallada_brut_nature_2020_desc": "Macabeo, Xarel.lo, Parellada",
   "llopart_brut_nature_reserva_2019": "Llopart Brut Nature reserva 2019",
   "llopart_brut_nature_reserva_2019_desc": "Macabeo, Xarel.lo, Parellada, Chardonnay",
-  "do_cava": "D.O Cava"
+  "do_cava": "D.O Cava",
+
+  "tempura_hake_cubes_with_marinade": "Dados de merluza en tempura con mayonesa de adobo",
+  "iberian_bacon_demi_glace": "Panceta ibérica en su demi-glace con salsa agria a la menta",
+  "madrid_style_tripe": "Callos a la madrileña",
+  "goat_cheese_salad": "Ensalada de queso de cabra",
+  "goat_cheese_salad_desc": "compota de manzana y vinagreta de miel y mostaza",
+  "iberian_ham_100_bellota_desc": "cortado a mano 80gr"
 }

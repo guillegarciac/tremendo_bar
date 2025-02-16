@@ -1,6 +1,6 @@
 import React, { FC, MutableRefObject } from "react";
 import { useTranslation } from "next-i18next";
-import menuData from "../../data/menuDataUpdateNov24";
+import menuData from "../../data/menuDataUpdateFeb15";
 import styles from "./feed.module.css";
 
 interface IProps {
