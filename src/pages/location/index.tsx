@@ -15,17 +15,20 @@ interface LocationPageProps {
 
 export default function LocationPage({ locale }: LocationPageProps) {
   const { t } = useTranslation("common");
-  const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
-
   const [mapSrc, setMapSrc] = useState<string>("");
 
   useEffect(() => {
-    if (googleApiKey) {
-      setMapSrc(
-        `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=20`
-      );
+    // Move this inside useEffect to ensure it's only run on client side
+    const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
+    
+    if (!googleApiKey) {
+      console.error('Google Maps API key is missing');
+      return;
     }
-  }, [locale, googleApiKey]);
+
+    const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${googleApiKey}&q=Tremendo+Sant+cugat&maptype=roadmap&zoom=20`;
+    setMapSrc(mapUrl);
+  }, []);
 
   return (
     <>
@@ -36,13 +39,19 @@ export default function LocationPage({ locale }: LocationPageProps) {
             className="w-full relative"
             style={{ height: "100%", marginTop: "-20px" }}
           >
-            <iframe
-              width="100%"
-              height="100%"
-              loading="lazy"
-              src={mapSrc}
-              allowFullScreen
-            />
+            {mapSrc ? (
+              <iframe
+                width="100%"
+                height="100%"
+                loading="lazy"
+                src={mapSrc}
+                allowFullScreen
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <p>Loading map...</p>
+              </div>
+            )}
             <div
               className="absolute inset-0"
               style={{ pointerEvents: "auto", background: "transparent" }}
@@ -65,8 +74,6 @@ export default function LocationPage({ locale }: LocationPageProps) {
   );
 }
 
-
-// Only return the locale; googleApiKey is no longer needed here
 export async function getServerSideProps({ locale }: { locale: string }) {
   return {
     props: {
