@@ -19,7 +19,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
 
   useEffect(() => {
     // Move this inside useEffect to ensure it's only run on client side
-    const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_KEY;
+    const googleApiKey = process.env.GOOGLE_MAPS;
     
     if (!googleApiKey) {
       console.error('Google Maps API key is missing');
